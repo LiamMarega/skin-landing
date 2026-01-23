@@ -6,7 +6,8 @@ import PricingCards from "@/components/PricingCards.astro";
 import HowToRegister from "@/components/HowToRegister.astro";
 import ComparisonTable from "@/components/ComparisonTable.astro";
 import Syllabus from "@/components/Syllabus.astro";
-import GradualBlur from "@/components/GradualBlur";
+import GradualBlur from "@/components/ui/backgrounds/GradualBlur/GradualBlur";
+import BlobCursor from "@/components/ui/Cursor/BlobCursor";
 ---
 
 <html lang="es">
@@ -40,5 +41,6 @@ import GradualBlur from "@/components/GradualBlur";
 			exponential
 			opacity={1}
 		/>
+		<BlobCursor client:load />
 	</body>
 </html>

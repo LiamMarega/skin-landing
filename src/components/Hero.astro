@@ -1,5 +1,6 @@
 ---
 import DarkVeil from "./ui/backgrounds/DarkVeil/DarkVeil";
+import AnimatedButton from "./ui/buttons/AnimatedButton.astro";
 ---
 
 <section
@@ -16,8 +17,7 @@ import DarkVeil from "./ui/backgrounds/DarkVeil/DarkVeil";
         <!-- Animated Background -->
         <DarkVeil
             client:load
-            hueShift={20}
-            noiseIntensity={0.15}
+            noiseIntensity={0.2}
             scanlineIntensity={0.05}
             speed={0.5}
             scanlineFrequency={100}
@@ -86,15 +86,7 @@ import DarkVeil from "./ui/backgrounds/DarkVeil/DarkVeil";
                     </span>
                 </div>
 
-                <button
-                    class="group relative px-24 py-12 flex items-center justify-center text-black font-black text-3xl md:text-4xl uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all duration-500 cursor-pointer bg-[url('/assets/resoures/tape/tape_01.png')] bg-[length:110%_110%] bg-center bg-no-repeat drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
-                >
-                    <span
-                        class="relative z-10 group-hover:text-blue-800 transition-colors duration-500"
-                    >
-                        Acceder Ahora
-                    </span>
-                </button>
+                <AnimatedButton title="Comenza Ahora" />
             </div>
         </div>
 
@@ -111,7 +103,7 @@ import DarkVeil from "./ui/backgrounds/DarkVeil/DarkVeil";
             <img
                 src="/assets/skin_picture.png"
                 alt="Creator"
-                class="relative h-[85%] md:h-[95%] w-auto object-contain object-bottom drop-shadow-2xl z-10 animate-in fade-in slide-in-from-bottom-20 duration-1000 ease-out"
+                class="relative h-[85%] md:h-full w-auto object-contain object-bottom drop-shadow-2xl z-10 animate-in fade-in slide-in-from-bottom-20 duration-1000 ease-out"
                 style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%);"
             />
         </div>
