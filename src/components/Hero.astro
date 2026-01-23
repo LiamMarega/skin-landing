@@ -5,17 +5,23 @@ import DarkVeil from "./ui/backgrounds/DarkVeil/DarkVeil";
 <section
     class="relative w-full h-screen overflow-hidden bg-black text-white selection:bg-blue-600 selection:text-white font-sans"
 >
+    <img
+        src="/assets/resoures/barbed/barbed_wire.png"
+        alt="Creator"
+        class="absolute h-[15%] md:h-[20%] rotate-45 -right-36 w-auto object-contain object-bottom drop-shadow-2xl animate-in fade-in slide-in-from-bottom-20 duration-1000 ease-out z-20"
+        style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%);"
+    />
     <!-- Background Layers -->
     <div class="absolute inset-0 z-0 pointer-events-none">
         <!-- Animated Background -->
         <DarkVeil
             client:load
             hueShift={20}
-            noiseIntensity={0.1}
+            noiseIntensity={0.15}
             scanlineIntensity={0.05}
-            speed={0.1}
-            scanlineFrequency={150}
-            warpAmount={1.0}
+            speed={0.5}
+            scanlineFrequency={100}
+            warpAmount={0.5}
         />
 
         <!-- Dark Gradient Overlay for Depth -->
@@ -80,19 +86,15 @@ import DarkVeil from "./ui/backgrounds/DarkVeil/DarkVeil";
                     </span>
                 </div>
 
-                <a
-                    href="#pricing"
-                    class="group relative px-8 py-5 bg-white text-black font-black text-xl uppercase tracking-wider overflow-hidden hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)] cursor-pointer"
+                <button
+                    class="group relative px-24 py-12 flex items-center justify-center text-black font-black text-3xl md:text-4xl uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all duration-500 cursor-pointer bg-[url('/assets/resoures/tape/tape_01.png')] bg-[length:110%_110%] bg-center bg-no-repeat drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
                 >
                     <span
-                        class="relative z-10 transition-colors group-hover:text-white mix-blend-exclusion"
-                        >Acceder Ahora</span
+                        class="relative z-10 group-hover:text-blue-800 transition-colors duration-500"
                     >
-                    <div
-                        class="absolute inset-0 bg-blue-600 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100 ease-out"
-                    >
-                    </div>
-                </a>
+                        Acceder Ahora
+                    </span>
+                </button>
             </div>
         </div>
 
