@@ -1,19 +1,44 @@
 ---
 import "../styles/global.css";
-// Component Imports
-import Button from "../components/Button.astro";
 import Hero from "@/components/Hero.astro";
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+import WhatWillYouAchieve from "@/components/WhatWillYouAchieve.astro";
+import PricingCards from "@/components/PricingCards.astro";
+import HowToRegister from "@/components/HowToRegister.astro";
+import ComparisonTable from "@/components/ComparisonTable.astro";
+import Syllabus from "@/components/Syllabus.astro";
+import GradualBlur from "@/components/GradualBlur";
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<title>Skin Landing</title>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Masterclass de Diseño Web - Skin</title>
+		<meta
+			name="description"
+			content="Aprende efectos premium y flujo de trabajo PRO para que tus diseños se vean más caros y limpios."
+		/>
 	</head>
-	<body>
-		<Hero />
+	<body class="bg-black text-white antialiased">
+		<main>
+			<Hero />
+			<WhatWillYouAchieve />
+			<PricingCards />
+			<HowToRegister />
+			<ComparisonTable />
+			<Syllabus />
+		</main>
+		<GradualBlur
+			client:load
+			target="page"
+			position="bottom"
+			height="7rem"
+			strength={1}
+			divCount={2}
+			curve="bezier"
+			exponential
+			opacity={1}
+		/>
 	</body>
 </html>

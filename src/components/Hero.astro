@@ -2,16 +2,127 @@
 import DarkVeil from "./ui/backgrounds/DarkVeil/DarkVeil";
 ---
 
-<section class="hero">
-    <div style="width: 100%; height: 600px; position: relative;">
+<section
+    class="relative w-full h-screen overflow-hidden bg-black text-white selection:bg-blue-600 selection:text-white font-sans"
+>
+    <!-- Background Layers -->
+    <div class="absolute inset-0 z-0 pointer-events-none">
+        <!-- Animated Background -->
         <DarkVeil
             client:load
-            hueShift={0}
-            noiseIntensity={0}
-            scanlineIntensity={0}
-            speed={0.5}
-            scanlineFrequency={0}
-            warpAmount={0}
+            hueShift={20}
+            noiseIntensity={0.1}
+            scanlineIntensity={0.05}
+            speed={0.1}
+            scanlineFrequency={150}
+            warpAmount={1.0}
         />
+
+        <!-- Dark Gradient Overlay for Depth -->
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent mix-blend-multiply opacity-90"
+        >
+        </div>
+
+        <!-- Grunge/Noise Overlay (simulated with CSS pattern) -->
+        <div
+            class="absolute inset-0 opacity-[0.03] mix-blend-overlay"
+            style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"
+        >
+        </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div
+        class="relative z-10 w-full h-full max-w-[1400px] mx-auto px-6 flex flex-col md:flex-row items-center justify-center md:justify-between pt-20 md:pt-0"
+    >
+        <!-- Typography / Offer Side -->
+        <div
+            class="flex flex-col items-center md:items-start text-center md:text-left z-20 space-y-4 md:space-y-6 max-w-3xl"
+        >
+            <!-- Badge -->
+            <div
+                class="inline-block bg-blue-700 text-white px-4 py-1.5 font-bold tracking-[0.2em] text-xs md:text-sm uppercase border border-blue-500/50 shadow-[0_0_15px_rgba(29,78,216,0.5)] animate-in fade-in slide-in-from-left duration-700"
+            >
+                Oferta Limitada
+            </div>
+
+            <!-- Headline -->
+            <h1
+                class="flex flex-col font-black italic uppercase leading-[0.8] tracking-tighter"
+            >
+                <span
+                    class="text-[5rem] sm:text-[7rem] md:text-[8rem] lg:text-[10rem] text-transparent bg-clip-text bg-linear-to-b from-white to-gray-500 drop-shadow-2xl filter contrast-125"
+                >
+                    Diseña
+                </span>
+                <span
+                    class="text-[5rem] sm:text-[7rem] md:text-[8rem] lg:text-[10rem] text-transparent bg-clip-text bg-linear-to-br from-blue-500 via-blue-200 to-white drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]"
+                >
+                    Como Yo
+                </span>
+            </h1>
+
+            <!-- Pricing & CTA -->
+            <div
+                class="flex flex-col md:flex-row items-center gap-6 mt-4 md:mt-8"
+            >
+                <div class="flex items-baseline gap-3 transform -rotate-2">
+                    <span
+                        class="text-xl md:text-2xl font-bold text-gray-500 line-through decoration-red-600 decoration-[3px] opacity-70"
+                    >
+                        $99 USD
+                    </span>
+                    <span
+                        class="text-6xl md:text-7xl font-black text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]"
+                    >
+                        $50
+                    </span>
+                </div>
+
+                <a
+                    href="#pricing"
+                    class="group relative px-8 py-5 bg-white text-black font-black text-xl uppercase tracking-wider overflow-hidden hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)] cursor-pointer"
+                >
+                    <span
+                        class="relative z-10 transition-colors group-hover:text-white mix-blend-exclusion"
+                        >Acceder Ahora</span
+                    >
+                    <div
+                        class="absolute inset-0 bg-blue-600 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100 ease-out"
+                    >
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Image Side (Floating) -->
+        <div
+            class="absolute md:relative md:w-1/2 h-[60vh] md:h-full bottom-0 md:bottom-auto md:right-0 overflow-visible pointer-events-none mt-auto flex items-end justify-center md:justify-end"
+        >
+            <!-- Glow Effect -->
+            <div
+                class="absolute bottom-0 right-0 md:right-10 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-blue-600/20 rounded-full blur-[80px] md:blur-[120px] mix-blend-screen animate-pulse duration-[3000ms]"
+            >
+            </div>
+
+            <img
+                src="/assets/skin_picture.png"
+                alt="Creator"
+                class="relative h-[85%] md:h-[95%] w-auto object-contain object-bottom drop-shadow-2xl z-10 animate-in fade-in slide-in-from-bottom-20 duration-1000 ease-out"
+                style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%);"
+            />
+        </div>
+    </div>
+
+    <!-- Footer/Overlay Text -->
+    <div
+        class="absolute bottom-4 left-0 w-full text-center z-20 pointer-events-none"
+    >
+        <p
+            class="text-gray-500 text-xs sm:text-sm tracking-[0.5em] uppercase font-bold opacity-50"
+        >
+            Masterclass de Diseño 2026
+        </p>
     </div>
 </section>
