@@ -1,5 +1,5 @@
 ---
-
+import GradientBlinds from "./ui/backgrounds/GradientBlinds/GradientBlinds";
 ---
 
 <section class="relative w-full py-24 bg-black overflow-hidden font-sans">
@@ -13,6 +13,19 @@
 
         <!-- Content Box -->
         <div class="relative group">
+            <!-- Background Layers -->
+            <div
+                class="absolute inset-0 z-0 pointer-events-none overflow-hidden"
+            >
+                <GradientBlinds
+                    client:load
+                    className="opacity-50"
+                    gradientColors={["#07194c", "#0c3e80", "#000000"]}
+                    blindCount={12}
+                    mixBlendMode="screen"
+                    spotlightOpacity={0.5}
+                />
+            </div>
             <!-- Glassmorphism Container -->
             <div
                 class="relative z-10 bg-blue-900/10 backdrop-blur-xl border border-blue-500/30 rounded-3xl p-8 md:p-12 overflow-hidden hover:border-blue-500/50 transition-colors duration-500"
