@@ -71,20 +71,22 @@ import AnimatedButton from "./ui/buttons/AnimatedButton.astro";
 
             <!-- Pricing & CTA -->
             <div
-                class="flex flex-col md:flex-row items-center gap-6 mt-4 md:mt-8"
+                class="flex flex-row md:flex-row items-center gap-6 mt-4 md:mt-8 pl-20"
             >
-                <div class="flex items-baseline gap-3 transform -rotate-2">
+                <span class="flex flex-col">
                     <span
                         class="text-xl md:text-2xl font-bold text-gray-500 line-through decoration-red-600 decoration-[3px] opacity-70"
                     >
                         $99 USD
                     </span>
-                    <span
-                        class="text-6xl md:text-7xl font-black text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]"
-                    >
-                        $50
-                    </span>
-                </div>
+                    <div class="flex items-baseline gap-3 transform -rotate-6">
+                        <span
+                            class="text-6xl md:text-9xl font-black shiny-text drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]"
+                        >
+                            $50
+                        </span>
+                    </div>
+                </span>
 
                 <AnimatedButton title="Comenza Ahora" />
             </div>
@@ -108,15 +110,26 @@ import AnimatedButton from "./ui/buttons/AnimatedButton.astro";
             />
         </div>
     </div>
-
-    <!-- Footer/Overlay Text -->
-    <div
-        class="absolute bottom-4 left-0 w-full text-center z-20 pointer-events-none"
-    >
-        <p
-            class="text-gray-500 text-xs sm:text-sm tracking-[0.5em] uppercase font-bold opacity-50"
-        >
-            Masterclass de Diseño 2026
-        </p>
-    </div>
 </section>
+<!-- <img
+    src="/assets/spray/spray.webp"
+    alt="Creator"
+    style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%);"
+/> -->
+<img
+    src="/assets/resoures/tapes/tape_02.webp"
+    alt="Tape"
+    style=" mask-image: linear-gradient(to bottom, black 80%, transparent 100%);"
+    class="w-44 rotate-90 absolute -bottom-10 -left-10 z-10 opacity-50"
+/>
+
+<!-- Footer/Overlay Text -->
+<div
+    class="absolute bottom-4 left-0 w-full text-center z-20 pointer-events-none"
+>
+    <p
+        class="text-gray-500 text-xs sm:text-sm tracking-[0.5em] uppercase font-bold opacity-50"
+    >
+        Masterclass de Diseño 2026
+    </p>
+</div>

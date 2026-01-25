@@ -2,8 +2,10 @@
 import GradientBlinds from "./ui/backgrounds/GradientBlinds/GradientBlinds";
 ---
 
-<section class="relative w-full py-24 bg-black overflow-hidden font-sans">
-    <div class="max-w-5xl mx-auto px-6 relative z-10">
+<section
+    class="relative w-full py-24 bg-black overflow-hidden font-sans flex flex-col justify-center items-center"
+>
+    <div class="max-w-6xl relative z-10 w-full">
         <!-- Section Header -->
         <h2
             class="text-4xl md:text-6xl font-black text-center mb-16 italic uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-blue-400 to-white drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]"
@@ -12,7 +14,7 @@ import GradientBlinds from "./ui/backgrounds/GradientBlinds/GradientBlinds";
         </h2>
 
         <!-- Content Box -->
-        <div class="relative group">
+        <div class="relative group w-full mx-auto">
             <!-- Background Layers -->
             <div
                 class="absolute inset-0 z-0 pointer-events-none overflow-hidden"
@@ -28,7 +30,7 @@ import GradientBlinds from "./ui/backgrounds/GradientBlinds/GradientBlinds";
             </div>
             <!-- Glassmorphism Container -->
             <div
-                class="relative z-10 bg-blue-900/10 backdrop-blur-xl border border-blue-500/30 rounded-3xl p-8 md:p-12 overflow-hidden hover:border-blue-500/50 transition-colors duration-500"
+                class="relative z-10 w-full bg-blue-900/10 backdrop-blur-xl border border-blue-500/30 rounded-3xl p-8 md:p-12 overflow-hidden hover:border-blue-500/50 transition-colors duration-500"
             >
                 <!-- Inner Glow -->
                 <div

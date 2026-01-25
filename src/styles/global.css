@@ -126,3 +126,49 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.shiny-text {
+  color: #b5b5b5;
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0) 25%,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0) 75%) -200% 0 / 200% 100% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 3s infinite;
+  display: inline-block;
+}
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.shiny-text {
+  color: white; /* Fallback */
+  background: linear-gradient(
+    120deg, 
+    rgba(255,255,255,0) 30%, 
+    rgba(255,255,255,1) 50%, 
+    rgba(255,255,255,0) 70%
+  ) -200% 0 / 200% 100% no-repeat;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 2.5s infinite;
+  display: inline-block;
+}
