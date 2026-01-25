@@ -49,9 +49,9 @@ import TextPressure from "./ui/TextPressure";
                     <span
                         class="text-[3rem] sm:text-[3rem] md:text-[4rem] lg:text-[4rem] text-transparent bg-clip-text bg-linear-to-b from-white via-white to-gray-600 drop-shadow-2xl filter brightness-110 tracking-tight"
                     >
-                        DISEÑO GRÁFICO
+                        DISEÑO GRÁFICO + <span class="text-3d"> 3D </span>
                     </span>
-                    <span class="relative inline-block -mt-6 -ml-4">
+                    <span class="relative inline-block -mt-6 -ml-4 w-[70%]">
                         <TextPressure
                             client:load
                             text="PARA EVENTOS"
@@ -75,18 +75,7 @@ import TextPressure from "./ui/TextPressure";
 
             <!-- CTA -->
             <div class="flex flex-col sm:flex-row items-center gap-8 mt-2">
-                <div class="flex items-center gap-6">
-                    <span class="flex flex-col items-start lg:items-center">
-                        <div class="flex items-baseline gap-1">
-                            <span
-                                class="text-5xl font-black text-white tracking-tighter"
-                                >$50</span
-                            >
-                            <span class="text-xl font-bold text-gray-400"
-                                >USD</span
-                            >
-                        </div>
-                    </span>
+                <div class="flex items-center">
                     <AnimatedButton title="ACCESO INMEDIATO" />
                 </div>
             </div>
@@ -120,6 +109,40 @@ import TextPressure from "./ui/TextPressure";
         src="/assets/resoures/tapes/tape_02.webp"
         alt="Tape"
         style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%);"
-        class="w-44 absolute -top-5 -right-16 z-10 opacity-15"
+        class="w-44 absolute -top-10 -right-20 z-10 opacity-15"
     />
 </section>
+
+<style>
+    .text-3d {
+        display: inline-block;
+        color: #fff;
+        text-shadow:
+            3px 3px 0px #e8bd0d,
+            4px 4px 0px #e8bd0d,
+            5px 5px 0px #ca8a04,
+            6px 6px 0px #ca8a04,
+            7px 7px 0px #a16207,
+            8px 8px 15px rgba(0, 0, 0, 0.9);
+        transform: perspective(1000px) rotateY(-15deg) rotateX(10deg)
+            skewX(-10deg);
+        filter: drop-shadow(0 0 20px rgba(232, 189, 13, 0.3));
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: default;
+    }
+
+    .text-3d:hover {
+        transform: perspective(1000px) rotateY(-20deg) rotateX(15deg)
+            skewX(-15deg) scale(1.1);
+        text-shadow:
+            3px 3px 0px #e8bd0d,
+            4px 4px 0px #e8bd0d,
+            5px 5px 0px #ca8a04,
+            6px 6px 0px #ca8a04,
+            7px 7px 0px #a16207,
+            8px 8px 0px #854d0e,
+            9px 9px 0px #854d0e,
+            12px 12px 25px rgba(0, 0, 0, 1);
+        filter: drop-shadow(0 0 30px rgba(232, 189, 13, 0.6));
+    }
+</style>
