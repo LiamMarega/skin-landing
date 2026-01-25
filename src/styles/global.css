@@ -8,6 +8,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-ThinOblique.ttf') format('truetype');
@@ -15,6 +16,7 @@
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-ExtraLight.ttf') format('truetype');
@@ -22,6 +24,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-ExtLtObliq.ttf') format('truetype');
@@ -29,6 +32,7 @@
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-Light.ttf') format('truetype');
@@ -36,6 +40,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-LightOblique.ttf') format('truetype');
@@ -43,6 +48,7 @@
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-Regular.ttf') format('truetype');
@@ -50,6 +56,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-RegularOblique.ttf') format('truetype');
@@ -57,6 +64,7 @@
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-Medium.ttf') format('truetype');
@@ -64,6 +72,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-MediumOblique.ttf') format('truetype');
@@ -71,6 +80,7 @@
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-SemiBold.ttf') format('truetype');
@@ -78,6 +88,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-SemiBoldOblique.ttf') format('truetype');
@@ -85,6 +96,7 @@
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-Bold.ttf') format('truetype');
@@ -92,6 +104,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-BoldOblique.ttf') format('truetype');
@@ -99,6 +112,7 @@
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-ExtraBold.ttf') format('truetype');
@@ -106,6 +120,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-ExtBdObliq.ttf') format('truetype');
@@ -113,6 +128,7 @@
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-Black.ttf') format('truetype');
@@ -120,9 +136,155 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-BlackOblique.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Poppins Font Family */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-BlackItalic.ttf') format('truetype');
   font-weight: 900;
   font-style: italic;
   font-display: swap;
@@ -135,7 +297,8 @@
 /* #e8bd0d yellow */
 
 @theme inline {
-  --font-sans: 'Base Neue', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: 'Base Neue', sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -276,23 +439,24 @@
   animation: shimmer 3s infinite;
   display: inline-block;
 }
+
 @keyframes shimmer {
   from {
     background-position: 200% 0;
   }
+
   to {
     background-position: -200% 0;
   }
 }
 
 .shiny-text {
-  color: white; /* Fallback */
-  background: linear-gradient(
-    120deg, 
-    rgba(255,255,255,0) 30%, 
-    rgba(255,255,255,1) 50%, 
-    rgba(255,255,255,0) 70%
-  ) -200% 0 / 200% 100% no-repeat;
+  color: white;
+  /* Fallback */
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(255, 255, 255, 0) 70%) -200% 0 / 200% 100% no-repeat;
   background-color: rgba(255, 255, 255, 0.5);
   -webkit-background-clip: text;
   background-clip: text;
