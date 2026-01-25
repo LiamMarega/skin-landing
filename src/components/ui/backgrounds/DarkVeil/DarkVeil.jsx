@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Renderer, Program, Mesh, Triangle, Vec2 } from 'ogl';
 import './DarkVeil.css';
 
@@ -86,6 +86,8 @@ export default function DarkVeil({
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
 
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     const container = containerRef.current;
     const canvas = canvasRef.current;
@@ -129,6 +131,8 @@ export default function DarkVeil({
     const start = performance.now();
     let frame = 0;
 
+    const hasLoadedRef = { current: false };
+
     const loop = () => {
       program.uniforms.uTime.value = ((performance.now() - start) / 1000) * speed;
       program.uniforms.uHueShift.value = hueShift;
@@ -137,6 +141,12 @@ export default function DarkVeil({
       program.uniforms.uScanFreq.value = scanlineFrequency;
       program.uniforms.uWarp.value = warpAmount;
       renderer.render({ scene: mesh });
+
+      if (!hasLoadedRef.current) {
+        hasLoadedRef.current = true;
+        setIsLoaded(true);
+      }
+
       frame = requestAnimationFrame(loop);
     };
 
@@ -150,7 +160,15 @@ export default function DarkVeil({
 
   return (
     <div ref={containerRef} style={{ width: '100%', height: '100%', position: 'relative', overflow: 'hidden' }}>
-      <canvas ref={canvasRef} className="darkveil-canvas" />
+      <canvas
+        ref={canvasRef}
+        className="darkveil-canvas"
+        style={{
+          opacity: isLoaded ? 1 : 0,
+          transition: 'opacity 1s ease-in-out',
+          display: 'block'
+        }}
+      />
     </div>
   );
 }

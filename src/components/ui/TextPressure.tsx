@@ -95,6 +95,24 @@ const TextPressure: React.FC<TextPressureProps> = ({
     };
   }, []);
 
+  const charPositions = useRef<{ x: number; y: number }[]>([]);
+  const maxDistRef = useRef(0);
+
+  const updateCharPositions = useCallback(() => {
+    if (!titleRef.current) return;
+    const titleRect = titleRef.current.getBoundingClientRect();
+    maxDistRef.current = titleRect.width / 2;
+    const newPositions = spansRef.current.map(span => {
+      if (!span) return { x: 0, y: 0 };
+      const rect = span.getBoundingClientRect();
+      return {
+        x: rect.x + rect.width / 2,
+        y: rect.y + rect.height / 2
+      };
+    });
+    charPositions.current = newPositions;
+  }, []);
+
   const setSize = useCallback(() => {
     if (!containerRef.current || !titleRef.current) return;
 
@@ -116,8 +134,10 @@ const TextPressure: React.FC<TextPressureProps> = ({
         setScaleY(yRatio);
         setLineHeight(yRatio);
       }
+      // After size is set and rendered, update character positions for the animation loop
+      updateCharPositions();
     });
-  }, [chars.length, minFontSize, scale]);
+  }, [chars.length, minFontSize, scale, updateCharPositions]);
 
   useEffect(() => {
     const debouncedSetSize = debounce(setSize, 100);
@@ -132,19 +152,13 @@ const TextPressure: React.FC<TextPressureProps> = ({
       mouseRef.current.x += (cursorRef.current.x - mouseRef.current.x) / 15;
       mouseRef.current.y += (cursorRef.current.y - mouseRef.current.y) / 15;
 
-      if (titleRef.current) {
-        const titleRect = titleRef.current.getBoundingClientRect();
-        const maxDist = titleRect.width / 2;
+      if (titleRef.current && charPositions.current.length > 0) {
+        const maxDist = maxDistRef.current;
 
-        spansRef.current.forEach(span => {
-          if (!span) return;
+        spansRef.current.forEach((span, i) => {
+          if (!span || !charPositions.current[i]) return;
 
-          const rect = span.getBoundingClientRect();
-          const charCenter = {
-            x: rect.x + rect.width / 2,
-            y: rect.y + rect.height / 2
-          };
-
+          const charCenter = charPositions.current[i];
           const d = dist(mouseRef.current, charCenter);
 
           const wdth = width ? Math.floor(getAttr(d, maxDist, 5, 200)) : 100;
