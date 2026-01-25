@@ -1,6 +1,8 @@
 ---
+import type { lazy } from "astro:schema";
 import DarkVeil from "./ui/backgrounds/DarkVeil/DarkVeil";
 import AnimatedButton from "./ui/buttons/AnimatedButton.astro";
+import TextPressure from "./ui/TextPressure";
 ---
 
 <section
@@ -17,9 +19,9 @@ import AnimatedButton from "./ui/buttons/AnimatedButton.astro";
         <!-- Animated Background -->
         <DarkVeil
             client:load
-            noiseIntensity={0.2}
+            noiseIntensity={0.3}
             scanlineIntensity={0.05}
-            speed={0.5}
+            speed={0.7}
             scanlineFrequency={100}
             warpAmount={0.5}
         />
@@ -37,51 +39,56 @@ import AnimatedButton from "./ui/buttons/AnimatedButton.astro";
     >
         <!-- Typography / Offer Side -->
         <div
-            class="flex flex-col items-center md:items-start text-center md:text-left z-20 space-y-4 md:space-y-6 max-w-4xl"
+            class="lex flex-col items-center md:items-start text-center md:text-left z-20 space-y-8 max-w-4xl"
         >
-            <!-- Badge -->
-            <div
-                class="inline-block bg-blue-700 text-white px-4 py-1.5 font-extrabold tracking-[0.2em] text-xs md:text-sm uppercase border border-blue-500/50 shadow-[0_0_15px_rgba(29,78,216,0.5)] animate-in fade-in slide-in-from-left duration-700"
-            >
-                Oferta Limitada
+            <!-- Headline -->
+            <div class="space-y-0">
+                <h1
+                    class="flex flex-col font-black italic uppercase tracking-tighter"
+                >
+                    <span
+                        class="text-[3rem] sm:text-[3rem] md:text-[4rem] lg:text-[4rem] text-transparent bg-clip-text bg-linear-to-b from-white via-white to-gray-600 drop-shadow-2xl filter brightness-110 tracking-tight"
+                    >
+                        DISEÑO GRÁFICO
+                    </span>
+                    <span class="relative inline-block -mt-6 -ml-4">
+                        <TextPressure
+                            client:load
+                            text="PARA EVENTOS"
+                            width={true}
+                            weight={true}
+                            textColor="#ffffff"
+                            strokeColor="#3b82f6"
+                            minFontSize={36}
+                        />
+                    </span>
+                </h1>
             </div>
 
-            <!-- Headline -->
-            <h1
-                class="flex flex-col font-black italic uppercase leading-[0.8] tracking-tighter"
+            <!-- Simplified Value Prop -->
+            <p
+                class="text-xl md:text-2xl text-gray-300 font-medium leading-relaxed max-w-xl"
             >
-                <span
-                    class="text-[5rem] sm:text-[7rem] md:text-[8rem] lg:text-[10rem] text-transparent bg-clip-text bg-linear-to-b from-white to-gray-500 drop-shadow-2xl filter contrast-125"
-                >
-                    Diseña
-                </span>
-                <span
-                    class="text-[5rem] sm:text-[7rem] md:text-[6rem] lg:text-[8rem] text-transparent bg-clip-text bg-linear-to-br from-blue-500 via-blue-200 to-white drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]"
-                >
-                    Como Yo
-                </span>
-            </h1>
+                El sistema exacto para vivir del diseño y conseguir clientes
+                reales en <span class="text-white font-bold">30 días</span>.
+            </p>
 
-            <!-- Pricing & CTA -->
-            <div
-                class="flex flex-row md:flex-row items-center gap-6 mt-4 md:mt-8 pl-20"
-            >
-                <span class="flex flex-col">
-                    <span
-                        class="text-xl md:text-2xl font-bold text-gray-500 line-through decoration-red-600 decoration-[3px] opacity-70"
-                    >
-                        $99 USD
+            <!-- CTA -->
+            <div class="flex flex-col sm:flex-row items-center gap-8 mt-2">
+                <div class="flex items-center gap-6">
+                    <span class="flex flex-col items-start lg:items-center">
+                        <div class="flex items-baseline gap-1">
+                            <span
+                                class="text-5xl font-black text-white tracking-tighter"
+                                >$50</span
+                            >
+                            <span class="text-xl font-bold text-gray-400"
+                                >USD</span
+                            >
+                        </div>
                     </span>
-                    <div class="flex items-baseline gap-3 transform -rotate-6">
-                        <span
-                            class="text-6xl md:text-9xl font-black shiny-text drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]"
-                        >
-                            $50
-                        </span>
-                    </div>
-                </span>
-
-                <AnimatedButton title="Comenza Ahora" />
+                    <AnimatedButton title="ACCESO INMEDIATO" />
+                </div>
             </div>
         </div>
 
@@ -103,26 +110,16 @@ import AnimatedButton from "./ui/buttons/AnimatedButton.astro";
             />
         </div>
     </div>
+    <img
+        src="/assets/resoures/tapes/tape_02.webp"
+        alt="Tape"
+        style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%);"
+        class="w-44 rotate-90 absolute -bottom-10 -left-20 z-10 opacity-15"
+    />
+    <img
+        src="/assets/resoures/tapes/tape_02.webp"
+        alt="Tape"
+        style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%);"
+        class="w-44 absolute -top-5 -right-16 z-10 opacity-15"
+    />
 </section>
-<!-- <img
-    src="/assets/spray/spray.webp"
-    alt="Creator"
-    style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%);"
-/> -->
-<img
-    src="/assets/resoures/tapes/tape_02.webp"
-    alt="Tape"
-    style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%);"
-    class="w-44 rotate-90 absolute -bottom-10 -left-20 z-10 opacity-15"
-/>
-
-<!-- Footer/Overlay Text -->
-<div
-    class="absolute bottom-4 left-0 w-full text-center z-20 pointer-events-none"
->
-    <p
-        class="text-gray-500 text-xs sm:text-sm tracking-[0.5em] uppercase font-light opacity-50"
-    >
-        Masterclass de Diseño 2026
-    </p>
-</div>

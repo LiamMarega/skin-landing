@@ -6,6 +6,8 @@ import PricingCards from "@/components/PricingCards.astro";
 import HowToRegister from "@/components/HowToRegister.astro";
 import ComparisonTable from "@/components/ComparisonTable.astro";
 import Syllabus from "@/components/Syllabus.astro";
+import Testimonials from "@/components/Testimonials.astro";
+import FAQ from "@/components/FAQ.astro";
 import GradualBlur from "@/components/ui/backgrounds/GradualBlur/GradualBlur";
 import BlobCursor from "@/components/ui/Cursor/BlobCursor";
 ---
@@ -23,13 +25,35 @@ import BlobCursor from "@/components/ui/Cursor/BlobCursor";
 	</head>
 	<body class="bg-black text-white antialiased">
 		<main>
-			<Hero />
-			<WhatWillYouAchieve />
-			<PricingCards />
-			<HowToRegister />
-			<ComparisonTable />
-			<Syllabus />
+			<div class="reveal"><Hero /></div>
+			<div class="reveal"><WhatWillYouAchieve /></div>
+			<div class="reveal"><PricingCards /></div>
+			<div class="reveal"><HowToRegister /></div>
+			<div class="reveal"><ComparisonTable /></div>
+			<div class="reveal"><Syllabus /></div>
+			<div class="reveal"><Testimonials /></div>
+			<div class="reveal"><FAQ /></div>
 		</main>
+
+		<script>
+			const observerOptions = {
+				root: null,
+				rootMargin: "0px",
+				threshold: 0.1,
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("reveal-visible");
+					}
+				});
+			}, observerOptions);
+
+			document.querySelectorAll(".reveal").forEach((el) => {
+				observer.observe(el);
+			});
+		</script>
 		<GradualBlur
 			client:load
 			target="page"

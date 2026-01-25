@@ -2,143 +2,154 @@
 
 ---
 
-<section class="relative w-full py-24 bg-black font-sans">
-    <div class="max-w-5xl mx-auto px-6">
+<section id="comparison" class="relative w-full py-24 bg-black font-sans">
+    <div class="max-w-6xl mx-auto px-6">
         <h2
-            class="text-3xl md:text-5xl font-black text-center mb-16 text-white uppercase italic tracking-tighter"
+            class="text-4xl md:text-6xl font-black text-center mb-16 text-white uppercase italic tracking-tighter"
         >
-            Comparación <span class="text-blue-500">Rápida</span>
+            Elegí tu <span class="text-blue-500">Camino</span>
         </h2>
 
         <div
-            class="overflow-x-auto relative shadow-2xl rounded-2xl border border-white/10"
+            class="relative group bg-zinc-950/50 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]"
         >
-            <!-- Table Glow -->
+            <!-- Decorative Glows -->
             <div
-                class="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-[80px] pointer-events-none"
+                class="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-[100px] pointer-events-none"
+            >
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-96 h-96 bg-purple-600/5 rounded-full blur-[100px] pointer-events-none"
             >
             </div>
 
-            <table class="w-full text-left border-collapse min-w-[600px]">
-                <thead>
-                    <tr class="bg-zinc-900/50">
-                        <th
-                            class="p-6 text-gray-400 font-bold uppercase tracking-wider text-sm border-b border-white/10"
-                            >Características</th
-                        >
-                        <th
-                            class="p-6 text-white font-black uppercase tracking-wider text-lg border-b border-white/10 text-center w-1/4"
-                            >Masterclass</th
-                        >
-                        <th
-                            class="p-6 text-yellow-400 font-black uppercase tracking-wider text-lg border-b border-white/10 text-center bg-yellow-400/5 w-1/4"
-                            >Programa Premium</th
-                        >
-                    </tr>
-                </thead>
-                <tbody class="text-gray-300 divide-y divide-white/5">
-                    <!-- Row 1 -->
-                    <tr class="hover:bg-white/5 transition-colors">
-                        <td class="p-5 font-semibold">Cantidad de clases</td>
-                        <td class="p-5 text-center font-black text-white">1</td>
-                        <td
-                            class="p-5 text-center font-black text-yellow-400 bg-yellow-400/5"
-                            >3</td
-                        >
-                    </tr>
-                    <!-- Row 2 -->
-                    <tr class="hover:bg-white/5 transition-colors">
-                        <td class="p-5 font-semibold"
-                            >En vivo por videollamada</td
-                        >
-                        <td class="p-5 text-center text-red-400 font-black"
-                            >NO</td
-                        >
-                        <td
-                            class="p-5 text-center text-green-400 font-black bg-yellow-400/5"
-                            >SÍ</td
-                        >
-                    </tr>
-                    <!-- Row 3 -->
-                    <tr class="hover:bg-white/5 transition-colors">
-                        <td class="p-5 font-semibold">Formato</td>
-                        <td class="p-5 text-center font-black">Grabada</td>
-                        <td
-                            class="p-5 text-center font-black text-white bg-yellow-400/5"
-                            >Zoom/Meet</td
-                        >
-                    </tr>
-                    <!-- Row 4 -->
-                    <tr class="hover:bg-white/5 transition-colors">
-                        <td class="p-5 font-semibold">Grabación incluida</td>
-                        <td class="p-5 text-center text-green-400 font-black"
-                            >SÍ</td
-                        >
-                        <td
-                            class="p-5 text-center text-green-400 font-black bg-yellow-400/5"
-                            >SÍ</td
-                        >
-                    </tr>
-                    <!-- Row 5 -->
-                    <tr class="hover:bg-white/5 transition-colors">
-                        <td class="p-5 font-semibold">Recursos descargables</td>
-                        <td class="p-5 text-center text-green-400 font-black"
-                            >SÍ</td
-                        >
-                        <td
-                            class="p-5 text-center text-green-400 font-black bg-yellow-400/5"
-                            >SÍ</td
-                        >
-                    </tr>
-                    <!-- Row 6 -->
-                    <tr class="hover:bg-white/5 transition-colors">
-                        <td class="p-5 font-semibold"
-                            >Plantillas + recursos premium</td
-                        >
-                        <td class="p-5 text-center text-red-400 font-black"
-                            >NO</td
-                        >
-                        <td
-                            class="p-5 text-center text-green-400 font-black bg-yellow-400/5"
-                            >SÍ</td
-                        >
-                    </tr>
-                    <!-- Row 7 -->
-                    <tr class="hover:bg-white/5 transition-colors">
-                        <td class="p-5 font-semibold">Tareas entre clases</td>
-                        <td class="p-5 text-center text-red-400 font-black"
-                            >NO</td
-                        >
-                        <td
-                            class="p-5 text-center text-green-400 font-black bg-yellow-400/5"
-                            >SÍ</td
-                        >
-                    </tr>
-                    <!-- Row 8 -->
-                    <tr class="hover:bg-white/5 transition-colors">
-                        <td class="p-5 font-medium">Correcciones / feedback</td>
-                        <td class="p-5 text-center text-red-400 font-bold"
-                            >NO</td
-                        >
-                        <td
-                            class="p-5 text-center text-green-400 font-bold bg-yellow-400/5"
-                            >SÍ</td
-                        >
-                    </tr>
-                    <!-- Row 9 (Final) -->
-                    <tr class="bg-blue-900/20">
-                        <td class="p-5 font-bold text-blue-200">Ideal para</td>
-                        <td
-                            class="p-5 text-center font-bold text-white text-sm uppercase"
-                            >Subir de nivel rápido</td
-                        >
-                        <td
-                            class="p-5 text-center font-bold text-yellow-400 bg-yellow-400/10 text-sm uppercase"
-                            >Transformación completa</td
-                        >
-                    </tr>
-                </tbody>
-            </table>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[700px]">
+                    <thead>
+                        <tr class="bg-white/2">
+                            <th
+                                class="p-8 text-gray-500 font-bold uppercase tracking-[0.2em] text-xs border-b border-white/5"
+                                >Características</th
+                            >
+                            <th
+                                class="p-8 text-white font-black uppercase tracking-tight text-xl border-b border-white/5 text-center bg-blue-500/5"
+                                >Masterclass</th
+                            >
+                            <th
+                                class="p-8 text-yellow-400 font-black uppercase tracking-tight text-xl border-b border-white/5 text-center bg-yellow-400/5"
+                                >Programa Premium</th
+                            >
+                        </tr>
+                    </thead>
+                    <tbody
+                        class="text-gray-300 divide-y divide-white/5 font-medium"
+                    >
+                        <tr class="bg-white/1 transition-colors">
+                            <td class="p-6 pl-8 font-bold">Metodología</td>
+                            <td class="p-6 text-center text-white"
+                                >Clase Grabada</td
+                            >
+                            <td
+                                class="p-6 text-center text-yellow-400 bg-yellow-400/2"
+                                >3 Vivos (Zoom)</td
+                            >
+                        </tr>
+                        <tr class="bg-white/1 transition-colors">
+                            <td class="p-6 pl-8 font-bold"
+                                >Flujo de trabajo PRO</td
+                            >
+                            <td
+                                class="p-6 text-center text-green-500 text-xl font-bold"
+                                >✔</td
+                            >
+                            <td
+                                class="p-6 text-center text-green-500 text-xl font-bold bg-yellow-400/2"
+                                >✔</td
+                            >
+                        </tr>
+                        <tr class="bg-white/1 transition-colors">
+                            <td class="p-6 pl-8 font-bold"
+                                >Recursos descargables</td
+                            >
+                            <td
+                                class="p-6 text-center text-green-500 text-xl font-bold"
+                                >✔</td
+                            >
+                            <td
+                                class="p-6 text-center text-green-500 text-xl font-bold bg-yellow-400/2"
+                                >✔</td
+                            >
+                        </tr>
+                        <tr class="bg-white/1 transition-colors">
+                            <td class="p-6 pl-8 font-bold"
+                                >Feedback personalizado</td
+                            >
+                            <td
+                                class="p-6 text-center text-red-500/50 font-bold"
+                                >✘</td
+                            >
+                            <td
+                                class="p-6 text-center text-green-500 text-xl font-bold bg-yellow-400/2"
+                                >✔</td
+                            >
+                        </tr>
+                        <tr class="bg-white/1 transition-colors">
+                            <td class="p-6 pl-8 font-bold"
+                                >Plantillas Premium</td
+                            >
+                            <td
+                                class="p-6 text-center text-red-500/50 font-bold"
+                                >✘</td
+                            >
+                            <td
+                                class="p-6 text-center text-green-500 text-xl font-bold bg-yellow-400/2"
+                                >✔</td
+                            >
+                        </tr>
+                        <tr class="bg-white/1 transition-colors">
+                            <td class="p-6 pl-8 font-bold">Grupo de apoyo</td>
+                            <td
+                                class="p-6 text-center text-red-500/50 font-bold"
+                                >✘</td
+                            >
+                            <td
+                                class="p-6 text-center text-green-500 text-xl font-bold bg-yellow-400/2"
+                                >✔</td
+                            >
+                        </tr>
+                        <tr class="bg-white/2">
+                            <td
+                                class="p-8 pl-8 font-black text-white italic uppercase tracking-tighter text-lg"
+                                >Inversión</td
+                            >
+                            <td class="p-8 text-center">
+                                <span class="text-3xl font-black text-white"
+                                    >$50 <span
+                                        class="text-xs text-gray-500 italic"
+                                        >USD</span
+                                    ></span
+                                >
+                            </td>
+                            <td class="p-8 text-center bg-yellow-400/10">
+                                <span
+                                    class="text-3xl font-black text-yellow-500"
+                                    >$200 <span
+                                        class="text-xs text-yellow-600 italic"
+                                        >USD</span
+                                    ></span
+                                >
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+
+        <p
+            class="mt-8 text-center text-gray-500 text-sm font-medium italic opacity-50"
+        >
+            * Los precios están en dólares estadounidenses. Consultá por moneda
+            local en WhatsApp.
+        </p>
     </div>
 </section>
