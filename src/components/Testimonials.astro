@@ -1,5 +1,5 @@
 ---
-
+import ModernCard from "./ui/ModernCard.astro";
 ---
 
 <section
@@ -21,8 +21,10 @@
 
         <div class="grid md:grid-cols-3 gap-8">
             <!-- Testimonial 1 -->
-            <div
-                class="group relative bg-zinc-900/50 backdrop-blur-xl border border-white/10 p-8 rounded-3xl hover:border-blue-500/50 transition-all duration-500"
+            <ModernCard
+                bgClass="bg-zinc-900/50 backdrop-blur-xl"
+                shadowClass="bg-blue-600"
+                borderClass="border-white/10"
             >
                 <div class="flex items-center gap-4 mb-6">
                     <div
@@ -45,11 +47,14 @@
                     <span>★</span><span>★</span><span>★</span><span>★</span
                     ><span>★</span>
                 </div>
-            </div>
+            </ModernCard>
 
             <!-- Testimonial 2 -->
-            <div
-                class="group relative bg-zinc-900/50 backdrop-blur-xl border border-white/10 p-8 rounded-3xl hover:border-blue-500/50 transition-all duration-500 lg:translate-y-8"
+            <ModernCard
+                bgClass="bg-zinc-900/50 backdrop-blur-xl"
+                shadowClass="bg-purple-600"
+                borderClass="border-white/10"
+                class="lg:translate-y-8"
             >
                 <div class="flex items-center gap-4 mb-6">
                     <div
@@ -71,11 +76,13 @@
                     <span>★</span><span>★</span><span>★</span><span>★</span
                     ><span>★</span>
                 </div>
-            </div>
+            </ModernCard>
 
             <!-- Testimonial 3 -->
-            <div
-                class="group relative bg-zinc-900/50 backdrop-blur-xl border border-white/10 p-8 rounded-3xl hover:border-blue-500/50 transition-all duration-500"
+            <ModernCard
+                bgClass="bg-zinc-900/50 backdrop-blur-xl"
+                shadowClass="bg-green-600"
+                borderClass="border-white/10"
             >
                 <div class="flex items-center gap-4 mb-6">
                     <div
@@ -100,7 +107,7 @@
                     <span>★</span><span>★</span><span>★</span><span>★</span
                     ><span>★</span>
                 </div>
-            </div>
+            </ModernCard>
         </div>
     </div>
 </section>

@@ -1,5 +1,5 @@
 ---
-
+import ModernCard from "./ui/ModernCard.astro";
 ---
 
 <section
@@ -21,15 +21,13 @@
     <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="grid md:grid-cols-2 gap-8 lg:gap-16 items-stretch">
             <!-- Standard Plan -->
-            <div class="relative group h-full">
-                <div
-                    class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-50"
-                >
-                </div>
-
-                <div
-                    class="relative bg-zinc-900/90 backdrop-blur-md border border-white/10 rounded-3xl p-8 transform group-hover:-translate-y-2 transition-transform duration-500 overflow-hidden h-full flex flex-col"
-                >
+            <ModernCard
+                bgClass="bg-zinc-900"
+                shadowClass="bg-blue-600"
+                borderClass="border-blue-500/30"
+                class="h-full"
+            >
+                <div class="flex flex-col h-full">
                     <!-- Header -->
                     <div class="mb-8 text-center">
                         <h3
@@ -111,19 +109,16 @@
                         Elegir Masterclass
                     </a>
                 </div>
-            </div>
+            </ModernCard>
 
             <!-- Premium Plan -->
-            <div class="relative group mt-8 md:mt-0 h-full">
-                <!-- Highlight border -->
-                <div
-                    class="absolute -inset-[1px] bg-gradient-to-br from-yellow-400 via-yellow-600 to-transparent rounded-[25px] opacity-70 blur-sm"
-                >
-                </div>
-
-                <div
-                    class="relative bg-zinc-900/95 backdrop-blur-md rounded-3xl p-8 transform group-hover:-translate-y-2 transition-transform duration-500 overflow-hidden h-full flex flex-col"
-                >
+            <ModernCard
+                bgClass="bg-zinc-900"
+                shadowClass="bg-yellow-500"
+                borderClass="border-yellow-400"
+                class="mt-8 md:mt-0 h-full"
+            >
+                <div class="flex flex-col h-full relative overflow-hidden">
                     <!-- Rocket Sticker -->
                     <div
                         class="absolute -top-6 -right-6 text-6xl transform rotate-12 drop-shadow-2xl filter brightness-110"
@@ -203,7 +198,7 @@
                         Quiero Premium
                     </a>
                 </div>
-            </div>
+            </ModernCard>
         </div>
     </div>
 </section>

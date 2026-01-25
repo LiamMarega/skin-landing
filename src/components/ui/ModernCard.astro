@@ -1,0 +1,42 @@
+---
+interface Props {
+    class?: string;
+    bgClass?: string;
+    shadowClass?: string;
+    borderClass?: string;
+    hoverEffect?: boolean;
+}
+
+const {
+    class: className = "",
+    bgClass = "bg-yellow-400",
+    shadowClass = "bg-yellow-500",
+    borderClass = "border-black",
+    hoverEffect = true,
+} = Astro.props;
+---
+
+<div class={`relative group ${className}`}>
+    <!-- Shadow/3D Layer -->
+    <div
+        class:list={[
+            "absolute inset-0 rounded-xl transform translate-x-1 translate-y-1 transition-transform",
+            shadowClass,
+            hoverEffect
+                ? "group-hover:translate-x-2 group-hover:translate-y-2"
+                : "",
+        ]}
+    >
+    </div>
+
+    <!-- Content Layer -->
+    <div
+        class:list={[
+            "relative rounded-xl border-2 p-6 md:p-8 h-full",
+            bgClass,
+            borderClass,
+        ]}
+    >
+        <slot />
+    </div>
+</div>
