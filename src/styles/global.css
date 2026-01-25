@@ -1,6 +1,133 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-ThinOblique.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-ExtLtObliq.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-LightOblique.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-RegularOblique.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-MediumOblique.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-SemiBoldOblique.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-BoldOblique.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-ExtBdObliq.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base_neue/BaseNeueTrial-BlackOblique.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 /* #07194c dark blue */
@@ -8,6 +135,7 @@
 /* #e8bd0d yellow */
 
 @theme inline {
+  --font-sans: 'Base Neue', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
