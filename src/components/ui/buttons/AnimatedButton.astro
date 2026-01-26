@@ -6,39 +6,74 @@ interface Props extends astroHTML.JSX.ButtonHTMLAttributes {
 const { title = "Let's get started", class: className, ...rest } = Astro.props;
 ---
 
-<div class="relative group">
+<div class="relative group inline-block">
+    <!-- Outer Glow -->
+    <div
+        class="absolute -inset-1 bg-yellow-500/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse pointer-events-none"
+    >
+    </div>
+
     <button
         {...rest}
         class:list={[
-            "relative inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95",
+            "relative overflow-hidden group/btn px-10 py-5 bg-black border border-white/10 rounded-2xl transition-all duration-500 hover:border-yellow-500/50 hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(0,0,0,0.8)]",
             className,
         ]}
     >
-        <span
-            class="absolute inset-0 rounded-xl bg-linear-to-r from-teal-400 via-blue-500 to-purple-500 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-        ></span>
+        <!-- Border Gradient -->
+        <div
+            class="absolute inset-0 p-px rounded-2xl bg-linear-to-br from-white/20 via-transparent to-white/5 opacity-100 group-hover/btn:from-yellow-400/50 group-hover/btn:to-yellow-600/50 transition-colors duration-500"
+        >
+            <div class="absolute inset-0 bg-black rounded-2xl"></div>
+        </div>
 
-        <span class="relative z-10 block px-6 py-3 rounded-xl bg-gray-950">
-            <div class="relative z-10 flex items-center space-x-2">
-                <span
-                    class="transition-all duration-500 group-hover:translate-x-1"
-                >
-                    {title}
-                </span>
+        <!-- Reflective Shine Effect -->
+        <div
+            class="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none bg-linear-to-r from-transparent via-white/10 to-transparent skew-x-[-25deg]"
+        >
+        </div>
+
+        <div class="relative z-10 flex items-center gap-3">
+            <span
+                class="text-white font-black tracking-tight uppercase group-hover/btn:text-yellow-400 transition-colors duration-300"
+            >
+                {title}
+            </span>
+
+            <div class="relative">
                 <svg
-                    class="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1"
-                    data-slot="icon"
-                    aria-hidden="true"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-5 h-5 text-yellow-500 transition-all duration-500 group-hover/btn:translate-x-1 group-hover/btn:scale-110"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="3"
                 >
                     <path
-                        clip-rule="evenodd"
-                        d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
-                        fill-rule="evenodd"></path>
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
                 </svg>
+
+                <!-- Tiny glow behind arrow -->
+                <div
+                    class="absolute inset-0 bg-yellow-500/40 blur-md opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500"
+                >
+                </div>
             </div>
-        </span>
+        </div>
+
+        <!-- Inner texture/noise subtle overlay -->
+        <div
+            class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"
+        >
+        </div>
     </button>
 </div>
+
+<style>
+    /* Custom font fallback if needed, but using Tailwind black font for impact */
+    button {
+        font-family: "Poppins", sans-serif;
+        letter-spacing: -0.02em;
+    }
+</style>

@@ -290,6 +290,135 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Aniko';
+  src: url('/fonts/aniko/Aniko-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aniko';
+  src: url('/fonts/aniko/Aniko-Extralight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aniko';
+  src: url('/fonts/aniko/Aniko-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aniko';
+  src: url('/fonts/aniko/Aniko-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aniko';
+  src: url('/fonts/aniko/Aniko-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aniko';
+  src: url('/fonts/aniko/Aniko-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aniko';
+  src: url('/fonts/aniko/Aniko-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aniko';
+  src: url('/fonts/aniko/Aniko-Extrabold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Aniko Outline */
+@font-face {
+  font-family: 'Aniko Outline';
+  src: url('/fonts/aniko/Aniko-ThinOutline.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aniko Outline';
+  src: url('/fonts/aniko/Aniko-ExtralightOutline.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aniko Outline';
+  src: url('/fonts/aniko/Aniko-LightOutline.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aniko Outline';
+  src: url('/fonts/aniko/Aniko-RegularOutline.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aniko Outline';
+  src: url('/fonts/aniko/Aniko-MediumOutline.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aniko Outline';
+  src: url('/fonts/aniko/Aniko-SemiboldOutline.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aniko Outline';
+  src: url('/fonts/aniko/Aniko-BoldOutline.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aniko Outline';
+  src: url('/fonts/aniko/Aniko-ExtraboldOutline.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 /* #07194c dark blue */
@@ -298,7 +427,7 @@
 
 @theme inline {
   --font-sans: 'Poppins', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-display: 'Base Neue', sans-serif;
+  --font-display: 'Poppins', sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
