@@ -1,22 +1,23 @@
 ---
-import type { lazy } from "astro:schema";
 import DarkVeil from "./ui/backgrounds/DarkVeil/DarkVeil";
 import AnimatedButton from "./ui/buttons/AnimatedButton.astro";
-import TextPressure from "./ui/TextPressure";
+import { Check, Star, Briefcase, ShieldCheck } from "lucide-react";
 ---
 
 <section
-    class="relative w-full h-screen overflow-hidden bg-black text-white selection:bg-blue-600 selection:text-white font-sans"
+    class="relative w-full min-h-screen overflow-hidden bg-black text-white selection:bg-blue-600 selection:text-white font-sans"
 >
+    <!-- Background Assets -->
     <img
         src="/assets/resoures/barbed/barbed_wire03.png"
         alt="Barbed Wire"
         loading="eager"
         fetchpriority="high"
         decoding="async"
-        class="absolute blur-xs h-[15%] md:h-[140%] rotate-45 -right-32 -top-64 w-auto object-contain object-bottom drop-shadow-2xl animate-in fade-in slide-in-from-top-20 duration-1000 ease-out z-10"
+        class="absolute blur-xs h-[15%] md:h-[140%] rotate-45 -right-32 -top-64 w-auto object-contain object-bottom drop-shadow-2xl animate-in fade-in slide-in-from-top-20 duration-1000 ease-out z-10 opacity-30 pointer-events-none"
         style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%);"
     />
+
     <!-- Background Layers -->
     <div class="absolute inset-0 z-0 pointer-events-none">
         <!-- Animated Background -->
@@ -29,68 +30,163 @@ import TextPressure from "./ui/TextPressure";
             warpAmount={0.5}
         />
 
-        <!-- Dark Gradient Overlay for Depth -->
+        <!-- Dark Gradient Overlay for Depth and Readability -->
         <div
-            class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent mix-blend-multiply opacity-90"
+            class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent mix-blend-multiply opacity-90"
+        >
+        </div>
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 opacity-80"
         >
         </div>
     </div>
 
     <!-- Main Content Grid -->
     <div
-        class="relative z-10 w-full h-full max-w-[1400px] mx-auto px-6 flex flex-col md:flex-row items-center justify-center md:justify-between pt-20 md:pt-0"
+        class="relative z-10 w-full h-full max-w-[1400px] mx-auto px-6 flex flex-col lg:flex-row items-center justify-center lg:justify-between pt-28 pb-10 lg:py-0 min-h-screen"
     >
         <!-- Typography / Offer Side -->
         <div
-            class="lex flex-col items-center md:items-start text-center md:text-left z-20 space-y-8 max-w-4xl"
+            class="flex flex-col items-center lg:items-start text-center lg:text-left z-20 space-y-8 max-w-2xl"
         >
-            <!-- Headline -->
-            <div class="space-y-0">
-                <h1
-                    class="flex flex-col font-black italic uppercase tracking-tighter"
+            <!-- Top Badge -->
+            <div
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm shadow-lg animate-in fade-in slide-in-from-bottom-5 duration-700"
+            >
+                <div
+                    class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"
                 >
-                    <span
-                        class="text-[3rem] sm:text-[3rem] md:text-[4rem] lg:text-[4rem] text-transparent bg-clip-text bg-linear-to-b from-white via-white to-gray-600 drop-shadow-2xl filter brightness-110 tracking-tight"
-                    >
-                        DISEÑO GRÁFICO + <span class="text-3d"> 3D </span>
-                    </span>
-                    <span class="relative inline-block -mt-6 -ml-4 w-[70%]">
-                        <TextPressure
-                            client:idle
-                            text="PARA EVENTOS"
-                            width={true}
-                            weight={true}
-                            textColor="#ffffff"
-                            strokeColor="#3b82f6"
-                            minFontSize={36}
-                        />
-                    </span>
-                </h1>
+                </div>
+                <span class="text-sm font-medium text-gray-200 tracking-wide">
+                    Método probado en trabajos reales
+                </span>
             </div>
 
-            <!-- Simplified Value Prop -->
-            <p
-                class="text-xl md:text-2xl text-gray-300 font-medium leading-relaxed max-w-xl"
-            >
-                El sistema exacto para vivir del diseño y conseguir clientes
-                reales en <span class="text-white font-bold">30 días</span>.
-            </p>
+            <!-- Headline -->
+            <div class="space-y-4">
+                <h1
+                    class="font-black tracking-tighter text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] leading-[0.95]"
+                >
+                    <span class="block text-white">Viví del</span>
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 filter drop-shadow-lg"
+                    >
+                        diseño gráfico
+                    </span>
+                </h1>
 
-            <!-- CTA -->
-            <div class="flex flex-col sm:flex-row items-center gap-8 mt-2">
-                <div class="flex items-center">
-                    <AnimatedButton title="ACCESO INMEDIATO" />
+                <!-- Subheadline -->
+                <p
+                    class="text-lg md:text-xl text-gray-300 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0"
+                >
+                    Aprendé el sistema que te consigue clientes reales en <span
+                        class="text-white font-bold">30 días</span
+                    >, incluso si hoy no tenés contactos.
+                </p>
+            </div>
+
+            <!-- Benefits Checklist -->
+            <div class="flex flex-col gap-3 w-full">
+                <div
+                    class="flex items-center justify-center lg:justify-start gap-3 text-gray-200"
+                >
+                    <Check className="w-5 h-5 text-green-400 shrink-0" />
+                    <span class="text-base">Diseñadores freelance</span>
+                </div>
+                <div
+                    class="flex items-center justify-center lg:justify-start gap-3 text-gray-200"
+                >
+                    <Check className="w-5 h-5 text-green-400 shrink-0" />
+                    <span class="text-base">Estudiantes de diseño</span>
+                </div>
+                <div
+                    class="flex items-center justify-center lg:justify-start gap-3 text-gray-200"
+                >
+                    <Check className="w-5 h-5 text-green-400 shrink-0" />
+                    <span class="text-base"
+                        >Gente cansada de trabajos mal pagos</span
+                    >
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div
+                class="flex flex-col items-center lg:items-start gap-4 mt-4 w-full"
+            >
+                <AnimatedButton title="EMPEZAR HOY (30 DÍAS)" />
+                <div
+                    class="flex items-center gap-2 text-sm text-gray-400 font-medium"
+                >
+                    <span class="text-yellow-400">⚡</span>
+                    Acceso inmediato, sin suscripciones
+                </div>
+            </div>
+
+            <!-- Social Proof / Footer of Hero -->
+            <div
+                class="w-full pt-8 mt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 sm:gap-12"
+            >
+                <!-- Rating -->
+                <div class="flex flex-col gap-1 items-center lg:items-start">
+                    <div class="flex text-yellow-400 gap-0.5">
+                        <Star className="w-4 h-4 fill-current" />
+                        <Star className="w-4 h-4 fill-current" />
+                        <Star className="w-4 h-4 fill-current" />
+                        <Star className="w-4 h-4 fill-current" />
+                        <Star className="w-4 h-4 fill-current" />
+                    </div>
+                    <p class="text-xs text-gray-400">
+                        Más de <span class="text-white font-bold">300</span> diseñadores
+                    </p>
+                </div>
+
+                <!-- Cases -->
+                <div
+                    class="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity"
+                >
+                    <div
+                        class="p-2 rounded-lg bg-white/5 border border-white/10"
+                    >
+                        <Briefcase className="w-5 h-5 text-blue-400" />
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-sm font-bold text-white"
+                            >Casos reales</span
+                        >
+                        <span class="text-[10px] uppercase text-gray-400"
+                            >En eventos</span
+                        >
+                    </div>
+                </div>
+
+                <!-- Method -->
+                <div
+                    class="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity"
+                >
+                    <div
+                        class="p-2 rounded-lg bg-white/5 border border-white/10"
+                    >
+                        <ShieldCheck className="w-5 h-5 text-purple-400" />
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-sm font-bold text-white"
+                            >Método probado</span
+                        >
+                        <span class="text-[10px] uppercase text-gray-400"
+                            >Paso a paso</span
+                        >
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Image Side (Floating) -->
         <div
-            class="absolute md:relative md:w-1/2 h-[60vh] md:h-full bottom-0 md:bottom-auto md:right-0 overflow-visible pointer-events-none mt-auto flex items-end justify-center md:justify-end"
+            class="relative w-full lg:w-1/2 h-[50vh] lg:h-full mt-12 lg:mt-0 flex items-end justify-center lg:justify-end pointer-events-none"
         >
             <!-- Glow Effect -->
             <div
-                class="absolute bottom-0 right-0 md:right-10 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-blue-600/20 rounded-full blur-[80px] md:blur-[120px] mix-blend-screen animate-pulse duration-[3000ms]"
+                class="absolute bottom-0 left-1/2 lg:right-0 lg:left-auto -translate-x-1/2 lg:translate-x-0 w-[300px] lg:w-[600px] h-[300px] lg:h-[600px] bg-blue-600/20 rounded-full blur-[80px] lg:blur-[120px] mix-blend-screen animate-pulse duration-[3000ms]"
             >
             </div>
 
@@ -100,59 +196,47 @@ import TextPressure from "./ui/TextPressure";
                 loading="eager"
                 fetchpriority="high"
                 decoding="async"
-                class="relative mb-24 h-[85%] md:h-full w-auto object-contain object-bottom drop-shadow-2xl z-10 animate-in fade-in slide-in-from-bottom-20 duration-1000 ease-out"
-                style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%);"
+                class="relative h-full w-auto object-contain object-bottom drop-shadow-2xl z-10 animate-in fade-in slide-in-from-bottom-20 duration-1000 ease-out mask-image-gradient"
             />
+
+            <!-- Floating Badge on Image (Optional visual detail) -->
+            <div
+                class="absolute top-[20%] right-[10%] z-20 hidden lg:flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl animate-in fade-in zoom-in duration-1000 delay-500"
+            >
+                <div class="flex -space-x-2">
+                    <div
+                        class="w-8 h-8 rounded-full bg-gray-700 border-2 border-black"
+                    >
+                    </div>
+                    <div
+                        class="w-8 h-8 rounded-full bg-gray-600 border-2 border-black"
+                    >
+                    </div>
+                    <div
+                        class="w-8 h-8 rounded-full bg-gray-500 border-2 border-black"
+                    >
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xs font-bold text-white">+300</span>
+                    <span class="text-[10px] text-gray-400">Miembros</span>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Decorative Tapes -->
     <img
         src="/assets/resoures/tapes/tape_02.webp"
         alt="Tape"
         loading="lazy"
         decoding="async"
-        style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%);"
-        class="w-44 rotate-90 absolute -bottom-10 -left-20 z-10 opacity-15"
-    />
-    <img
-        src="/assets/resoures/tapes/tape_02.webp"
-        alt="Tape"
-        loading="lazy"
-        decoding="async"
-        style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%);"
-        class="w-44 absolute -top-10 -right-20 z-10 opacity-15"
+        class="w-32 lg:w-44 rotate-90 absolute -bottom-10 -left-10 z-10 opacity-15"
     />
 </section>
 
 <style>
-    .text-3d {
-        display: inline-block;
-        color: #fff;
-        text-shadow:
-            3px 3px 0px #e8bd0d,
-            4px 4px 0px #e8bd0d,
-            5px 5px 0px #ca8a04,
-            6px 6px 0px #ca8a04,
-            7px 7px 0px #a16207,
-            8px 8px 15px rgba(0, 0, 0, 0.9);
-        transform: perspective(1000px) rotateY(-15deg) rotateX(10deg)
-            skewX(-10deg);
-        filter: drop-shadow(0 0 20px rgba(232, 189, 13, 0.3));
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        cursor: default;
-    }
-
-    .text-3d:hover {
-        transform: perspective(1000px) rotateY(-20deg) rotateX(15deg)
-            skewX(-15deg) scale(1.1);
-        text-shadow:
-            3px 3px 0px #e8bd0d,
-            4px 4px 0px #e8bd0d,
-            5px 5px 0px #ca8a04,
-            6px 6px 0px #ca8a04,
-            7px 7px 0px #a16207,
-            8px 8px 0px #854d0e,
-            9px 9px 0px #854d0e,
-            12px 12px 25px rgba(0, 0, 0, 1);
-        filter: drop-shadow(0 0 30px rgba(232, 189, 13, 0.6));
+    .mask-image-gradient {
+        mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
     }
 </style>
