@@ -6,17 +6,17 @@ interface Props extends astroHTML.JSX.ButtonHTMLAttributes {
 const { title = "Let's get started", class: className, ...rest } = Astro.props;
 ---
 
-<div class="relative group inline-block">
+<div class="relative group inline-block cursor-pointer">
     <!-- Outer Glow -->
     <div
-        class="absolute -inset-1 bg-yellow-500/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse pointer-events-none"
+        class="cursor-pointer absolute -inset-1 bg-yellow-500/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse pointer-events-none"
     >
     </div>
 
     <button
         {...rest}
         class:list={[
-            "relative overflow-hidden group/btn px-10 py-5 bg-black border border-white/10 rounded-2xl transition-all duration-500 hover:border-yellow-500/50 hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(0,0,0,0.8)]",
+            "relative cursor-pointer overflow-hidden group/btn px-10 py-5 bg-black border border-white/10 rounded-2xl transition-all duration-500 hover:border-yellow-500/50 hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(0,0,0,0.8)]",
             className,
         ]}
     >
