@@ -1,0 +1,114 @@
+---
+/**
+ * AnnouncementBar Component
+ *
+ * A rotative announcement bar that displays a series of messages with sleek transitions.
+ * Fully customizable via props.
+ */
+interface Props {
+    messages?: string[];
+    interval?: number; // Time each message stays visible (ms)
+    duration?: number; // Animation transition duration (ms)
+}
+
+const {
+    messages = ["Todos los métodos de pago están disponibles."],
+    interval = 5000,
+    duration = 600,
+} = Astro.props;
+---
+
+<div
+    class="fixed inset-x-0 top-0 h-10 bg-black/80 backdrop-blur-md border-b border-white/10 grid place-items-center z-[999] overflow-hidden group"
+    id="announcement-bar"
+    data-messages={JSON.stringify(messages)}
+    data-interval={interval}
+    data-duration={duration}
+>
+    <div class="relative w-full h-full flex items-center justify-center px-4">
+        <p
+            id="announcement-text"
+            class="w-full text-white/90 text-[11px] sm:text-xs tracking-wider uppercase font-semibold m-0 p-0 text-center transition-all ease-out"
+            style={`transition-duration: ${duration}ms;`}
+        >
+            {messages[0]}
+        </p>
+
+        <!-- Subtle glow effect behind text -->
+        <div
+            class="absolute inset-0 bg-linear-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none"
+        >
+        </div>
+    </div>
+</div>
+
+<script>
+    let announcementInterval: number;
+
+    function initAnnouncementBar() {
+        // Clear existing interval if any (for view transitions)
+        if (announcementInterval) {
+            clearInterval(announcementInterval);
+        }
+
+        const bar = document.getElementById("announcement-bar");
+        const textElement = document.getElementById("announcement-text");
+
+        if (!bar || !textElement) return;
+
+        const messages = JSON.parse(bar.dataset.messages || "[]");
+        const interval = parseInt(bar.dataset.interval || "5000");
+        const duration = parseInt(bar.dataset.duration || "600");
+
+        if (messages.length <= 1) return;
+
+        let currentIndex = 0;
+
+        const rotateMessages = () => {
+            // Step 1: Fade out and slide up
+            textElement.style.opacity = "0";
+            textElement.style.transform = "translateY(-10px)";
+            textElement.style.filter = "blur(4px)";
+
+            setTimeout(() => {
+                // Step 2: Update content
+                currentIndex = (currentIndex + 1) % messages.length;
+                textElement.textContent = messages[currentIndex];
+
+                // Step 3: Reset position (hidden below)
+                textElement.style.transition = "none";
+                textElement.style.transform = "translateY(10px)";
+
+                // Force reflow
+                textElement.offsetHeight;
+
+                // Step 4: Fade in and slide to center
+                textElement.style.transition = `all ${duration}ms cubic-bezier(0.23, 1, 0.32, 1)`;
+                textElement.style.opacity = "1";
+                textElement.style.transform = "translateY(0)";
+                textElement.style.filter = "blur(0)";
+            }, duration);
+        };
+
+        announcementInterval = setInterval(
+            rotateMessages,
+            interval,
+        ) as unknown as number;
+    }
+
+    // Initialize on page load
+    initAnnouncementBar();
+    // Supporting Astro view transitions if applicable
+    document.addEventListener("astro:after-swap", initAnnouncementBar);
+</script>
+
+<style>
+    #announcement-bar {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    #announcement-text {
+        will-change: transform, opacity, filter;
+    }
+</style>
