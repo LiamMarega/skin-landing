@@ -56,14 +56,27 @@ import { FloatingWhatsApp } from "@digicroz/react-floating-whatsapp";
 				observer.observe(el);
 			});
 		</script>
+		<div class="z-[9999] absolute">
+			<FloatingWhatsApp
+				client:only="react"
+				phoneNumber="5491123456789"
+				accountName="Diseñá Como Yo"
+				statusMessage="Normalmente responde en 1 hora"
+				chatMessage="¡Hola! 👋 ¿En qué podemos ayudarte hoy?"
+				darkMode={false}
+				allowClickAway={true}
+				allowEsc={true}
+				notification={true}
+				notificationSound={true}
+			/>
+		</div>
 		<AnnouncementBar
 			messages={[
-				"Todos los métodos de pagos disponibles.",
+				"Todos los métodos de pagos disponibles (ARS, USD, Crypto)",
 				"Aprendé como vivir del diseño gráfico en 30 días.",
 				"Inscribite en cuotas con MercadoPago",
-				"Crypto friendly :)",
 			]}
-			interval={10000}
+			interval={15000}
 		/>
 		<GradualBlur
 			client:load
@@ -77,18 +90,5 @@ import { FloatingWhatsApp } from "@digicroz/react-floating-whatsapp";
 			opacity={1}
 		/>
 		<BlobCursor client:load />
-
-		<FloatingWhatsApp
-			client:only="react"
-			phoneNumber="5491123456789"
-			accountName="Diseñá Como Yo"
-			statusMessage="Normalmente responde en 1 hora"
-			chatMessage="¡Hola! 👋 ¿En qué podemos ayudarte hoy?"
-			darkMode={false}
-			allowClickAway={true}
-			allowEsc={true}
-			notification={true}
-			notificationSound={true}
-		/>
 	</body>
 </html>

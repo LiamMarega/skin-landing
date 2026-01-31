@@ -1,5 +1,8 @@
 ---
 import ModernCard from "./ui/ModernCard.astro";
+
+// Supabase Edge Function URL
+const SUPABASE_URL = "https://gljypypgwkihblvbeftd.supabase.co";
 ---
 
 <section
@@ -88,12 +91,34 @@ import ModernCard from "./ui/ModernCard.astro";
                     </ul>
 
                     <!-- CTA -->
-                    <a
-                        href="#"
-                        class="block w-full py-4 bg-white text-black font-black text-center uppercase tracking-widest hover:bg-gray-200 transition-colors rounded-xl"
+                    <button
+                        type="button"
+                        data-plan="basic"
+                        class="pricing-btn block w-full py-4 bg-white text-black font-black text-center uppercase tracking-widest hover:bg-gray-200 transition-colors rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                        Quiero el Básico
-                    </a>
+                        <span class="btn-text">Quiero el Básico</span>
+                        <span class="btn-loading hidden">
+                            <svg
+                                class="animate-spin h-5 w-5 mx-auto"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                            >
+                                <circle
+                                    class="opacity-25"
+                                    cx="12"
+                                    cy="12"
+                                    r="10"
+                                    stroke="currentColor"
+                                    stroke-width="4"></circle>
+                                <path
+                                    class="opacity-75"
+                                    fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                ></path>
+                            </svg>
+                        </span>
+                    </button>
                 </div>
             </ModernCard>
 
@@ -175,12 +200,34 @@ import ModernCard from "./ui/ModernCard.astro";
                     </ul>
 
                     <!-- CTA -->
-                    <a
-                        href="#"
-                        class="block w-full py-4 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-black text-center uppercase tracking-widest hover:from-yellow-300 hover:to-yellow-500 transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)] rounded-xl relative z-10"
+                    <button
+                        type="button"
+                        data-plan="pro"
+                        class="pricing-btn block w-full py-4 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-black text-center uppercase tracking-widest hover:from-yellow-300 hover:to-yellow-500 transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)] rounded-xl relative z-10 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                        Quiero el Pro
-                    </a>
+                        <span class="btn-text">Quiero el Pro</span>
+                        <span class="btn-loading hidden">
+                            <svg
+                                class="animate-spin h-5 w-5 mx-auto"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                            >
+                                <circle
+                                    class="opacity-25"
+                                    cx="12"
+                                    cy="12"
+                                    r="10"
+                                    stroke="currentColor"
+                                    stroke-width="4"></circle>
+                                <path
+                                    class="opacity-75"
+                                    fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                ></path>
+                            </svg>
+                        </span>
+                    </button>
                 </div>
             </ModernCard>
         </div>
@@ -217,4 +264,195 @@ import ModernCard from "./ui/ModernCard.astro";
             </div>
         </div>
     </div>
+
+    <!-- Email Modal -->
+    <dialog id="emailModal" class="bg-transparent">
+        <div
+            class="bg-zinc-900 border border-zinc-700 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl"
+        >
+            <h3 class="text-2xl font-bold text-white mb-2">¡Un paso más!</h3>
+            <p class="text-gray-400 mb-6">
+                Ingresá tu email para continuar con el pago
+            </p>
+
+            <form id="emailForm" class="space-y-4">
+                <input
+                    type="email"
+                    id="customerEmail"
+                    placeholder="tu@email.com"
+                    required
+                    class="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                />
+
+                <div class="flex gap-3">
+                    <button
+                        type="button"
+                        id="cancelBtn"
+                        class="flex-1 py-3 bg-zinc-700 text-white font-semibold rounded-xl hover:bg-zinc-600 transition-colors"
+                    >
+                        Cancelar
+                    </button>
+                    <button
+                        type="submit"
+                        id="submitBtn"
+                        class="flex-1 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-xl hover:from-blue-400 hover:to-purple-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        <span class="submit-text">Continuar al Pago</span>
+                        <span class="submit-loading hidden">
+                            <svg
+                                class="animate-spin h-5 w-5 mx-auto"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                            >
+                                <circle
+                                    class="opacity-25"
+                                    cx="12"
+                                    cy="12"
+                                    r="10"
+                                    stroke="currentColor"
+                                    stroke-width="4"></circle>
+                                <path
+                                    class="opacity-75"
+                                    fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                ></path>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+
+                <p
+                    id="errorMsg"
+                    class="text-red-400 text-sm text-center hidden"
+                >
+                </p>
+            </form>
+        </div>
+    </dialog>
 </section>
+
+<script define:vars={{ SUPABASE_URL }}>
+    // State
+    let selectedPlan = null;
+
+    // Elements
+    const modal = document.getElementById("emailModal");
+    const emailForm = document.getElementById("emailForm");
+    const emailInput = document.getElementById("customerEmail");
+    const cancelBtn = document.getElementById("cancelBtn");
+    const submitBtn = document.getElementById("submitBtn");
+    const errorMsg = document.getElementById("errorMsg");
+    const pricingBtns = document.querySelectorAll(".pricing-btn");
+
+    // Open modal when clicking pricing buttons
+    pricingBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            selectedPlan = btn.dataset.plan;
+            errorMsg.classList.add("hidden");
+            emailInput.value = "";
+            modal.showModal();
+        });
+    });
+
+    // Close modal on cancel
+    cancelBtn.addEventListener("click", () => {
+        modal.close();
+        selectedPlan = null;
+    });
+
+    // Close modal on backdrop click
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.close();
+            selectedPlan = null;
+        }
+    });
+
+    // Handle form submission
+    emailForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = emailInput.value.trim();
+        if (!email || !selectedPlan) return;
+
+        // Disable buttons and show loading
+        setLoading(true);
+        errorMsg.classList.add("hidden");
+
+        try {
+            const response = await fetch(
+                `${SUPABASE_URL}/functions/v1/create-preference`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        plan_type: selectedPlan,
+                        email: email,
+                    }),
+                },
+            );
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || "Error al procesar el pago");
+            }
+
+            if (data.init_point) {
+                // Redirect to MercadoPago checkout
+                window.location.href = data.init_point;
+            } else {
+                throw new Error("No se recibió el link de pago");
+            }
+        } catch (error) {
+            console.error("Payment error:", error);
+            errorMsg.textContent =
+                error.message ||
+                "Ocurrió un error. Por favor, intentá de nuevo.";
+            errorMsg.classList.remove("hidden");
+            setLoading(false);
+        }
+    });
+
+    function setLoading(isLoading) {
+        submitBtn.disabled = isLoading;
+        cancelBtn.disabled = isLoading;
+        emailInput.disabled = isLoading;
+
+        const submitText = submitBtn.querySelector(".submit-text");
+        const submitLoading = submitBtn.querySelector(".submit-loading");
+
+        if (isLoading) {
+            submitText.classList.add("hidden");
+            submitLoading.classList.remove("hidden");
+        } else {
+            submitText.classList.remove("hidden");
+            submitLoading.classList.add("hidden");
+        }
+    }
+</script>
+
+<style>
+    dialog::backdrop {
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(4px);
+    }
+
+    dialog[open] {
+        animation: fadeIn 0.2s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+</style>
