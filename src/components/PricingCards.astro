@@ -401,9 +401,11 @@ const SUPABASE_URL = "https://gljypypgwkihblvbeftd.supabase.co";
                 throw new Error(data.error || "Error al procesar el pago");
             }
 
-            if (data.init_point) {
-                // Redirect to MercadoPago checkout
-                window.location.href = data.init_point;
+            if (data.sandbox_init_point || data.init_point) {
+                // Use sandbox for testing, fallback to production
+                const checkoutUrl = data.sandbox_init_point || data.init_point;
+                console.log("Redirecting to:", checkoutUrl);
+                window.location.href = checkoutUrl;
             } else {
                 throw new Error("No se recibió el link de pago");
             }

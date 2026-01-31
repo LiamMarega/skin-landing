@@ -142,6 +142,8 @@ serve(async (req) => {
     return new Response(
       JSON.stringify({
         init_point: result.init_point,
+        sandbox_init_point: result.init_point,
+        // sandbox_init_point: result.sandbox_init_point,
         preference_id: result.id,
         order_id: order.id
       }),
