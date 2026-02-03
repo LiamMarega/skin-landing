@@ -47,7 +47,7 @@ const {
     <!-- Urban Header -->
     <div class="urban-header relative z-20 shrink-0">
         <div
-            class="header-content bg-[#0a0a0a] sm:py-6 lg:py-8 px-4 sm:px-6 border-b-2 border-white/10 rounded-t-3xl text-center"
+            class="header-content bg-[#0a0a0a] sm:py-6 lg:py-8 px-4 sm:px-6 rounded-t-3xl text-center"
         >
             <h2
                 class="tipo-title text-2xl sm:text-3xl lg:text-5xl font-black text-white italic tracking-tight leading-none group-hover:scale-105 transition-transform duration-300"
@@ -62,7 +62,7 @@ const {
                     class="h-[2px] w-6 sm:w-10 bg-current opacity-70"
                     style={`color: ${accentColor}`}></span>
                 <h3
-                    class="clases-subtitle text-sm sm:text-base lg:text-xl font-bold uppercase tracking-[0.1em] sm:tracking-[0.15em]"
+                    class="clases-subtitle text-sm sm:text-base lg:text-xl font-bold uppercase tracking-widest sm:tracking-[0.15em]"
                     style={`color: ${accentColor}; font-family: 'Base Neue', sans-serif;`}
                 >
                     {clases}
@@ -70,23 +70,30 @@ const {
                 <span
                     class="h-[2px] w-6 sm:w-10 bg-current opacity-70"
                     style={`color: ${accentColor}`}></span>
-            </div>
-        </div>
-        <!-- Torn Edge Simulation -->
-        <div
-            class="torn-edge w-full h-3 sm:h-6 bg-[#0a0a0a] relative overflow-hidden -mt-[1px]"
-        >
-            <div
-                class="absolute bottom-0 left-0 w-full h-full bg-[#111]"
-                style="clip-path: polygon(0% 100%, 5% 20%, 10% 80%, 15% 30%, 20% 70%, 25% 40%, 30% 90%, 35% 20%, 40% 60%, 45% 10%, 50% 80%, 55% 30%, 60% 70%, 65% 40%, 70% 90%, 75% 20%, 80% 60%, 85% 10%, 90% 80%, 95% 30%, 100% 100%);"
-            >
+                <!-- Torn Edge Simulation -->
+                <div
+                    class="absolute torn-edge w-full h-5 sm:h-12 -bottom-5 z-20 pointer-events-none"
+                >
+                    <div
+                        class="w-full h-full bg-[#0a0a0a]"
+                        style="
+                    mask-image: url('/assets/resoures/rips/paper_rip_01.png');
+                    mask-size: 100% 100%;
+                    mask-repeat: no-repeat;
+                    -webkit-mask-image: url('/assets/resoures/rips/paper_rip_01.png');
+                    -webkit-mask-size: 100% 100%;
+                    -webkit-mask-repeat: no-repeat;
+                "
+                    >
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Urban Body (Flex grow to fill space) -->
     <div
-        class="urban-body relative bg-[#111] px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 lg:pt-10 pb-16 sm:pb-20 lg:pb-24 border-x border-white/5 shadow-2xl overflow-hidden flex-grow flex flex-col"
+        class="urban-body relative bg-[#111] px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 lg:pt-10 pb-16 sm:pb-20 lg:pb-24 shadow-2xl overflow-hidden grow flex flex-col"
         style="font-family: 'Aniko', sans-serif;"
     >
         <!-- Rugged Texture Overlay -->
@@ -100,7 +107,7 @@ const {
         </div>
 
         <ul
-            class="feature-list relative z-10 space-y-2 sm:space-y-3 lg:space-y-5 flex-grow"
+            class="feature-list relative z-10 space-y-2 sm:space-y-3 lg:space-y-5 grow"
         >
             {
                 caracteristicas.map((item: any) => (
@@ -136,7 +143,7 @@ const {
                     >{btnText || "APLICAR AHORA"}</span
                 >
                 <div
-                    class="absolute inset-0 bg-linear-to-r from-transparent via-[#000]/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"
+                    class="absolute inset-0 bg-linear-to-r from-transparent via-black/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"
                 >
                 </div>
             </button>
@@ -170,19 +177,6 @@ const {
                 )
             }
         </div>
-    </div>
-
-    <!-- Paint Drip Effect -->
-    <div
-        class="paint-drips w-full h-8 sm:h-10 lg:h-12 opacity-60 pointer-events-none relative z-10 -mt-[1px] shrink-0"
-    >
-        <svg
-            viewBox="0 0 500 150"
-            preserveAspectRatio="none"
-            class="w-full h-full fill-[#111]"
-        >
-            <path d="M0,0 C150,150 350,0 500,100 L500,00 L0,0 Z"></path>
-        </svg>
     </div>
 </div>
 
