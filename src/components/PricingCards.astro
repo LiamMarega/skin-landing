@@ -1,346 +1,228 @@
 ---
 import PricingCard from "./PricingCard.astro";
 
-// Supabase Edge Function URL
-const SUPABASE_URL = "https://gljypypgwkihblvbeftd.supabase.co";
-
-const MASTERCLASS_DATA = {
-    tipo: "MASTERCLASS",
-    clases: "1 CLASE",
+const DATA_BASIC_PLAN = {
+    tipo: "PLAN BÁSICO",
+    clases: "MENTORÍA 1 MES",
     caracteristicas: [
         {
-            texto: "CLASE INTENSIVA con mi flujo de trabajo y efectos pro (CRISTAL, BOKEH, CINTAS, SOMBRAS, ETC.).",
-            bold: "CLASE INTENSIVA",
-        },
-        { texto: "FORMATO: CLASE GRABADA.", bold: "CLASE GRABADA" },
-        {
-            texto: "INCLUYE GRABACIÓN, CERTIFICADO DIGITAL Y RECURSOS DESCARGABLES.",
-            bold: "GRABACIÓN",
+            texto: "MES COMPLETO DE CONTENIDO, COMUNIDAD Y GRABACIONES.",
+            bold: "MES COMPLETO",
         },
         {
-            texto: "IDEAL SI QUERÉS RESULTADOS RÁPIDOS Y APLICAR EN TUS DISEÑOS.",
-            bold: "RESULTADOS RÁPIDOS",
+            texto: "PORTFOLIO LISTO + OFERTA ESTRUCTURADA PARA VENDER.",
+            bold: "PORTFOLIO LISTO",
+        },
+        {
+            texto: "ACCESO A COMUNIDAD DE DISCORD Y SOPORTE GRUPAL.",
+            bold: "COMUNIDAD",
+        },
+        {
+            texto: "IDEAL PARA SUBIR TU NIVEL TÉCNICO Y MONETIZAR.",
+            bold: "SUBIR TU NIVEL",
         },
     ],
-    precio: "50",
-    precioAnterior: "99",
-    colorFondoHeader: "#0048B5", // Classic Blue
+    precio: "300",
+    precioAnterior: "500",
+    accentColor: "var(--accent)", // Neon Yellow
     dataPlan: "basic",
-    btnText: "Quiero la Masterclass",
+    btnText: "APLICAR AHORA",
 };
 
-const PRO_DATA = {
-    tipo: "CLASE PREMIUM",
-    clases: "3 CLASES",
+const DATA_PRO_PLAN = {
+    tipo: "PLAN PRO",
+    clases: "MENTORÍA PERSONALIZADA",
     caracteristicas: [
         {
-            texto: "3 VIDEOLLAMADAS EN VIVO (ZOOM/MEET) CON ESTRUCTURA PASO A PASO.",
-            bold: "3 VIDEOLLAMADAS EN VIVO",
+            texto: "TODO LO DEL PLAN BÁSICO + ACOMPAÑAMIENTO 1:1.",
+            bold: "TODO LO DEL PLAN BÁSICO",
         },
         {
-            texto: "TAREAS ENTRE CLASES + PRÁCTICA GUIADA PARA AVANZAR DE VERDAD.",
-            bold: "PRÁCTICA GUIADA",
+            texto: "2 LLAMADAS 1:1 (45 MIN) PARA DESTRABAR Y ACELERAR.",
+            bold: "2 LLAMADAS 1:1",
         },
         {
-            texto: "CORRECCIONES Y FEEDBACK PARA QUE TUS PIEZAS QUEDEN PRO.",
-            bold: "CORRECCIONES Y FEEDBACK",
+            texto: "REVISIÓN PERSONALIZADA DE TU OFERTA Y PACKS.",
+            bold: "REVISIÓN PERSONALIZADA",
         },
         {
-            texto: "INCLUYE TODO LO DE LA MASTERCLASS + PLANTILLAS Y RECURSOS PREMIUM.",
-            bold: "PLANTILLAS Y RECURSOS PREMIUM",
+            texto: "PRIORIDAD DE RESPUESTA Y ACCESO DIRECTO.",
+            bold: "PRIORIDAD",
         },
     ],
-    precio: "200",
-    precioAnterior: null, // No old price shown in screenshot for Pro/Premium
-    colorFondoHeader: "#0048B5", // Keeping cohesive, or change to lighter blue if needed
+    precio: "600",
+    precioAnterior: null,
+    accentColor: "var(--accent)", // Neon Yellow
     dataPlan: "pro",
-    btnText: "Quiero el Premium",
-    badge: "/assets/resoures/rocket_sticker.webp", // Assuming this path or similar exists, will use placeholder or verify. Plan says to check assets.
+    btnText: "APLICAR AL PRO",
+    badge: "/assets/resoures/rocket_sticker.webp",
 };
-
-// Check if rocket sticker exists or use one from previous file
-// The previous file had: <Icon name="lucide:rocket" ...> inside a div.
-// The new design asks for an image badge. I will look for it or use the one provided in metadata if available.
-// Retaining the icon logic inside the PricingCard would be complex if we want exactly the image.
-// I will point to a likely asset or just comment it out if missing, but the design requires it.
-// I'll stick to the props passed.
 ---
 
 <section
     id="pricing"
-    class="relative w-full py-24 bg-black text-white font-sans overflow-hidden"
+    class="relative w-full py-24 bg-[#0a0a0a] text-white font-sans overflow-hidden"
 >
-    <!-- Background Effects -->
+    <!-- Urban Background Effects -->
     <div class="absolute inset-0 pointer-events-none">
         <div
-            class="absolute top-0 left-0 w-full h-full bg-[url('/assets/resoures/textures/paper_texture_02.webp')] opacity-10 mix-blend-overlay"
+            class="absolute top-0 left-0 w-full h-full bg-[url('/assets/resoures/textures/texture_02.webp')] opacity-5 mix-blend-overlay bg-repeat"
         >
         </div>
         <div
-            class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-900/20 rounded-full blur-[120px]"
+            class="absolute top-0 left-0 w-full h-full bg-linear-to-b from-[#0e0e0e] via-transparent to-[#0a0a0a]"
         >
         </div>
         <div
-            class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-900/20 rounded-full blur-[120px]"
+            class="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[160px]"
+        >
+        </div>
+        <div
+            class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-secondary/20 rounded-full blur-[160px]"
         >
         </div>
     </div>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <!-- Optional Title for the Section -->
+        <!-- Section Title (Urban Style) -->
         <h2
-            class="text-4xl md:text-5xl font-black text-center text-white mb-20 uppercase tracking-tighter"
-            style="font-family: 'Archivo Black', sans-serif;"
+            class="text-6xl md:text-8xl font-black text-center text-white mb-28 uppercase tracking-tighter italic"
+            style="font-family: 'Base Neue', sans-serif;"
         >
-            Elegí tu nivel <span class="text-[#FFCC00]">PRO</span>
+            ELEGÍ TU <span class="text-accent">CAMINO</span>
         </h2>
 
         <div
-            class="flex flex-col lg:flex-row items-center justify-center gap-20 lg:gap-16 lg:items-end"
+            class="flex flex-col lg:flex-row items-stretch justify-center gap-12 lg:gap-16 w-full"
         >
-            <!-- Masterclass (Basic) -->
-            <PricingCard {...MASTERCLASS_DATA} />
+            <!-- Basic Plan -->
+            <PricingCard {...DATA_BASIC_PLAN} />
 
-            <!-- Premium (Pro) -->
-            <PricingCard {...PRO_DATA} />
+            <!-- Pro Plan -->
+            <PricingCard {...DATA_PRO_PLAN} />
         </div>
 
-        <!-- Guarantee Section (Preserved logic) -->
-        <div class="mt-32 max-w-3xl mx-auto text-center space-y-6">
+        <!-- Guarantee Section (Urban Dark) -->
+        <div class="mt-40 max-w-3xl mx-auto text-center space-y-8">
             <h4
-                class="text-2xl md:text-3xl font-bold text-white uppercase italic"
-                style="font-family: 'Archivo Black', sans-serif;"
+                class="text-3xl md:text-4xl font-black text-white uppercase italic tracking-tight"
+                style="font-family: 'Base Neue', sans-serif;"
             >
-                Garantía Condicionada ("Yo te acompaño")
+                GARANTÍA SIN VUELTAS
             </h4>
             <div
-                class="bg-zinc-900 border border-zinc-800 p-8 rounded-2xl relative overflow-hidden group hover:border-zinc-700 transition-colors"
+                class="bg-zinc-900/50 border-2 border-white/5 p-10 rounded-3xl relative overflow-hidden group hover:border-white/10 transition-colors"
+                style="clip-path: polygon(2% 0%, 100% 0%, 98% 100%, 0% 100%);"
             >
                 <div
-                    class="absolute inset-0 bg-blue-500/5 group-hover:bg-blue-500/10 transition-colors"
+                    class="absolute inset-0 bg-white/2 opacity-0 group-hover:opacity-100 transition-opacity"
                 >
                 </div>
                 <p
-                    class="text-gray-300 text-lg md:text-xl font-medium relative z-10"
+                    class="text-zinc-300 text-xl md:text-2xl font-bold relative z-10 uppercase tracking-tight"
                 >
-                    "Si completás las tareas de las primeras 2 semanas y sentís
-                    que no mejoraste, te doy una <span
-                        class="text-yellow-400 font-bold"
-                        >llamada 1:1 de 30 min</span
-                    > para destrabar."
+                    "Si aplicás el sistema por 2 semanas y ni así ves
+                    resultados, tendremos una <a
+                        href="#"
+                        class="relative inline-block text-white font-black decoration-none group/link cursor-pointer hover:text-accent transition-colors"
+                    >
+                        <span class="relative z-10">SESIÓN PERSONAL 1:1</span>
+                        <svg
+                            class="snake-line absolute -bottom-2 left-0 w-full h-[6px] text-accent opacity-80"
+                            width="100%"
+                            height="6"
+                            viewBox="0 0 100 6"
+                            preserveAspectRatio="none"
+                        >
+                            <path
+                                d="M0 3 Q 2.5 0, 5 3 T 10 3 T 15 3 T 20 3 T 25 3 T 30 3 T 35 3 T 40 3 T 45 3 T 50 3 T 55 3 T 60 3 T 65 3 T 70 3 T 75 3 T 80 3 T 85 3 T 90 3 T 95 3 T 100 3"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                vector-effect="non-scaling-stroke"></path>
+                        </svg>
+                    </a> para encarrilarte."
                 </p>
                 <p
-                    class="text-sm text-gray-500 mt-4 relative z-10 uppercase tracking-widest"
+                    class="text-xs text-zinc-500 mt-6 relative z-10 uppercase tracking-[0.3em] font-black"
                 >
-                    Compromiso mutuo: Yo te doy el sistema, vos ponés la
-                    práctica.
+                    YO TE DOY EL SISTEMA. VOS PONES LA GARRA.
                 </p>
             </div>
         </div>
     </div>
-
-    <!-- Email Modal (Preserved) -->
-    <dialog
-        id="emailModal"
-        class="bg-transparent backdrop:bg-black/80 backdrop:backdrop-blur-sm"
-    >
-        <div
-            class="bg-zinc-900 border border-zinc-700 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl relative"
-        >
-            <h3
-                class="text-2xl font-bold text-white mb-2"
-                style="font-family: 'Archivo Black', sans-serif;"
-            >
-                ¡Un paso más!
-            </h3>
-            <p class="text-gray-400 mb-6">
-                Ingresá tu email para continuar con el pago
-            </p>
-
-            <form id="emailForm" class="space-y-4">
-                <input
-                    type="email"
-                    id="customerEmail"
-                    placeholder="tu@email.com"
-                    required
-                    class="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
-                />
-
-                <div class="flex gap-3">
-                    <button
-                        type="button"
-                        id="cancelBtn"
-                        class="flex-1 py-3 bg-zinc-700 text-white font-semibold rounded-xl hover:bg-zinc-600 transition-colors uppercase tracking-wider text-sm"
-                    >
-                        Cancelar
-                    </button>
-                    <button
-                        type="submit"
-                        id="submitBtn"
-                        class="flex-1 py-3 bg-[#0048B5] text-white font-bold rounded-xl hover:bg-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed uppercase tracking-wider text-sm shadow-lg shadow-blue-900/50"
-                    >
-                        <span class="submit-text">Continuar al Pago</span>
-                        <span class="submit-loading hidden">
-                            <svg
-                                class="animate-spin h-5 w-5 mx-auto"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                            >
-                                <circle
-                                    class="opacity-25"
-                                    cx="12"
-                                    cy="12"
-                                    r="10"
-                                    stroke="currentColor"
-                                    stroke-width="4"></circle>
-                                <path
-                                    class="opacity-75"
-                                    fill="currentColor"
-                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                                ></path>
-                            </svg>
-                        </span>
-                    </button>
-                </div>
-
-                <p
-                    id="errorMsg"
-                    class="text-red-400 text-sm text-center hidden"
-                >
-                </p>
-            </form>
-        </div>
-    </dialog>
 </section>
 
-<script define:vars={{ SUPABASE_URL }}>
-    // State
-    let selectedPlan = null;
-
-    // Elements
-    const modal = document.getElementById("emailModal");
-    const emailForm = document.getElementById("emailForm");
-    const emailInput = document.getElementById("customerEmail");
-    const cancelBtn = document.getElementById("cancelBtn");
-    const submitBtn = document.getElementById("submitBtn");
-    const errorMsg = document.getElementById("errorMsg");
-
-    // We need to use event delegation because buttons might be inside generic containers
-    // But since they are static Astro components, standard querySelectorAll works fine.
-    const pricingBtns = document.querySelectorAll(".pricing-btn");
-
-    // Open modal when clicking pricing buttons
-    pricingBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            selectedPlan = btn.dataset.plan;
-            console.log("Plan selected:", selectedPlan); // Debug
-            errorMsg.classList.add("hidden");
-            emailInput.value = "";
-            modal.showModal();
-        });
-    });
-
-    // Close modal on cancel
-    cancelBtn.addEventListener("click", () => {
-        modal.close();
-        selectedPlan = null;
-    });
-
-    // Close modal on backdrop click
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            modal.close();
-            selectedPlan = null;
-        }
-    });
-
-    // Handle form submission
-    emailForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const email = emailInput.value.trim();
-        if (!email || !selectedPlan) return;
-
-        // Disable buttons and show loading
-        setLoading(true);
-        errorMsg.classList.add("hidden");
-
-        try {
-            const response = await fetch(
-                `${SUPABASE_URL}/functions/v1/create-preference`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        plan_type: selectedPlan,
-                        email: email,
-                    }),
-                },
-            );
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(data.error || "Error al procesar el pago");
-            }
-
-            if (data.sandbox_init_point || data.init_point) {
-                // Use sandbox for testing, fallback to production
-                const checkoutUrl = data.sandbox_init_point || data.init_point;
-                console.log("Redirecting to:", checkoutUrl);
-                window.location.href = checkoutUrl;
-            } else {
-                throw new Error("No se recibió el link de pago");
-            }
-        } catch (error) {
-            console.error("Payment error:", error);
-            errorMsg.textContent =
-                error.message ||
-                "Ocurrió un error. Por favor, intentá de nuevo.";
-            errorMsg.classList.remove("hidden");
-            setLoading(false);
-        }
-    });
-
-    function setLoading(isLoading) {
-        submitBtn.disabled = isLoading;
-        cancelBtn.disabled = isLoading;
-        emailInput.disabled = isLoading;
-
-        const submitText = submitBtn.querySelector(".submit-text");
-        const submitLoading = submitBtn.querySelector(".submit-loading");
-
-        if (isLoading) {
-            submitText.classList.add("hidden");
-            submitLoading.classList.remove("hidden");
-        } else {
-            submitText.classList.remove("hidden");
-            submitLoading.classList.add("hidden");
-        }
-    }
-</script>
-
 <style>
-    dialog::backdrop {
-        background: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(4px);
+    .snake-line path {
+        stroke-dasharray: 100;
+        stroke-dashoffset: 0;
+        animation: snakeFlow 20s linear infinite;
     }
 
-    dialog[open] {
-        animation: fadeIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: scale(0.9);
+    @keyframes snakeFlow {
+        0% {
+            stroke-dashoffset: 0;
         }
-        to {
-            opacity: 1;
-            transform: scale(1);
+        100% {
+            stroke-dashoffset: -200;
+        }
+    }
+
+    .snake-line {
+        animation: snakeWiggle 3s ease-in-out infinite;
+    }
+
+    @keyframes snakeWiggle {
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+        50% {
+            transform: translateX(3px);
         }
     }
 </style>
+
+<script>
+    function initButtons() {
+        // Buttons inside cards
+        const pricingBtns = document.querySelectorAll(".pricing-btn");
+        pricingBtns.forEach((btn) => {
+            const pricingBtn = btn as HTMLElement;
+            pricingBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const plan = pricingBtn.dataset.plan as string;
+                if (window.openLeadModal) {
+                    window.openLeadModal(plan);
+                } else {
+                    console.error("LeadModal API not found on window");
+                }
+            });
+        });
+
+        // Add Card Clickability (UX Improvement)
+        const cards = document.querySelectorAll(".urban-card-wrapper");
+        cards.forEach((card) => {
+            // @ts-ignore
+            card.style.cursor = "pointer";
+            card.addEventListener("click", (e) => {
+                // Check if click came from button - if so, handled by button
+                // @ts-ignore
+                if (e.target.closest(".pricing-btn")) return;
+
+                // Find the button inside this card to get the plan
+                // @ts-ignore
+                const btn = card.querySelector(".pricing-btn");
+                if (btn) {
+                    // @ts-ignore
+                    btn.click();
+                }
+            });
+        });
+    }
+
+    // Run on load
+    initButtons();
+</script>

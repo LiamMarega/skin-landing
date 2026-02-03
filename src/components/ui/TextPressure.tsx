@@ -193,7 +193,7 @@ const TextPressure: React.FC<TextPressureProps> = ({
           font-style: normal;
         }
 
-        .flex {
+        .flex-text{
           display: flex;
           justify-content: space-between;
         }
@@ -220,7 +220,7 @@ const TextPressure: React.FC<TextPressureProps> = ({
     );
   }, [fontFamily, fontUrl, flex, stroke, textColor, strokeColor]);
 
-  const dynamicClassName = [className, flex ? 'flex' : '', stroke ? 'stroke' : ''].filter(Boolean).join(' ');
+  const dynamicClassName = [className, flex ? 'flex-text' : '', stroke ? 'stroke' : ''].filter(Boolean).join(' ');
 
   return (
     <div
