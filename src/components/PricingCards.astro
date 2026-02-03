@@ -65,11 +65,11 @@ const DATA_PRO_PLAN = {
         alt="texture-trash"
         class="absolute inset-0 opacity-35 pointer-events-none mix-blend-screen"
     />
-    <img
+    <!-- <img
         src="/assets/resoures/rips/rip_01.webp"
         alt="texture-trash"
-        class="absolute -top-30 -right-20 h-80 pointer-events-none rotate-90 z-20"
-    />
+        class="absolute -top-30 -right-20 h-80 pointer-events-none rotate-90 z-20 invert brightness-0 opacity-40"
+    /> -->
 
     <!-- Urban Background Effects -->
     <div class="absolute inset-0 pointer-events-none">
@@ -127,10 +127,10 @@ const DATA_PRO_PLAN = {
                 >
                 </div>
                 <p
-                    class="text-zinc-300 text-xl md:text-2xl font-bold relative z-10 uppercase tracking-tight"
+                    class="text-zinc-300 text-xl md:text-xl font-bold relative z-10 uppercase tracking-tight"
                 >
-                    "Si aplicás el sistema por 2 semanas y ni así ves
-                    resultados, tendremos una <a
+                    Si aplicás el sistema por 2 semanas y ni así ves resultados,
+                    tendremos una <a
                         href="#"
                         class="relative inline-block text-white font-black decoration-none group/link cursor-pointer hover:text-accent transition-colors"
                     >
@@ -151,7 +151,7 @@ const DATA_PRO_PLAN = {
                                 stroke-width="3"
                                 vector-effect="non-scaling-stroke"></path>
                         </svg>
-                    </a> para encarrilarte."
+                    </a> para encarrilarte.
                 </p>
                 <p
                     class="text-xs text-zinc-500 mt-6 relative z-10 uppercase tracking-[0.3em] font-black"
@@ -167,7 +167,6 @@ const DATA_PRO_PLAN = {
     .snake-line path {
         stroke-dasharray: 1000;
         stroke-dashoffset: 0;
-        animation: snakeFlow 20s linear infinite;
     }
 
     @keyframes snakeFlow {

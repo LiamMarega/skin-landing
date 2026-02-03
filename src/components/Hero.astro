@@ -3,7 +3,6 @@ import DarkVeil from "./ui/backgrounds/DarkVeil/DarkVeil";
 import AnimatedButton from "./ui/buttons/AnimatedButton.astro";
 import Badge from "./ui/Badge.astro";
 import CheckList from "./ui/CheckList.astro";
-import SocialProofBar from "./ui/SocialProofBar.astro";
 import TextPressure from "./ui/TextPressure";
 import SocialProof from "./SocialProof.astro";
 
@@ -16,26 +15,28 @@ const checklistItems = [
 ---
 
 <section
-    class="relative pt-16 w-full min-h-screen pb-24 overflow-hidden overflow-x-hidden bg-black text-white selection:bg-yellow-500/30 selection:text-yellow-200 font-sans"
+    class="relative w-full min-h-screen overflow-hidden bg-black text-white selection:bg-yellow-500/30 selection:text-yellow-200 font-sans"
 >
     <!-- Background Layers -->
     <div class="absolute inset-0 z-0 pointer-events-none">
-        <!-- Barbed wire decoration -->
+        <!-- Barbed wire decoration - Hidden on mobile for cleaner look -->
         <img
             src="/assets/resoures/barbed/barbed_wire03.png"
-            alt="Barbed Wire"
+            alt=""
+            aria-hidden="true"
             loading="lazy"
             fetchpriority="low"
             decoding="async"
-            class="absolute blur-[2px] rotate-45 -right-32 -top-64 w-auto object-contain object-bottom drop-shadow-2xl opacity-20 z-10"
+            class="hidden md:block absolute blur-[2px] rotate-45 -right-32 -top-64 w-auto object-contain object-bottom drop-shadow-2xl opacity-20 z-10"
         />
         <img
             src="/assets/resoures/textures/texture.webp"
-            alt="Barbed Wire"
+            alt=""
+            aria-hidden="true"
             loading="lazy"
             fetchpriority="low"
-            decoding="sync"
-            class="absolute blur-[2px] -left-72 rotate-45 mix-blend-screen bottom-0 w-auto object-contain object-bottom drop-shadow-2xl opacity-50 z-10"
+            decoding="async"
+            class="hidden lg:block absolute blur-[2px] -left-72 rotate-45 mix-blend-screen bottom-0 w-auto object-contain object-bottom drop-shadow-2xl opacity-50 z-10"
         />
 
         <DarkVeil
@@ -59,11 +60,45 @@ const checklistItems = [
         </div>
     </div>
 
-    <!-- Navbar Placeholder -->
+    <!-- Hero Image - Background layer on mobile, side on desktop -->
+    <div class="absolute inset-0 z-1 pointer-events-none overflow-hidden">
+        <!-- Mobile: Centered background image with gradient overlay -->
+        <div class="block lg:hidden absolute inset-0">
+            <img
+                src="/assets/skin_picture.webp"
+                alt="Creator"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                class="absolute bottom-0 left-1/2 -translate-x-1/2 h-[85vh] w-auto max-w-none object-contain object-bottom opacity-40 animate-in fade-in slide-in-from-bottom-12 duration-1000"
+                style="mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 70%, transparent 100%);"
+            />
+            <!-- Extra dark gradient overlay for text readability on mobile -->
+            <div
+                class="absolute inset-0 bg-linear-to-t from-black via-black/60 to-transparent"
+            >
+            </div>
+        </div>
+
+        <!-- Desktop: Right-aligned image -->
+        <div class="hidden lg:block absolute inset-0">
+            <img
+                src="/assets/skin_picture.webp"
+                alt="Creator"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                class="absolute bottom-0 right-0 h-[110vh] w-auto max-w-[55vw] object-contain object-bottom drop-shadow-[0_0_50px_rgba(0,0,0,0.5)] animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out xl:right-8 2xl:right-16"
+                style="mask-image: linear-gradient(to bottom, black, transparent 100%);"
+            />
+        </div>
+    </div>
+
+    <!-- TextPressure Logo - Desktop only, positioned after image layer -->
     <nav
-        class="absolute bottom-24 right-0 z-30 p-8 md:p-10 flex justify-end items-end pointer-events-none"
+        class="hidden lg:flex absolute bottom-24 right-0 z-30 p-10 justify-end items-end pointer-events-none"
     >
-        <div class="w-48 md:w-64 mb-32 pointer-events-none">
+        <div class="w-64 mb-32 pointer-events-none">
             <TextPressure
                 client:idle
                 text="SKIN LABS PRO"
@@ -75,13 +110,13 @@ const checklistItems = [
         </div>
     </nav>
 
-    <!-- Main Content Grid -->
+    <!-- Main Content -->
     <div
-        class="relative z-10 w-full min-h-screen flex flex-col lg:flex-row items-start mx-auto pt-24 lg:pt-0 overflow-visible"
+        class="relative z-10 w-full min-h-screen flex flex-col justify-center px-5 sm:px-6 md:px-12 lg:px-16 xl:px-24 py-20 lg:py-0"
     >
-        <!-- Left Column: Typography / Offer -->
+        <!-- Content wrapper with max-width for desktop -->
         <div
-            class="w-full lg:w-[55%] flex flex-col justify-around px-6 md:px-12 lg:pl-16 xl:pl-24 space-y-8 md:space-y-10 z-20 lg:pb-0"
+            class="w-full lg:w-[55%] xl:w-[50%] flex flex-col space-y-5 sm:space-y-6 md:space-y-8 lg:space-y-10"
         >
             <!-- Badge -->
             <div class="animate-in fade-in slide-in-from-left-10 duration-700">
@@ -93,15 +128,15 @@ const checklistItems = [
                 class="animate-in fade-in slide-in-from-bottom-10 duration-700 delay-100"
             >
                 <h1
-                    class="text-2xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-6xl font-black tracking-tighter text-white"
+                    class="font-black tracking-tighter text-white leading-[0.9] sm:leading-[0.85]"
                 >
                     <span
-                        class="block text-transparent bg-clip-text bg-linear-to-br from-white via-gray-200 to-gray-500"
+                        class="block text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-6xl text-transparent bg-clip-text bg-linear-to-br from-white via-gray-200 to-gray-500"
                     >
                         De 0 a PRO
                     </span>
                     <span
-                        class="text-3xl sm:text-4xl lg:text-5xl block text-yellow-500 drop-shadow-[0_0_15px_rgba(234,179,8,0.3)]"
+                        class="block text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-4xl text-yellow-500 drop-shadow-[0_0_15px_rgba(234,179,8,0.3)] text-nowrap mt-1"
                     >
                         VIVÍ DEL DISEÑO GRÁFICO.
                     </span>
@@ -110,14 +145,14 @@ const checklistItems = [
 
             <!-- Subtitle -->
             <p
-                class="text-base md:text-lg lg:text-lg text-gray-300 font-medium max-w-2xl animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200"
+                class="text-sm sm:text-base md:text-lg text-gray-300 font-medium max-w-xl lg:max-w-2xl animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200 leading-relaxed"
             >
-                Convertite en diseñador PRO y comenza a trabajar <br /> con
+                Convertite en diseñador PRO y comenza a trabajar con
                 <span class="text-white font-bold">marcas y eventos</span> en solo
                 30 días.
             </p>
 
-            <!-- Checklist -->
+            <!-- Checklist - Simplified for mobile -->
             <div
                 class="animate-in fade-in slide-in-from-bottom-10 duration-700 delay-300"
             >
@@ -126,58 +161,36 @@ const checklistItems = [
 
             <!-- CTA -->
             <div
-                class="flex flex-col sm:flex-row items-start gap-6 animate-in fade-in slide-in-from-bottom-10 duration-700 delay-400"
+                class="flex flex-col items-start gap-3 sm:gap-4 animate-in fade-in slide-in-from-bottom-10 duration-700 delay-400 pt-2"
             >
-                <div class="flex flex-col gap-2 justify-center items-end">
-                    <AnimatedButton
-                        title="CONVERTIRME EN DISEÑADOR PRO"
-                        class="text-lg px-8 py-4"
-                    />
-                    <span
-                        class="text-xs text-yellow-500/80 font-medium flex items-center justify-end"
-                    >
-                        <span class="block">Pago único. Acceso inmediato.</span>
-                    </span>
-                </div>
-
-                <!-- Right Column: Image (Floating) -->
-                <div
-                    class="relative w-full lg:w-[45%] h-[50vh] lg:h-screen flex items-end justify-center lg:justify-end pointer-events-none z-10 lg:absolute lg:right-0 lg:bottom-0"
-                >
-                </div>
-
-                <!-- Social Bar (Mobile) -->
-                <div
-                    class="w-full px-6 pb-12 block lg:hidden z-20 relative bg-black/80 backdrop-blur-sm border-t border-white/10"
-                >
-                    <SocialProofBar />
-                </div>
+                <AnimatedButton
+                    title="CONVERTIRME EN DISEÑADOR PRO"
+                    class="text-sm sm:text-base md:text-lg px-5 sm:px-6 md:px-8 py-3 sm:py-4"
+                />
+                <span class="text-xs text-yellow-500/80 font-medium">
+                    Pago único. Acceso inmediato.
+                </span>
             </div>
-            <!-- Glow backing -->
-
-            <img
-                src="/assets/skin_picture.webp"
-                alt="Creator"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-                class="absolute z-0 h-full right-0 top-56 scale-150 drop-shadow-[0_0_50px_rgba(0,0,0,0.5)] animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out lg:mr-[-50px] xl:mr-0"
-                style="mask-image: linear-gradient(to bottom, black, transparent 100%);"
-            />
-
-            <!-- <div
-                class="absolute bottom-0 right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-[-10%] w-[120%] h-[80%] bg-blue-900/30 rounded-full blur-[100px] mix-blend-screen animate-pulse z-10"
-            >
-            </div> -->
-            <!-- Decorative Tapes -->
-            <img
-                src="/assets/resoures/tapes/tape_02.webp"
-                alt="Tape"
-                loading="lazy"
-                decoding="async"
-                class="w-32 lg:w-44 rotate-90 absolute -bottom-40 -left-28 z-30 opacity-20 pointer-events-none"
-            />
         </div>
     </div>
-    <SocialProof />
+
+    <!-- Decorative Tapes - Hidden on mobile -->
+    <img
+        src="/assets/resoures/tapes/tape_02.webp"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+        class="hidden md:block w-32 lg:w-44 rotate-90 absolute -bottom-40 left-4 lg:-left-28 z-30 opacity-20 pointer-events-none"
+    />
+
+    <!-- Desktop Social Proof -->
+    <div class="hidden lg:block">
+        <SocialProof />
+    </div>
+
+    <!-- Mobile Social Proof - Simplified version -->
+    <div class="block lg:hidden">
+        <SocialProof />
+    </div>
 </section>
