@@ -45,11 +45,12 @@ const checklistItems = [
             speed={0.8}
             scanlineFrequency={150}
             warpAmount={0.3}
+            hueShift={10}
         />
 
         <!-- Vignette & Gradients -->
         <div
-            class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/60 mix-blend-multiply opacity-90"
+            class="absolute inset-0 bg-linear-to-t from-black via-black/20 to-black/60 mix-blend-multiply opacity-90"
         >
         </div>
         <div
@@ -100,7 +101,7 @@ const checklistItems = [
                         De 0 a PRO
                     </span>
                     <span
-                        class="text-nowrap block text-yellow-500 drop-shadow-[0_0_15px_rgba(234,179,8,0.3)]"
+                        class="text-nowrap text-5xl block text-yellow-500 drop-shadow-[0_0_15px_rgba(234,179,8,0.3)]"
                     >
                         VIVÍ DEL DISEÑO GRÁFICO.
                     </span>
@@ -109,7 +110,7 @@ const checklistItems = [
 
             <!-- Subtitle -->
             <p
-                class="text-base md:text-lg lg:text-xl text-gray-300 font-medium max-w-2xl animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200"
+                class="text-base md:text-lg lg:text-lg text-gray-300 font-medium max-w-2xl animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200"
             >
                 Convertite en diseñador PRO y comenza a trabajar <br /> con
                 <span class="text-white font-bold">marcas y eventos</span> en solo
@@ -161,7 +162,7 @@ const checklistItems = [
                 fetchpriority="high"
                 decoding="async"
                 class="absolute z-0 h-full right-0 top-56 scale-150 drop-shadow-[0_0_50px_rgba(0,0,0,0.5)] animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out lg:mr-[-50px] xl:mr-0"
-                style="mask-image: linear-gradient(to bottom, black 0%, transparent 100%);"
+                style="mask-image: linear-gradient(to bottom, black, transparent 100%);"
             />
 
             <!-- <div
@@ -174,7 +175,7 @@ const checklistItems = [
                 alt="Tape"
                 loading="lazy"
                 decoding="async"
-                class="w-32 lg:w-44 rotate-90 absolute -bottom-20 -left-28 z-30 opacity-20 pointer-events-none"
+                class="w-32 lg:w-44 rotate-90 absolute -bottom-40 -left-28 z-30 opacity-20 pointer-events-none"
             />
         </div>
     </div>

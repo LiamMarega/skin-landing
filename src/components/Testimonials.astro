@@ -1,11 +1,35 @@
 ---
-import ModernCard from "./ui/ModernCard.astro";
+import { Icon } from "astro-icon/components";
+
+const testimonials = [
+    {
+        name: "Matias",
+        role: "Graphic Designer",
+        content:
+            "El flujo de trabajo es de otro planeta. Mis diseños pasaron de verse amateur a nivel industrial en una semana.",
+        initial: "M",
+        color: "bg-blue-600",
+    },
+    {
+        name: "Lucas",
+        role: "Freelancer",
+        content:
+            "Lo que aprendí de IA aplicada al diseño de eventos me ahorra 3 horas por flyer. Una locura.",
+        initial: "L",
+        color: "bg-purple-600",
+    },
+    {
+        name: "Julian",
+        role: "Content Creator",
+        content:
+            "La mejor inversión que hice este año. El nivel de detalle en el temario es impecable.",
+        initial: "J",
+        color: "bg-emerald-600",
+    },
+];
 ---
 
-<section
-    id="testimonials"
-    class="relative w-full py-24 bg-black font-sans overflow-hidden"
->
+<section class="relative w-full py-24 bg-black font-sans overflow-hidden">
     <!-- Decorative Glow -->
     <div
         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"
@@ -14,100 +38,54 @@ import ModernCard from "./ui/ModernCard.astro";
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
         <h2
-            class="text-4xl md:text-6xl font-black text-center mb-16 italic uppercase tracking-tighter text-white"
+            class="text-4xl md:text-6xl font-black text-center mb-16 text-white uppercase italic tracking-tighter"
         >
-            Resultados de <span class="text-blue-500">Estudiantes</span>
+            Lo que dicen <span class="text-blue-500">Ellos</span>
         </h2>
 
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Testimonial 1 -->
-            <ModernCard
-                bgClass="bg-zinc-900/50 backdrop-blur-xl"
-                shadowClass="bg-blue-600"
-                borderClass="border-white/10"
-            >
-                <div class="flex items-center gap-4 mb-6">
-                    <div
-                        class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center font-bold text-xl"
-                    >
-                        M
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-white">Mateo R.</h4>
-                        <p class="text-sm text-gray-500">Diseñador Freelance</p>
-                    </div>
-                </div>
-                <p class="text-gray-300 italic mb-6">
-                    "Antes mis flyers se veían muy básicos. Con el sistema de
-                    Skin aprendí a darle ese acabado 'caro' que los boliches
-                    buscan. Mi primer cliente después del curso me pagó el
-                    triple de lo que cobraba antes."
-                </p>
-                <div class="flex gap-1 text-yellow-400">
-                    <span>★</span><span>★</span><span>★</span><span>★</span
-                    ><span>★</span>
-                </div>
-            </ModernCard>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {
+                testimonials.map((t) => (
+                    <div class="group bg-zinc-900/40 backdrop-blur-sm border border-white/5 p-8 rounded-3xl hover:border-blue-500/30 transition-all duration-500 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 blur-3xl rounded-full" />
 
-            <!-- Testimonial 2 -->
-            <ModernCard
-                bgClass="bg-zinc-900/50 backdrop-blur-xl"
-                shadowClass="bg-purple-600"
-                borderClass="border-white/10"
-                class="lg:translate-y-8"
-            >
-                <div class="flex items-center gap-4 mb-6">
-                    <div
-                        class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center font-bold text-xl"
-                    >
-                        L
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-white">Lucía G.</h4>
-                        <p class="text-sm text-gray-500">Content Creator</p>
-                    </div>
-                </div>
-                <p class="text-gray-300 italic mb-6">
-                    "Lo que más me sirvió fue el flujo de trabajo con IA. Antes
-                    tardaba horas en recortar y buscar texturas, ahora lo hago
-                    en minutos y queda mucho mejor."
-                </p>
-                <div class="flex gap-1 text-yellow-400">
-                    <span>★</span><span>★</span><span>★</span><span>★</span
-                    ><span>★</span>
-                </div>
-            </ModernCard>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div
+                                class={`w-12 h-12 ${t.color} rounded-full flex items-center justify-center font-bold text-xl text-white`}
+                            >
+                                {t.initial}
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold leading-none">
+                                    {t.name}
+                                </h4>
+                                <p class="text-gray-500 text-sm mt-1">
+                                    {t.role}
+                                </p>
+                            </div>
+                        </div>
 
-            <!-- Testimonial 3 -->
-            <ModernCard
-                bgClass="bg-zinc-900/50 backdrop-blur-xl"
-                shadowClass="bg-green-600"
-                borderClass="border-white/10"
-            >
-                <div class="flex items-center gap-4 mb-6">
-                    <div
-                        class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center font-bold text-xl"
-                    >
-                        J
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-white">Julián S.</h4>
-                        <p class="text-sm text-gray-500">
-                            Agencia de Marketing
+                        <div class="flex gap-1 mb-4 text-yellow-400">
+                            {[...Array(5)].map(() => (
+                                <Icon
+                                    name="lucide:star"
+                                    class="w-4 h-4 fill-current"
+                                />
+                            ))}
+                        </div>
+
+                        <p class="text-gray-400 font-medium leading-relaxed italic">
+                            "{t.content}"
                         </p>
                     </div>
-                </div>
-                <p class="text-gray-300 italic mb-6">
-                    "El módulo de cómo conseguir clientes por IG es oro puro. No
-                    solo aprendés a diseñar, sino a vender tu trabajo. Ya
-                    recuperé la inversión del curso con mi primer pack de
-                    posteos."
-                </p>
-                <div class="flex gap-1 text-yellow-400">
-                    <span>★</span><span>★</span><span>★</span><span>★</span
-                    ><span>★</span>
-                </div>
-            </ModernCard>
+                ))
+            }
+        </div>
+
+        <div class="mt-20 flex justify-center items-center gap-12 opacity-30">
+            <div class="text-white font-black text-2xl italic tracking-tighter">
+                TRUSTED BY 500+ DESIGNERS
+            </div>
         </div>
     </div>
 </section>

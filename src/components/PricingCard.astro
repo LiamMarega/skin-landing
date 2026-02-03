@@ -1,0 +1,210 @@
+---
+const {
+    tipo,
+    clases,
+    caracteristicas,
+    precio,
+    precioAnterior,
+    badge,
+    dataPlan,
+    btnText,
+    accentColor = "#00FF66", // Neon Green default
+    tapeImage = "/assets/resoures/tapes/tape_03.webp", // Fallback or updated
+} = Astro.props;
+---
+
+<div
+    class="urban-card-wrapper group relative w-full max-w-[440px] mx-auto overflow-visible mb-12 lg:mb-0"
+>
+    <!-- Spray Effect Background -->
+    <div
+        class="spray-bg absolute -top-10 -left-10 w-40 h-40 opacity-40 mix-blend-screen pointer-events-none z-0"
+        style={`background: radial-gradient(circle, ${accentColor} 0%, transparent 70%); filter: blur(30px);`}
+    >
+    </div>
+
+    <!-- Urban Header -->
+    <div class="urban-header relative z-20">
+        <div
+            class="header-content bg-[#111] py-6 px-4 border-b-2 border-white/10 rounded-t-3xl text-center"
+        >
+            <h2
+                class="tipo-title text-4xl font-black text-white italic tracking-tighter leading-none"
+            >
+                {tipo}
+            </h2>
+            <div class="flex items-center justify-center gap-2 mt-2">
+                <span
+                    class="h-[2px] w-8 bg-current"
+                    style={`color: ${accentColor}`}></span>
+                <h3
+                    class="clases-subtitle text-lg font-bold uppercase tracking-[0.2em]"
+                    style={`color: ${accentColor}`}
+                >
+                    {clases}
+                </h3>
+                <span
+                    class="h-[2px] w-8 bg-current"
+                    style={`color: ${accentColor}`}></span>
+            </div>
+        </div>
+        <!-- Torn Edge Simulation -->
+        <div class="torn-edge w-full h-4 bg-[#111] relative overflow-hidden">
+            <div
+                class="absolute bottom-0 left-0 w-full h-full bg-[#151515]"
+                style="clip-path: polygon(0% 100%, 5% 20%, 10% 80%, 15% 30%, 20% 70%, 25% 40%, 30% 90%, 35% 20%, 40% 60%, 45% 10%, 50% 80%, 55% 30%, 60% 70%, 65% 40%, 70% 90%, 75% 20%, 80% 60%, 85% 10%, 90% 80%, 95% 30%, 100% 100%);"
+            >
+            </div>
+        </div>
+    </div>
+
+    <!-- Urban Body -->
+    <div
+        class="urban-body relative bg-[#151515] px-8 pt-8 pb-24 border-x border-white/5 shadow-2xl overflow-hidden"
+    >
+        <!-- Rugged Texture Overlay -->
+        <div
+            class="absolute inset-0 opacity-10 mix-blend-overlay pointer-events-none bg-[url('/assets/resoures/textures/texture_02.webp')] bg-cover"
+        >
+        </div>
+        <div
+            class="noise-overlay absolute inset-0 opacity-[0.05] pointer-events-none"
+        >
+        </div>
+
+        {
+            badge && (
+                <div class="absolute -right-4 top-4 w-28 h-28 z-30 opacity-80 group-hover:opacity-100 transition-opacity">
+                    <img
+                        src={badge}
+                        class="w-full h-full object-contain rotate-12"
+                        alt="badge"
+                    />
+                </div>
+            )
+        }
+
+        <ul class="feature-list relative z-10 space-y-5">
+            {
+                caracteristicas.map((item: any) => (
+                    <li class="flex items-start gap-4">
+                        <span
+                            class="text-2xl font-black"
+                            style={`color: ${accentColor}`}
+                        >
+                            ✓
+                        </span>
+                        <p
+                            class="text-gray-300 font-medium text-[1.05rem] leading-tight uppercase tracking-tight"
+                            set:html={item.texto.replace(
+                                item.bold,
+                                `<span class="urban-marker text-white font-black" style="--marker-color: ${accentColor}">${item.bold}</span>`,
+                            )}
+                        />
+                    </li>
+                ))
+            }
+        </ul>
+
+        <!-- Urban CTA Button -->
+        <div class="mt-10 relative z-20">
+            <button
+                type="button"
+                data-plan={dataPlan}
+                class="urban-btn pricing-btn relative w-full py-5 bg-white text-black font-black text-2xl uppercase tracking-tighter overflow-hidden hover:scale-[1.02] transition-all duration-300 border-4 border-white"
+            >
+                <span class="relative z-10">{btnText || "JOIN THE GANG"}</span>
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-transparent via-black/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"
+                >
+                </div>
+            </button>
+        </div>
+
+        <!-- Price Section (Brutalist) -->
+        <div
+            class="price-section absolute -bottom-10 left-1/2 -translate-x-1/2 w-full flex flex-col items-center z-40"
+        >
+            <div
+                class="relative px-8 py-2 bg-white text-black -rotate-2 border-2 border-black shadow-[8px_8px_0px_0px_rgba(255,255,255,0.15)]"
+            >
+                <div class="flex items-baseline font-black leading-none">
+                    <span class="text-3xl self-start mt-2">$</span>
+                    <span class="text-8xl tracking-tighter">{precio}</span>
+                    <span class="text-xl ml-1">USD</span>
+                </div>
+
+                {
+                    precioAnterior && (
+                        <div class="absolute -top-4 -right-4 bg-red-600 text-white text-xs font-bold px-2 py-1 rotate-12 line-through shadow-lg ring-1 ring-black/20">
+                            WAS ${precioAnterior}
+                        </div>
+                    )
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Paint Drip Effect -->
+    <div
+        class="paint-drips w-full h-10 opacity-60 pointer-events-none relative z-10"
+    >
+        <svg
+            viewBox="0 0 500 150"
+            preserveAspectRatio="none"
+            class="w-full h-full fill-[#151515]"
+        >
+            <path d="M0,0 C150,150 350,0 500,100 L500,00 L0,0 Z"></path>
+        </svg>
+    </div>
+</div>
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+
+    .urban-card-wrapper {
+        font-family: "Archivo Black", sans-serif;
+        animation: urbanEntry 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    /* Stencil/Spray Highlighter */
+    :global(.urban-marker) {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        padding: 0 4px;
+    }
+
+    :global(.urban-marker::before) {
+        content: "";
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        width: 100%;
+        height: 12px;
+        background-color: var(--marker-color);
+        z-index: -1;
+        opacity: 0.7;
+        transform: skewX(-15deg);
+        filter: blur(1px);
+    }
+
+    .urban-btn {
+        clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+    }
+
+    .noise-overlay {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    @keyframes urbanEntry {
+        0% {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+</style>

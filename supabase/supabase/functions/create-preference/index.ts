@@ -13,7 +13,7 @@ const PLAN_PRICES: Record<string, number> = {
   pro: 600000
 };
 
-// Marketplace fee percentage (20%)
+// Marketplace fee percentage (20% goes to developer/marketplace owner)
 const MARKETPLACE_FEE_PERCENT = 0.20;
 
 serve(async (req) => {
@@ -45,6 +45,26 @@ serve(async (req) => {
     const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
+    // Get the connected seller's access token from the database
+    // For now, we get the first (and likely only) connected seller
+    // In a multi-seller scenario, you'd pass seller_id in the request
+    const { data: seller, error: sellerError } = await supabase
+      .from('connected_sellers')
+      .select('access_token, mp_user_id')
+      .order('created_at', { ascending: false })
+      .limit(1)
+      .single();
+
+    if (sellerError || !seller) {
+      console.error('No connected seller found:', sellerError);
+      return new Response(
+        JSON.stringify({ error: 'No hay vendedor conectado. El vendedor debe autorizar la aplicación primero.' }),
+        { headers: { ...corsHeaders, 'Content-Type': 'application/json' }, status: 400 }
+      );
+    }
+
+    console.log('Using seller access token for mp_user_id:', seller.mp_user_id);
+
     // Calculate pricing
     const unit_price = PLAN_PRICES[plan_type];
     const marketplace_fee = Math.round(unit_price * MARKETPLACE_FEE_PERCENT);
@@ -73,9 +93,11 @@ serve(async (req) => {
       );
     }
 
-    // Initialize MercadoPago client with access token
+    // Initialize MercadoPago client with SELLER's access token
+    // This is the key for marketplace: we use the seller's token to create the preference
+    // so the payment goes to the seller's account, and we take our fee via marketplace_fee
     const client = new MercadoPagoConfig({
-      accessToken: Deno.env.get('DEVELOPER_MP_ACCESS_TOKEN') || ''
+      accessToken: seller.access_token
     });
 
     const preference = new Preference(client);
@@ -83,10 +105,7 @@ serve(async (req) => {
     // Get the Supabase project URL for webhook
     const webhookUrl = `${supabaseUrl}/functions/v1/mp-webhook`;
 
-    // Check if marketplace mode is enabled (collector_id is set)
-    const collectorId = Deno.env.get('MP_COLLECTOR_ID');
-
-    // Build the base preference body
+    // Build the preference body with marketplace fee
     const preferenceBody: Record<string, unknown> = {
       items: [{
         id: order.id,
@@ -98,6 +117,10 @@ serve(async (req) => {
         unit_price: unit_price,
         currency_id: 'ARS'
       }],
+
+      // Marketplace fee - 20% goes to the developer (you!)
+      // This is automatically transferred to your MP account
+      marketplace_fee: marketplace_fee,
 
       // External reference to link payment with our order
       external_reference: external_ref,
@@ -127,23 +150,15 @@ serve(async (req) => {
       expiration_date_to: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString()
     };
 
-    // Only add marketplace fields if collector_id is configured
-    // This enables split payments in marketplace mode
-    if (collectorId) {
-      preferenceBody.collector_id = parseInt(collectorId);
-      preferenceBody.marketplace_fee = marketplace_fee;
-    }
-
     // Create MercadoPago preference
     const result = await preference.create({ body: preferenceBody });
 
-    console.log('Preference created:', result.id, 'for order:', order.id);
+    console.log('Preference created:', result.id, 'for order:', order.id, 'seller:', seller.mp_user_id);
 
     return new Response(
       JSON.stringify({
         init_point: result.init_point,
-        sandbox_init_point: result.init_point,
-        // sandbox_init_point: result.sandbox_init_point,
+        sandbox_init_point: result.sandbox_init_point,
         preference_id: result.id,
         order_id: order.id
       }),

@@ -1,181 +1,162 @@
 ---
 import GradientBlinds from "./ui/backgrounds/GradientBlinds/GradientBlinds";
+import SpotlightCard from "./ui/Cards/SpotlightCard/SpotlightCard";
+import { Icon } from "astro-icon/components";
+
+const cards = [
+    {
+        title: "Diseño",
+        titleHighlight: "PRO",
+        description: [
+            { text: "Flyers que ", bold: "venden" },
+            { text: ' (no solo "bonitos").' },
+            {
+                text: "Tipografía con jerarquía y flow profesional.",
+                separator: true,
+            },
+            { text: "Fotomontajes realistas de alto nivel.", separator: true },
+        ],
+        icon: "lucide:palette",
+        spotlightColor: "rgba(59, 130, 246, 0.15)",
+        accentColor: "text-blue-500",
+        iconBg: "bg-blue-500/10",
+        iconColor: "text-blue-400",
+        borderHover: "hover:border-blue-500/50",
+        shadow: "bg-blue-500/10",
+    },
+    {
+        title: "Sistema",
+        titleHighlight: "Veloz",
+        description: [
+            { text: "Método repetible anti-bloqueo creativo." },
+            {
+                text: "Workflow para diseñar ",
+                bold: "x2 más rápido",
+                separator: true,
+            },
+            {
+                text: "Solución de problemas técnicos al instante.",
+                separator: true,
+            },
+        ],
+        icon: "lucide:zap",
+        spotlightColor: "rgba(234, 179, yellow, 0.15)",
+        accentColor: "text-yellow-500",
+        iconBg: "bg-yellow-500/10",
+        iconColor: "text-yellow-500",
+        borderHover: "hover:border-yellow-500/50",
+        shadow: "bg-yellow-500/10",
+    },
+    {
+        title: "Dinero",
+        titleHighlight: "Real",
+        description: [
+            { text: "Oferta clara y packs de precios definidos." },
+            {
+                text: "Estrategia para ",
+                bold: "recuperar tu inversión",
+                separator: true,
+            },
+            { text: "Cómo fidelizar clientes recurrentes.", separator: true },
+        ],
+        icon: "lucide:trending-up",
+        spotlightColor: "rgba(34, 197, 94, 0.15)",
+        accentColor: "text-green-500",
+        iconBg: "bg-green-500/10",
+        iconColor: "text-green-500",
+        borderHover: "hover:border-green-500/50",
+        shadow: "bg-green-500/10",
+    },
+];
 ---
 
 <section
     class="relative w-full py-24 bg-black overflow-hidden font-sans flex flex-col justify-center items-center"
 >
-    <div class="max-w-6xl relative z-10 w-full">
+    <div class="max-w-7xl relative z-10 w-full px-6 text-center">
         <!-- Section Header -->
         <h2
-            class="text-4xl md:text-6xl font-black text-center mb-16 italic uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-blue-400 to-white drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+            class="text-4xl md:text-6xl font-black mb-8 italic uppercase tracking-tighter text-white"
         >
-            ¿Qué vas a <span class="text-blue-500">Lograr?</span>
+            Resultados <span
+                class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-blue-600 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+                >CONCRETOS</span
+            >
         </h2>
 
-        <!-- Content Box -->
-        <div class="relative group w-full mx-auto">
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-20">
+            No es teoría suelta. Es un sistema integral para que mejores tu
+            diseño, optimices tu tiempo y generes ingresos reales.
+        </p>
+
+        <!-- Cards Grid -->
+        <div class="grid md:grid-cols-3 gap-8 relative">
             <!-- Background Layers -->
             <div
-                class="absolute inset-0 z-0 pointer-events-none overflow-hidden"
+                class="absolute inset-0 z-0 pointer-events-none overflow-hidden -mx-40 -my-20"
             >
-                <GradientBlinds
+                <!-- <GradientBlinds
                     client:idle
-                    className="opacity-50"
                     gradientColors={["#07194c", "#0c3e80", "#000000"]}
                     blindCount={12}
                     mixBlendMode="screen"
-                    spotlightOpacity={0.3}
+                    spotlightOpacity={0.2}
                     angle={20}
                     mouseDampening={0.5}
-                />
+                /> -->
             </div>
-            <!-- Glassmorphism Container -->
-            <div
-                class="relative z-10 w-full bg-blue-900/10 backdrop-blur-xl border border-blue-500/30 rounded-3xl p-8 md:p-12 overflow-hidden hover:border-blue-500/50 transition-colors duration-500"
-            >
-                <!-- Inner Glow -->
-                <div
-                    class="absolute inset-0 bg-blue-500/5 blur-[100px] pointer-events-none"
-                >
-                </div>
 
-                <div class="flex flex-col gap-10">
-                    <div class="space-y-4 text-center">
-                        <h3
-                            class="text-3xl md:text-5xl font-black text-white uppercase italic leading-tight"
-                        >
-                            Resultados <span class="text-blue-500"
-                                >Concretos</span
-                            >
-                        </h3>
-                        <p class="text-lg text-gray-300 max-w-2xl mx-auto">
-                            No es teoría suelta. Es un sistema integral para que
-                            mejores tu diseño, optimices tu tiempo y generes
-                            ingresos.
-                        </p>
-                    </div>
+            {
+                cards.map((card) => (
+                    <SpotlightCard
+                        client:load
+                        spotlightColor={card.spotlightColor}
+                        className="relative z-10 h-full group"
+                    >
+                        <div
+                            class={`absolute inset-0 ${card.shadow} blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none`}
+                        />
 
-                    <div class="grid md:grid-cols-3 gap-8 text-left">
-                        <!-- Pillar A -->
-                        <div class="space-y-4">
-                            <h4
-                                class="text-xl font-bold text-blue-400 uppercase tracking-wider border-b border-blue-500/30 pb-2"
+                        <div class="relative flex flex-col h-full">
+                            <div
+                                class={`w-14 h-14 ${card.iconBg} rounded-2xl flex items-center justify-center  ${card.iconColor} group-hover:scale-110 transition-transform duration-300`}
                             >
-                                🎨 Resultados de Diseño
+                                <Icon name={card.icon} class="w-7 h-7" />
+                            </div>
+
+                            <h4 class="text-2xl font-bold text-white uppercase tracking-wide mb-6 text-left">
+                                {card.title}{" "}
+                                <span class={card.accentColor}>
+                                    {card.titleHighlight}
+                                </span>
                             </h4>
-                            <ul
-                                class="text-gray-300 space-y-2 text-sm md:text-base font-medium"
-                            >
-                                <li class="flex items-start gap-2">
-                                    <span class="text-blue-500 mt-1">▸</span>
-                                    <span
-                                        >Flyers PRO y vendibles (no solo
-                                        "linditos").</span
-                                    >
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="text-blue-500 mt-1">▸</span>
-                                    <span
-                                        >Tipografía con flow y jerarquía clara.</span
-                                    >
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="text-blue-500 mt-1">▸</span>
-                                    <span
-                                        >Fotomontajes realistas sin recortes
-                                        feos.</span
-                                    >
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="text-blue-500 mt-1">▸</span>
-                                    <span
-                                        >Transformar fotos malas en imágenes
-                                        PRO.</span
-                                    >
-                                </li>
+
+                            <ul class="space-y-4 text-gray-400 grow text-left">
+                                {card.description.map((item, idx) => (
+                                    <li class="flex items-start gap-3">
+                                        <span
+                                            class={`${card.accentColor} text-lg`}
+                                        >
+                                            <Icon
+                                                name="lucide:check"
+                                                class="inline w-5 h-5 translate-y-[-2px]"
+                                            />
+                                        </span>
+                                        <span>
+                                            {item.text}
+                                            {item.bold && (
+                                                <strong class="text-white font-medium">
+                                                    {item.bold}
+                                                </strong>
+                                            )}
+                                        </span>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
-
-                        <!-- Pillar B -->
-                        <div class="space-y-4">
-                            <h4
-                                class="text-xl font-bold text-yellow-500 uppercase tracking-wider border-b border-yellow-500/30 pb-2"
-                            >
-                                ⚡ Resultados de Sistema
-                            </h4>
-                            <ul
-                                class="text-gray-300 space-y-2 text-sm md:text-base font-medium"
-                            >
-                                <li class="flex items-start gap-2">
-                                    <span class="text-yellow-500 mt-1">▸</span>
-                                    <span
-                                        >Método repetible: adiós al bloqueo
-                                        creativo.</span
-                                    >
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="text-yellow-500 mt-1">▸</span>
-                                    <span
-                                        >Workflow real para diseñar más rápido.</span
-                                    >
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="text-yellow-500 mt-1">▸</span>
-                                    <span
-                                        >Resolver trabas técnicas sin perder
-                                        horas.</span
-                                    >
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Pillar C -->
-                        <div class="space-y-4">
-                            <h4
-                                class="text-xl font-bold text-green-400 uppercase tracking-wider border-b border-green-500/30 pb-2"
-                            >
-                                💰 Resultados de Plata
-                            </h4>
-                            <ul
-                                class="text-gray-300 space-y-2 text-sm md:text-base font-medium"
-                            >
-                                <li class="flex items-start gap-2">
-                                    <span class="text-green-400 mt-1">▸</span>
-                                    <span
-                                        >Oferta clara para eventos (Packs
-                                        definidos).</span
-                                    >
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="text-green-400 mt-1">▸</span>
-                                    <span
-                                        >Camino realista para recuperar la
-                                        inversión.</span
-                                    >
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="text-green-400 mt-1">▸</span>
-                                    <span
-                                        >Estrategia para conseguir clientes
-                                        recurrentes.</span
-                                    >
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Decorative Elements -->
-            <div
-                class="absolute -top-10 -left-10 w-40 h-40 bg-blue-600/30 rounded-full blur-[50px] mix-blend-screen animate-pulse"
-            >
-            </div>
-            <div
-                class="absolute -bottom-10 -right-10 w-40 h-40 bg-purple-600/30 rounded-full blur-[50px] mix-blend-screen animate-pulse delay-700"
-            >
-            </div>
+                    </SpotlightCard>
+                ))
+            }
         </div>
     </div>
 </section>
