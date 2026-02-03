@@ -71,9 +71,9 @@ const cards = [
 ---
 
 <section
-    class="relative w-full py-24 bg-black overflow-hidden font-sans flex flex-col justify-center items-center"
+    class="relative w-full py-24 bg-black overflow-hidden font-sans flex flex-col justify-center items-center z-50"
 >
-    <div class="max-w-7xl relative z-10 w-full px-6 text-center">
+    <div class="max-w-7xl relative w-full px-6 text-center">
         <!-- Section Header -->
         <h2
             class="text-4xl md:text-6xl font-black mb-8 italic uppercase tracking-tighter text-white"
@@ -90,28 +90,15 @@ const cards = [
         </p>
 
         <!-- Cards Grid -->
-        <div class="grid md:grid-cols-3 gap-8 relative">
+        <div class="grid md:grid-cols-3 gap-8 relative z-40">
             <!-- Background Layers -->
-            <div
-                class="absolute inset-0 z-0 pointer-events-none overflow-hidden -mx-40 -my-20"
-            >
-                <!-- <GradientBlinds
-                    client:idle
-                    gradientColors={["#07194c", "#0c3e80", "#000000"]}
-                    blindCount={12}
-                    mixBlendMode="screen"
-                    spotlightOpacity={0.2}
-                    angle={20}
-                    mouseDampening={0.5}
-                /> -->
-            </div>
 
             {
                 cards.map((card) => (
                     <SpotlightCard
                         client:load
                         spotlightColor={card.spotlightColor}
-                        className="relative z-10 h-full group"
+                        className="relative h-full group"
                     >
                         <div
                             class={`absolute inset-0 ${card.shadow} blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none`}

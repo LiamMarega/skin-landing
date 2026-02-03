@@ -15,14 +15,14 @@ const {
 
 <!-- Added mb-16 for mobile spacing, h-full for equal height flex items -->
 <div
-    class="urban-card-wrapper group relative w-full max-w-[440px] lg:max-w-[480px] mx-auto overflow-visible mb-16 lg:mb-0 lg:h-full flex flex-col justify-between"
+    class="urban-card-wrapper group relative w-full max-w-[440px] lg:max-w-[480px] mx-auto overflow-hidden mb-16 lg:mb-0 flex flex-col justify-between max-h-[90vh]"
 >
     {
         badge && (
-            <div class="absolute -right-10 -top-10 w-32 h-32 z-30 opacity-90 group-hover:opacity-100 group-hover:scale-110 group-hover:rotate-[20deg] transition-all duration-500">
+            <div class="absolute -right-6 -top-6 sm:-right-10 sm:-top-10 w-20 h-20 sm:w-32 sm:h-32 z-30 opacity-90 group-hover:opacity-100 group-hover:scale-110 group-hover:rotate-[20deg] transition-all duration-500">
                 <img
                     src={badge}
-                    class="w-full h-full object-contain  drop-shadow-2xl"
+                    class="w-full h-full object-contain drop-shadow-2xl"
                     alt="badge"
                 />
             </div>
@@ -47,32 +47,34 @@ const {
     <!-- Urban Header -->
     <div class="urban-header relative z-20 shrink-0">
         <div
-            class="header-content bg-[#0a0a0a] py-8 px-6 border-b-2 border-white/10 rounded-t-3xl text-center"
+            class="header-content bg-[#0a0a0a] py-4 sm:py-6 lg:py-8 px-4 sm:px-6 border-b-2 border-white/10 rounded-t-3xl text-center"
         >
             <h2
-                class="tipo-title text-4xl md:text-5xl font-black text-white italic tracking-tight leading-none group-hover:scale-105 transition-transform duration-300"
+                class="tipo-title text-2xl sm:text-3xl lg:text-5xl font-black text-white italic tracking-tight leading-none group-hover:scale-105 transition-transform duration-300"
                 style="font-family: 'Base Neue', sans-serif;"
             >
                 {tipo}
             </h2>
-            <div class="flex items-center justify-center gap-3 mt-4">
+            <div
+                class="flex items-center justify-center gap-2 sm:gap-3 mt-2 sm:mt-4"
+            >
                 <span
-                    class="h-[2px] w-10 bg-current opacity-70"
+                    class="h-[2px] w-6 sm:w-10 bg-current opacity-70"
                     style={`color: ${accentColor}`}></span>
                 <h3
-                    class="clases-subtitle text-lg md:text-xl font-bold uppercase tracking-[0.15em]"
+                    class="clases-subtitle text-sm sm:text-base lg:text-xl font-bold uppercase tracking-[0.1em] sm:tracking-[0.15em]"
                     style={`color: ${accentColor}; font-family: 'Base Neue', sans-serif;`}
                 >
                     {clases}
                 </h3>
                 <span
-                    class="h-[2px] w-10 bg-current opacity-70"
+                    class="h-[2px] w-6 sm:w-10 bg-current opacity-70"
                     style={`color: ${accentColor}`}></span>
             </div>
         </div>
         <!-- Torn Edge Simulation -->
         <div
-            class="torn-edge w-full h-6 bg-[#0a0a0a] relative overflow-hidden -mt-[1px]"
+            class="torn-edge w-full h-3 sm:h-6 bg-[#0a0a0a] relative overflow-hidden -mt-[1px]"
         >
             <div
                 class="absolute bottom-0 left-0 w-full h-full bg-[#111]"
@@ -84,7 +86,7 @@ const {
 
     <!-- Urban Body (Flex grow to fill space) -->
     <div
-        class="urban-body relative bg-[#111] px-8 pt-10 pb-28 border-x border-white/5 shadow-2xl overflow-hidden flex-grow flex flex-col"
+        class="urban-body relative bg-[#111] px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 lg:pt-10 pb-20 sm:pb-24 lg:pb-28 border-x border-white/5 shadow-2xl overflow-hidden flex-grow flex flex-col"
         style="font-family: 'Aniko', sans-serif;"
     >
         <!-- Rugged Texture Overlay -->
@@ -97,18 +99,20 @@ const {
         >
         </div>
 
-        <ul class="feature-list relative z-10 space-y-6 flex-grow">
+        <ul
+            class="feature-list relative z-10 space-y-2 sm:space-y-3 lg:space-y-5 flex-grow"
+        >
             {
                 caracteristicas.map((item: any) => (
-                    <li class="flex items-start gap-4 group/item">
+                    <li class="flex items-start gap-2 sm:gap-3 lg:gap-4 group/item">
                         <span
-                            class="text-2xl font-black leading-none mt-1 transition-transform group-hover/item:scale-125 duration-200"
+                            class="text-base sm:text-lg lg:text-2xl font-black leading-none mt-0.5 sm:mt-1 transition-transform group-hover/item:scale-125 duration-200 shrink-0"
                             style={`color: ${accentColor}`}
                         >
                             ✓
                         </span>
                         <p
-                            class="text-zinc-300 font-medium text-[1.1rem] leading-snug uppercase tracking-tight group-hover/item:text-white transition-colors"
+                            class="text-zinc-300 font-medium text-xs sm:text-sm lg:text-base leading-snug uppercase tracking-tight group-hover/item:text-white transition-colors"
                             set:html={item.texto.replace(
                                 item.bold,
                                 `<span class="urban-marker text-white font-black" style="--marker-color: ${accentColor}">${item.bold}</span>`,
@@ -120,11 +124,11 @@ const {
         </ul>
 
         <!-- Urban CTA Button (Brutalist) -->
-        <div class="mt-12 relative z-20">
+        <div class="mt-4 sm:mt-6 lg:mt-10 relative z-20">
             <button
                 type="button"
                 data-plan={dataPlan}
-                class="urban-btn pricing-btn relative w-full py-6 bg-white text-[#07194c] font-black text-2xl uppercase tracking-tighter overflow-hidden transform group-hover:-translate-y-1 transition-all duration-300 border-4 border-white shadow-[0_10px_0_rgba(0,0,0,0.5)] active:shadow-none active:translate-y-1"
+                class="urban-btn pricing-btn relative w-full py-3 sm:py-4 lg:py-5 bg-white text-[#07194c] font-black text-sm sm:text-lg lg:text-xl uppercase tracking-tighter overflow-hidden transform group-hover:-translate-y-1 transition-all duration-300 border-2 sm:border-4 border-white shadow-[0_6px_0_rgba(0,0,0,0.5)] sm:shadow-[0_10px_0_rgba(0,0,0,0.5)] active:shadow-none active:translate-y-1"
                 style="font-family: 'Base Neue', sans-serif;"
             >
                 <span
@@ -140,21 +144,28 @@ const {
 
         <!-- Price Section (Brutalist with Hard Shadow) -->
         <div
-            class="price-section absolute -bottom-10 left-1/2 -translate-x-1/2 w-full flex flex-col items-center z-40 group-hover:scale-110 transition-transform duration-500"
+            class="price-section absolute -bottom-6 sm:-bottom-8 lg:-bottom-10 left-1/2 -translate-x-1/2 w-full flex flex-col items-center z-40 group-hover:scale-105 sm:group-hover:scale-110 transition-transform duration-500"
         >
             <div
-                class="relative px-8 py-3 bg-white text-[#07194c] -rotate-2 border-4 border-[#07194c] shadow-[8px_8px_0px_0px_rgba(232,189,13,0.3)] transition-shadow duration-300 group-hover:shadow-[12px_12px_0px_0px_rgba(232,189,13,0.5)]"
+                class="relative px-4 sm:px-6 lg:px-8 py-2 sm:py-3 bg-white text-[#07194c] -rotate-2 border-2 sm:border-4 border-[#07194c] shadow-[4px_4px_0px_0px_rgba(232,189,13,0.3)] sm:shadow-[8px_8px_0px_0px_rgba(232,189,13,0.3)] transition-shadow duration-300 group-hover:shadow-[6px_6px_0px_0px_rgba(232,189,13,0.5)] sm:group-hover:shadow-[12px_12px_0px_0px_rgba(232,189,13,0.5)]"
                 style="font-family: 'Base Neue', sans-serif;"
             >
                 <div class="flex items-baseline font-black leading-none">
-                    <span class="text-3xl self-start mt-2">$</span>
-                    <span class="text-8xl tracking-tight">{precio}</span>
-                    <span class="text-xl ml-1">USD</span>
+                    <span
+                        class="text-lg sm:text-2xl lg:text-3xl self-start mt-1 sm:mt-2"
+                        >$</span
+                    >
+                    <span
+                        class="text-4xl sm:text-6xl lg:text-7xl tracking-tight"
+                        >{precio}</span
+                    >
+                    <span class="text-xs sm:text-base lg:text-xl ml-1">USD</span
+                    >
                 </div>
 
                 {
                     precioAnterior && (
-                        <div class="absolute -top-5 -right-6 bg-[#e8bd0d] text-[#07194c] text-sm font-black px-3 py-1 rotate-12 line-through shadow-lg border border-black transform group-hover:rotate-6 transition-transform">
+                        <div class="absolute -top-3 -right-4 sm:-top-5 sm:-right-6 bg-[#e8bd0d] text-[#07194c] text-[10px] sm:text-sm font-black px-2 py-0.5 sm:px-3 sm:py-1 rotate-12 line-through shadow-lg border border-black transform group-hover:rotate-6 transition-transform">
                             ANTES ${precioAnterior}
                         </div>
                     )
@@ -165,7 +176,7 @@ const {
 
     <!-- Paint Drip Effect -->
     <div
-        class="paint-drips w-full h-12 opacity-60 pointer-events-none relative z-10 -mt-[1px]"
+        class="paint-drips w-full h-8 sm:h-10 lg:h-12 opacity-60 pointer-events-none relative z-10 -mt-[1px] shrink-0"
     >
         <svg
             viewBox="0 0 500 150"
