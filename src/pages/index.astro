@@ -27,8 +27,21 @@ import LeadModal from "@/components/LeadModal.astro";
 			content="En 30 días aprendé a diseñar flyers pro para eventos con Photoshop, Illustrator + IA y recuperá tu inversión con nuestro sistema de ventas."
 		/>
 	</head>
+
 	<body class="bg-black text-white antialiased">
 		<main>
+			<FloatingWhatsApp
+				client:only="react"
+				phoneNumber="5491123456789"
+				accountName="Diseñá Como Yo"
+				statusMessage="Normalmente responde en 1 hora"
+				chatMessage="¡Hola! 👋 ¿En qué podemos ayudarte hoy?"
+				darkMode={false}
+				allowClickAway={true}
+				allowEsc={true}
+				notification={true}
+				notificationSound={true}
+			/>
 			<div class="reveal"><Hero /></div>
 			<div class="reveal"><JoinBanner /></div>
 			<div class="reveal"><WhatWillYouAchieve loading="lazy" /></div>
@@ -59,20 +72,7 @@ import LeadModal from "@/components/LeadModal.astro";
 				observer.observe(el);
 			});
 		</script>
-		<div class="z-[9999] absolute">
-			<FloatingWhatsApp
-				client:only="react"
-				phoneNumber="5491123456789"
-				accountName="Diseñá Como Yo"
-				statusMessage="Normalmente responde en 1 hora"
-				chatMessage="¡Hola! 👋 ¿En qué podemos ayudarte hoy?"
-				darkMode={false}
-				allowClickAway={true}
-				allowEsc={true}
-				notification={true}
-				notificationSound={true}
-			/>
-		</div>
+
 		<AnnouncementBar
 			messages={[
 				"Todos los métodos de pagos disponibles (ARS, USD, Crypto)",

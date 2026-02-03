@@ -237,7 +237,7 @@ const SUPABASE_URL = "https://gljypypgwkihblvbeftd.supabase.co";
 
     // Close on backdrop click
     modal?.addEventListener("click", (e) => {
-        if (e.target === modal) {
+        if (!e.target.closest(".modal-card")) {
             closeModal();
         }
     });
