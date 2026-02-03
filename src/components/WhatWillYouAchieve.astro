@@ -1,6 +1,4 @@
 ---
-import GradientBlinds from "./ui/backgrounds/GradientBlinds/GradientBlinds";
-import SpotlightCard from "./ui/Cards/SpotlightCard/SpotlightCard";
 import { Icon } from "astro-icon/components";
 
 const cards = [
@@ -17,12 +15,9 @@ const cards = [
             { text: "Fotomontajes realistas de alto nivel.", separator: true },
         ],
         icon: "lucide:palette",
-        spotlightColor: "rgba(59, 130, 246, 0.15)",
+        // Kept for reference but mostly handled by new styles
         accentColor: "text-blue-500",
-        iconBg: "bg-blue-500/10",
-        iconColor: "text-blue-400",
-        borderHover: "hover:border-blue-500/50",
-        shadow: "bg-blue-500/10",
+        shadowColor: "blue", // Helper for shadow classes if needed
     },
     {
         title: "Sistema",
@@ -40,12 +35,8 @@ const cards = [
             },
         ],
         icon: "lucide:zap",
-        spotlightColor: "rgba(234, 179, yellow, 0.15)",
         accentColor: "text-yellow-500",
-        iconBg: "bg-yellow-500/10",
-        iconColor: "text-yellow-500",
-        borderHover: "hover:border-yellow-500/50",
-        shadow: "bg-yellow-500/10",
+        shadowColor: "yellow",
     },
     {
         title: "Dinero",
@@ -60,12 +51,8 @@ const cards = [
             { text: "Cómo fidelizar clientes recurrentes.", separator: true },
         ],
         icon: "lucide:trending-up",
-        spotlightColor: "rgba(34, 197, 94, 0.15)",
         accentColor: "text-green-500",
-        iconBg: "bg-green-500/10",
-        iconColor: "text-green-500",
-        borderHover: "hover:border-green-500/50",
-        shadow: "bg-green-500/10",
+        shadowColor: "green",
     },
 ];
 ---
@@ -73,7 +60,15 @@ const cards = [
 <section
     class="relative w-full py-24 bg-black overflow-hidden font-sans flex flex-col justify-center items-center z-50"
 >
-    <div class="max-w-7xl relative w-full px-6 text-center">
+    <!-- Background Textures consistent with Pricing Section -->
+    <img
+        src="/assets/resoures/textures/texture_02.webp"
+        alt="texture-trash"
+        loading="lazy"
+        class="absolute inset-0 opacity-20 pointer-events-none mix-blend-screen"
+    />
+
+    <div class="max-w-7xl relative w-full px-6 text-center z-10">
         <!-- Section Header -->
         <h2
             class="text-4xl md:text-6xl font-black mb-8 italic uppercase tracking-tighter text-white"
@@ -84,66 +79,100 @@ const cards = [
             >
         </h2>
 
-        <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-20">
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-20 font-medium">
             No es teoría suelta. Es un sistema integral para que mejores tu
             diseño, optimices tu tiempo y generes ingresos reales.
         </p>
 
         <!-- Cards Grid -->
-        <div class="grid md:grid-cols-3 gap-8 relative z-40">
-            <!-- Background Layers -->
-
+        <div
+            class="flex flex-col md:flex-row gap-12 justify-center items-stretch relative z-40"
+        >
             {
-                cards.map((card) => (
-                    <SpotlightCard
-                        client:load
-                        spotlightColor={card.spotlightColor}
-                        className="relative h-full group"
+                cards.map((card, index) => (
+                    <div
+                        class="urban-card-wrapper group relative w-full max-w-[380px] mx-auto overflow-visible flex flex-col justify-between"
+                        style={`animation-delay: ${index * 100}ms;`}
                     >
-                        <div
-                            class={`absolute inset-0 ${card.shadow} blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none`}
-                        />
-
-                        <div class="relative flex flex-col h-full">
-                            <div
-                                class={`w-14 h-14 ${card.iconBg} rounded-2xl flex items-center justify-center  ${card.iconColor} group-hover:scale-110 transition-transform duration-300`}
-                            >
-                                <Icon name={card.icon} class="w-7 h-7" />
-                            </div>
-
-                            <h4 class="text-2xl font-bold text-white uppercase tracking-wide mb-6 text-left">
-                                {card.title}{" "}
-                                <span class={card.accentColor}>
-                                    {card.titleHighlight}
-                                </span>
-                            </h4>
-
-                            <ul class="space-y-4 text-gray-400 grow text-left">
-                                {card.description.map((item) => (
-                                    <li class="flex items-start gap-3">
-                                        <span
-                                            class={`${card.accentColor} text-lg shrink-0`}
-                                        >
-                                            <Icon
-                                                name="lucide:check"
-                                                class="w-5 h-5 translate-y-[2px]"
-                                            />
+                        {/* Urban Header */}
+                        <div class="urban-header relative z-20 shrink-0">
+                            <div class="header-content bg-[#0a0a0a] py-6 px-6 rounded-t-3xl text-center border-x-2 border-t-2 border-white/10">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-12 h-12 mb-3 bg-white/5 rounded-full flex items-center justify-center border border-white/10 group-hover:scale-110 transition-transform duration-300">
+                                        <Icon
+                                            name={card.icon}
+                                            class={`w-6 h-6 ${card.accentColor}`}
+                                        />
+                                    </div>
+                                    <h4 class="text-2xl font-black text-white italic uppercase tracking-tight group-hover:scale-105 transition-transform duration-300">
+                                        {card.title}{" "}
+                                        <span class={card.accentColor}>
+                                            {card.titleHighlight}
                                         </span>
-                                        <span class="leading-tight">
+                                    </h4>
+                                </div>
+
+                                {/* Torn Edge Simulation */}
+                                <div class="absolute torn-edge w-full h-8 -bottom-7 left-0 z-20 pointer-events-none">
+                                    <div
+                                        class="w-full h-full bg-[#0a0a0a]"
+                                        style="
+                                            mask-image: url('/assets/resoures/rips/paper_rip_01.png');
+                                            mask-size: 100% 100%;
+                                            mask-repeat: no-repeat;
+                                            -webkit-mask-image: url('/assets/resoures/rips/paper_rip_01.png');
+                                            -webkit-mask-size: 100% 100%;
+                                            -webkit-mask-repeat: no-repeat;
+                                        "
+                                    ></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Urban Body */}
+                        <div
+                            class="urban-body relative bg-[#111] px-6 pt-10 pb-10 shadow-2xl overflow-hidden grow flex flex-col border-x-2 border-b-2 border-white/5"
+                            style="font-family: 'Aniko', sans-serif;"
+                        >
+                            {/* Texture Overlay */}
+                            <div class="absolute inset-0 opacity-10 mix-blend-overlay pointer-events-none bg-[url('/assets/resoures/textures/texture_02.webp')] bg-cover" />
+                            <div class="noise-overlay absolute inset-0 opacity-[0.05] pointer-events-none" />
+
+                            <ul class="relative z-10 space-y-4 text-left grow">
+                                {card.description.map((item) => (
+                                    <li class="flex items-start gap-3 group/item">
+                                        <span
+                                            class={`${card.accentColor} text-lg shrink-0 font-black mt-0.5 transition-transform group-hover/item:scale-125 duration-200`}
+                                        >
+                                            ✓
+                                        </span>
+                                        <p class="text-zinc-300 text-sm font-medium leading-snug uppercase tracking-tight group-hover/item:text-white transition-colors">
                                             {item.text}
                                             {item.bold && (
-                                                <strong class="text-white font-medium">
+                                                <strong
+                                                    class={`font-black ${card.accentColor}`}
+                                                >
                                                     {item.bold}
                                                 </strong>
                                             )}
-                                        </span>
+                                        </p>
                                     </li>
                                 ))}
                             </ul>
                         </div>
-                    </SpotlightCard>
+                    </div>
                 ))
             }
         </div>
     </div>
 </section>
+
+<style>
+    .urban-card-wrapper {
+        font-family: "Aniko", sans-serif;
+    }
+
+    .noise-overlay {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+</style>
