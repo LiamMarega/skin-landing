@@ -5,9 +5,11 @@ import { Icon } from "astro-icon/components";
 <section id="comparison" class="relative w-full py-24 bg-black font-sans">
     <div class="max-w-6xl mx-auto px-6">
         <h2
-            class="text-4xl md:text-6xl font-black text-center mb-16 text-white uppercase italic tracking-tighter"
+            class="text-4xl md:text-5xl font-black text-center mb-16 text-white uppercase italic tracking-tighter"
         >
-            Elegí tu <span class="text-blue-500">Camino</span>
+            ¿Qué incluye la mentoría <span class="text-blue-500"
+                >Diseñá como yo</span
+            >?
         </h2>
 
         <div
@@ -26,138 +28,195 @@ import { Icon } from "astro-icon/components";
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse min-w-[700px]">
                     <thead>
-                        <tr class="bg-white/2">
+                        <tr class="bg-white/[0.02]">
                             <th
                                 class="p-8 text-gray-500 font-bold uppercase tracking-[0.2em] text-xs border-b border-white/5"
                                 >Características</th
                             >
                             <th
                                 class="p-8 text-white font-black uppercase tracking-tight text-xl border-b border-white/5 text-center bg-blue-500/5"
-                                >Masterclass</th
+                                >Plan Básico</th
                             >
                             <th
                                 class="p-8 text-yellow-400 font-black uppercase tracking-tight text-xl border-b border-white/5 text-center bg-yellow-400/5"
-                                >Programa Premium</th
+                                >Plan Pro</th
                             >
                         </tr>
                     </thead>
                     <tbody
                         class="text-gray-300 divide-y divide-white/5 font-medium"
                     >
-                        <tr class="bg-white/1 transition-colors">
-                            <td class="p-6 pl-8 font-bold">Metodología</td>
+                        <tr class="bg-white/[0.01] transition-colors">
+                            <td class="p-6 pl-8 font-bold"
+                                >Clases en vivo (90-120 min)</td
+                            >
+                            <td class="p-6 text-center text-white">4 clases</td>
+                            <td
+                                class="p-6 text-center text-yellow-400 bg-yellow-400/[0.02]"
+                                >4 clases</td
+                            >
+                        </tr>
+                        <tr class="bg-white/[0.01] transition-colors">
+                            <td class="p-6 pl-8 font-bold"
+                                >Tutoriales grabados & Clips</td
+                            >
                             <td class="p-6 text-center text-white"
-                                >Clase Grabada</td
+                                >4 tutoriales</td
                             >
                             <td
-                                class="p-6 text-center text-yellow-400 bg-yellow-400/2"
-                                >3 Vivos (Zoom)</td
+                                class="p-6 text-center text-yellow-400 bg-yellow-400/[0.02]"
+                                >4 tutoriales</td
                             >
                         </tr>
-                        <tr class="bg-white/1 transition-colors">
+                        <tr class="bg-white/[0.01] transition-colors">
                             <td class="p-6 pl-8 font-bold"
-                                >Flujo de trabajo PRO</td
+                                >Llamadas de correcciones</td
+                            >
+                            <td class="p-6 text-center text-white"
+                                >4 llamadas</td
                             >
                             <td
-                                class="p-6 text-center text-green-500 text-xl font-bold flex justify-center"
+                                class="p-6 text-center text-yellow-400 bg-yellow-400/[0.02]"
+                                >4 llamadas</td
+                            >
+                        </tr>
+                        <tr class="bg-white/[0.01] transition-colors">
+                            <td class="p-6 pl-8 font-bold"
+                                >Comunidad (WhatsApp + Discord)</td
+                            >
+                            <td
+                                class="p-6 text-center text-green-500 flex justify-center"
                             >
                                 <Icon name="lucide:check" class="w-6 h-6" />
                             </td>
                             <td
-                                class="p-6 text-center text-green-500 text-xl font-bold bg-yellow-400/2"
+                                class="p-6 text-center text-green-500 bg-yellow-400/[0.02]"
                             >
                                 <div class="flex justify-center">
                                     <Icon name="lucide:check" class="w-6 h-6" />
                                 </div>
                             </td>
                         </tr>
-                        <tr class="bg-white/1 transition-colors">
+                        <tr class="bg-white/[0.01] transition-colors">
                             <td class="p-6 pl-8 font-bold"
-                                >Recursos descargables</td
+                                >Recursos & Assets Premium</td
                             >
                             <td
-                                class="p-6 text-center text-green-500 text-xl font-bold flex justify-center"
+                                class="p-6 text-center text-green-500 flex justify-center"
                             >
                                 <Icon name="lucide:check" class="w-6 h-6" />
                             </td>
                             <td
-                                class="p-6 text-center text-green-500 text-xl font-bold bg-yellow-400/2"
+                                class="p-6 text-center text-green-500 bg-yellow-400/[0.02]"
                             >
                                 <div class="flex justify-center">
                                     <Icon name="lucide:check" class="w-6 h-6" />
                                 </div>
                             </td>
                         </tr>
-                        <tr class="bg-white/1 transition-colors">
+                        <tr class="bg-white/[0.01] transition-colors">
                             <td class="p-6 pl-8 font-bold"
-                                >Feedback personalizado</td
+                                >Portfolio listo + Oferta</td
                             >
                             <td
-                                class="p-6 text-center text-red-500/50 font-bold flex justify-center"
+                                class="p-6 text-center text-green-500 flex justify-center"
                             >
-                                <Icon name="lucide:x" class="w-6 h-6" />
+                                <Icon name="lucide:check" class="w-6 h-6" />
                             </td>
                             <td
-                                class="p-6 text-center text-green-500 text-xl font-bold bg-yellow-400/2"
+                                class="p-6 text-center text-green-500 bg-yellow-400/[0.02]"
                             >
                                 <div class="flex justify-center">
                                     <Icon name="lucide:check" class="w-6 h-6" />
                                 </div>
                             </td>
                         </tr>
-                        <tr class="bg-white/1 transition-colors">
+                        <tr class="bg-white/[0.01] transition-colors">
                             <td class="p-6 pl-8 font-bold"
-                                >Plantillas Premium</td
+                                >Llamadas 1:1 Personalizadas</td
                             >
                             <td
-                                class="p-6 text-center text-red-500/50 font-bold flex justify-center"
+                                class="p-6 text-center text-red-500/50 flex justify-center"
                             >
                                 <Icon name="lucide:x" class="w-6 h-6" />
                             </td>
                             <td
-                                class="p-6 text-center text-green-500 text-xl font-bold bg-yellow-400/2"
+                                class="p-6 text-center text-green-500 bg-yellow-400/[0.02]"
+                            >
+                                <div
+                                    class="flex justify-center flex-col items-center"
+                                >
+                                    <Icon
+                                        name="lucide:check"
+                                        class="w-6 h-6 mb-1"
+                                    />
+                                    <span class="text-xs font-bold uppercase"
+                                        >2 llamadas (45 min)</span
+                                    >
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="bg-white/[0.01] transition-colors">
+                            <td class="p-6 pl-8 font-bold"
+                                >Armado de Oferta/Pack Personalizado</td
+                            >
+                            <td
+                                class="p-6 text-center text-red-500/50 flex justify-center"
+                            >
+                                <Icon name="lucide:x" class="w-6 h-6" />
+                            </td>
+                            <td
+                                class="p-6 text-center text-green-500 bg-yellow-400/[0.02]"
                             >
                                 <div class="flex justify-center">
                                     <Icon name="lucide:check" class="w-6 h-6" />
                                 </div>
                             </td>
                         </tr>
-                        <tr class="bg-white/1 transition-colors">
-                            <td class="p-6 pl-8 font-bold">Grupo de apoyo</td>
+                        <tr class="bg-white/[0.01] transition-colors">
+                            <td class="p-6 pl-8 font-bold"
+                                >Prioridad en soporte</td
+                            >
                             <td
-                                class="p-6 text-center text-red-500/50 font-bold flex justify-center"
+                                class="p-6 text-center text-red-500/50 flex justify-center"
                             >
                                 <Icon name="lucide:x" class="w-6 h-6" />
                             </td>
                             <td
-                                class="p-6 text-center text-green-500 text-xl font-bold bg-yellow-400/2"
+                                class="p-6 text-center text-green-500 bg-yellow-400/[0.02]"
                             >
                                 <div class="flex justify-center">
                                     <Icon name="lucide:check" class="w-6 h-6" />
                                 </div>
                             </td>
                         </tr>
-                        <tr class="bg-white/2">
+                        <tr class="bg-white/[0.02]">
                             <td
                                 class="p-8 pl-8 font-black text-white italic uppercase tracking-tighter text-lg"
                                 >Inversión</td
                             >
                             <td class="p-8 text-center">
-                                <span class="text-3xl font-black text-white"
-                                    >$50 <span
-                                        class="text-xs text-gray-500 italic"
+                                <div class="flex flex-col items-center">
+                                    <span class="text-3xl font-black text-white"
+                                        >$300</span
+                                    >
+                                    <span
+                                        class="text-xs text-gray-500 italic uppercase font-bold tracking-widest mt-1"
                                         >USD</span
-                                    ></span
-                                >
+                                    >
+                                </div>
                             </td>
                             <td class="p-8 text-center bg-yellow-400/10">
-                                <span
-                                    class="text-3xl font-black text-yellow-500"
-                                    >$200 <span
-                                        class="text-xs text-yellow-600 italic"
+                                <div class="flex flex-col items-center">
+                                    <span
+                                        class="text-3xl font-black text-yellow-500"
+                                        >$600</span
+                                    >
+                                    <span
+                                        class="text-xs text-yellow-600 italic uppercase font-bold tracking-widest mt-1"
                                         >USD</span
-                                    ></span
-                                >
+                                    >
+                                </div>
                             </td>
                         </tr>
                     </tbody>
