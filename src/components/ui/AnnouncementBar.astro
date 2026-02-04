@@ -9,30 +9,55 @@ interface Props {
     messages?: string[];
     interval?: number; // Time each message stays visible (ms)
     duration?: number; // Animation transition duration (ms)
+    backgroundColor?: string;
+    textColor?: string;
+    highlightColor?: string;
+    animationType?:
+        | "slide-vertical"
+        | "slide-horizontal"
+        | "fade"
+        | "zoom"
+        | "none";
 }
 
 const {
     messages = ["Todos los métodos de pago están disponibles."],
     interval = 5000,
     duration = 600,
+    backgroundColor = "var(--primary)",
+    textColor = "rgba(255, 255, 255, 0.9)",
+    highlightColor = "var(--accent)",
+    animationType = "slide-vertical",
 } = Astro.props;
+
+// Function to parse the message for highlighting
+const parseMessage = (msg: string) => {
+    return msg.replace(
+        /\*\*(.*?)\*\*/g,
+        `<span style="color: ${highlightColor}; font-weight: 700;">$1</span>`,
+    );
+};
+
+const parsedMessages = messages.map((msg) => parseMessage(msg));
+const initialMessage = parsedMessages[0];
 ---
 
 <div
-    class="fixed inset-x-0 top-0 h-10 bg-black/80 backdrop-blur-md border-b border-white/10 grid place-items-center z-[999] overflow-hidden group"
+    class="fixed inset-x-0 top-0 h-10 border-b border-white/10 grid place-items-center z-[999] overflow-hidden group"
     id="announcement-bar"
-    data-messages={JSON.stringify(messages)}
+    data-messages={JSON.stringify(parsedMessages)}
     data-interval={interval}
     data-duration={duration}
+    data-animation={animationType}
+    style={`background-color: ${backgroundColor};`}
 >
     <div class="relative w-full h-full flex items-center justify-center px-4">
-        <p
+        <div
             id="announcement-text"
-            class="w-full text-white/90 text-[11px] sm:text-xs tracking-wider uppercase font-semibold m-0 p-0 text-center transition-all ease-out"
-            style={`transition-duration: ${duration}ms;`}
-        >
-            {messages[0]}
-        </p>
+            class="w-full text-[11px] sm:text-xs tracking-wider uppercase font-semibold m-0 p-0 text-center transition-all ease-out"
+            style={`transition-duration: ${duration}ms; color: ${textColor};`}
+            set:html={initialMessage}
+        />
 
         <!-- Subtle glow effect behind text -->
         <div
@@ -46,7 +71,6 @@ const {
     let announcementInterval: number;
 
     function initAnnouncementBar() {
-        // Clear existing interval if any (for view transitions)
         if (announcementInterval) {
             clearInterval(announcementInterval);
         }
@@ -59,34 +83,70 @@ const {
         const messages = JSON.parse(bar.dataset.messages || "[]");
         const interval = parseInt(bar.dataset.interval || "5000");
         const duration = parseInt(bar.dataset.duration || "600");
+        const animationType = bar.dataset.animation || "slide-vertical";
 
         if (messages.length <= 1) return;
 
         let currentIndex = 0;
 
+        const applyExitStyles = () => {
+            switch (animationType) {
+                case "slide-vertical":
+                    textElement.style.opacity = "0";
+                    textElement.style.transform = "translateY(-10px)";
+                    textElement.style.filter = "blur(4px)";
+                    break;
+                case "slide-horizontal":
+                    textElement.style.opacity = "0";
+                    textElement.style.transform = "translateX(20px)";
+                    textElement.style.filter = "blur(2px)";
+                    break;
+                case "fade":
+                    textElement.style.opacity = "0";
+                    textElement.style.filter = "blur(8px)";
+                    break;
+                case "zoom":
+                    textElement.style.opacity = "0";
+                    textElement.style.transform = "scale(0.95)";
+                    textElement.style.filter = "blur(4px)";
+                    break;
+            }
+        };
+
+        const applyResetStyles = () => {
+            textElement.style.transition = "none";
+            switch (animationType) {
+                case "slide-vertical":
+                    textElement.style.transform = "translateY(10px)";
+                    break;
+                case "slide-horizontal":
+                    textElement.style.transform = "translateX(-20px)";
+                    break;
+                case "fade":
+                    break;
+                case "zoom":
+                    textElement.style.transform = "scale(1.05)";
+                    break;
+            }
+        };
+
+        const applyEnterStyles = () => {
+            textElement.style.transition = `all ${duration}ms cubic-bezier(0.23, 1, 0.32, 1)`;
+            textElement.style.opacity = "1";
+            textElement.style.transform = "translate(0, 0) scale(1)";
+            textElement.style.filter = "blur(0)";
+        };
+
         const rotateMessages = () => {
-            // Step 1: Fade out and slide up
-            textElement.style.opacity = "0";
-            textElement.style.transform = "translateY(-10px)";
-            textElement.style.filter = "blur(4px)";
+            applyExitStyles();
 
             setTimeout(() => {
-                // Step 2: Update content
                 currentIndex = (currentIndex + 1) % messages.length;
-                textElement.textContent = messages[currentIndex];
+                textElement.innerHTML = messages[currentIndex];
 
-                // Step 3: Reset position (hidden below)
-                textElement.style.transition = "none";
-                textElement.style.transform = "translateY(10px)";
-
-                // Force reflow
-                textElement.offsetHeight;
-
-                // Step 4: Fade in and slide to center
-                textElement.style.transition = `all ${duration}ms cubic-bezier(0.23, 1, 0.32, 1)`;
-                textElement.style.opacity = "1";
-                textElement.style.transform = "translateY(0)";
-                textElement.style.filter = "blur(0)";
+                applyResetStyles();
+                textElement.offsetHeight; // Force reflow
+                applyEnterStyles();
             }, duration);
         };
 
@@ -96,9 +156,7 @@ const {
         ) as unknown as number;
     }
 
-    // Initialize on page load
     initAnnouncementBar();
-    // Supporting Astro view transitions if applicable
     document.addEventListener("astro:after-swap", initAnnouncementBar);
 </script>
 

@@ -15,13 +15,12 @@ const checklistItems = [
 ---
 
 <section
-    class="relative w-full min-h-screen overflow-hidden p-6 bg-black text-white selection:bg-accent/30 selection:text-white font-sans bg-[url('/assets/resoures/textures/texture_bg.webp')] bg-cover bg-center"
+    class="relative w-full min-h-screen overflow-hidden p-6 bg-black text-white selection:bg-accent/30 selection:text-white font-sans bg-[url('/assets/resources/textures/texture_bg.webp')] bg-cover bg-center"
     style="mask-image: linear-gradient(to top, transparent, black 25%); -webkit-mask-image: linear-gradient(to top, transparent, black 25%);"
 >
     <!-- Hero Image - Background layer on mobile, side on desktop -->
-    <div class="absolute inset-0 z-1 pointer-events-none overflow-hidden">
-        <!-- Mobile: Centered background image with gradient overlay -->
-        <img
+    <!-- Mobile: Centered background image with gradient overlay -->
+    <!-- <img
             src="/assets/skin_picture.webp"
             alt="Creator"
             loading="eager"
@@ -29,21 +28,34 @@ const checklistItems = [
             decoding="async"
             class="absolute bottom-0 left-1/2 h-10 w-auto max-w-none object-contain object-bottom opacity-40 animate-in fade-in slide-in-from-bottom-12 duration-1000"
             style="mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 70%, transparent 100%);"
-        />
+        /> -->
 
-        <!-- Desktop: Right-aligned image -->
-        <div class="hidden lg:block absolute -inset-35">
-            <img
-                src="/assets/skin_picture.webp"
-                alt="Creator"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-                class="absolute top-45 h-screen w-auto object-contain object-bottom animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out xl:right-8 2xl:right-16"
-                style="mask-image: linear-gradient(to bottom, black, transparent 100%);"
-            />
-        </div>
-    </div>
+    <!-- Desktop: Right-aligned image -->
+
+    <img
+        src="/assets/resources/logos/logo_AI.webp"
+        alt="Creator"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        class="absolute top-72 h-80 right-0 opacity-40 w-auto object-contain object-bottom animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out"
+    />
+    <img
+        src="/assets/resources/logos/logo_PS.webp"
+        alt="Creator"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        class="absolute top-72 h-80 right-80 -rotate-12 opacity-40 w-auto object-contain object-bottom animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out"
+    />
+    <img
+        src="/assets/skin_picture_2.webp"
+        alt="Creator"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        class="absolute top-10 h-screen right-0 w-auto object-contain object-bottom animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out"
+    />
 
     <!-- TextPressure Logo - Desktop only, positioned after image layer -->
     <nav
@@ -136,7 +148,7 @@ const checklistItems = [
 
     <!-- Decorative Tapes - Hidden on mobile -->
     <img
-        src="/assets/resoures/tapes/tape_02.webp"
+        src="/assets/resources/tapes/tape_02.webp"
         alt=""
         aria-hidden="true"
         loading="lazy"

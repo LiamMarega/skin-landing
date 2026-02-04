@@ -14,7 +14,7 @@ import BlobCursor from "@/components/ui/Cursor/BlobCursor";
 import AnnouncementBar from "@/components/ui/AnnouncementBar.astro";
 import { FloatingWhatsApp } from "@digicroz/react-floating-whatsapp";
 import LeadModal from "@/components/LeadModal.astro";
-import avatar from "@/assets/resoures/avatar.webp";
+import avatar from "@/assets/resources/avatar.webp";
 ---
 
 <html lang="es">
@@ -76,11 +76,15 @@ import avatar from "@/assets/resoures/avatar.webp";
 
 		<AnnouncementBar
 			messages={[
-				"Todos los métodos de pagos disponibles (ARS, USD, Crypto)",
-				"Aprendé como vivir del diseño gráfico en 30 días.",
-				"Inscribite en cuotas con MercadoPago",
+				"Todos los métodos de pagos disponibles **(ARS, USD, Crypto)**",
+				"Aprendé como **vivir del diseño gráfico** en 30 días.",
+				"Inscribite en **cuotas** con MercadoPago",
+				"INGRESO **LIMITADO POR CUPO**",
 			]}
-			interval={15000}
+			backgroundColor="#000e51"
+			highlightColor="#ffb400"
+			interval={5000}
+			animationType="slide-vertical"
 		/>
 		<GradualBlur
 			client:load
