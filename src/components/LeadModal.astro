@@ -284,8 +284,7 @@ const SUPABASE_URL = "https://gljypypgwkihblvbeftd.supabase.co";
             if (!response.ok) throw new Error(data.error || "Error de red");
 
             if (data.sandbox_init_point || data.init_point) {
-                window.location.href =
-                    data.sandbox_init_point || data.init_point;
+                window.location.href = data.init_point;
             } else {
                 throw new Error("Link no generado");
             }

@@ -61,12 +61,6 @@ const cards = [
     class="relative w-full py-24 bg-black overflow-hidden font-sans flex flex-col justify-center items-center z-50"
 >
     <!-- Background Textures consistent with Pricing Section -->
-    <img
-        src="/assets/resoures/textures/texture_02.webp"
-        alt="texture-trash"
-        loading="lazy"
-        class="absolute inset-0 opacity-20 pointer-events-none mix-blend-screen"
-    />
 
     <div class="max-w-7xl relative w-full px-6 text-center z-10">
         <!-- Section Header -->
@@ -113,9 +107,9 @@ const cards = [
                                 </div>
 
                                 {/* Torn Edge Simulation */}
-                                <div class="absolute torn-edge w-full h-8 -bottom-7 left-0 z-20 pointer-events-none">
+                                <div class="absolute torn-edge w-full h-8 -bottom-4  left-0 z-20 pointer-events-none">
                                     <div
-                                        class="w-full h-full bg-[#0a0a0a]"
+                                        class="w-full h-full bg-[#0a0a0a] "
                                         style="
                                             mask-image: url('/assets/resoures/rips/paper_rip_01.png');
                                             mask-size: 100% 100%;
@@ -124,7 +118,20 @@ const cards = [
                                             -webkit-mask-size: 100% 100%;
                                             -webkit-mask-repeat: no-repeat;
                                         "
-                                    ></div>
+                                    />
+                                </div>
+                                <div class="absolute torn-edge w-full h-8 -bottom-2 rotate-180  right-0 z-20 pointer-events-none">
+                                    <div
+                                        class="w-full h-full bg-[#0a0a0a] "
+                                        style="
+                                            mask-image: url('/assets/resoures/rips/paper_rip_01.png');
+                                            mask-size: 100% 100%;
+                                            mask-repeat: no-repeat;
+                                            -webkit-mask-image: url('/assets/resoures/rips/paper_rip_01.png');
+                                            -webkit-mask-size: 100% 100%;
+                                            -webkit-mask-repeat: no-repeat;
+                                        "
+                                    />
                                 </div>
                             </div>
                         </div>
