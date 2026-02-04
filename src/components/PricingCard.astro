@@ -15,7 +15,7 @@ const {
 
 <!-- Added mb-16 for mobile spacing, h-full for equal height flex items -->
 <div
-    class="urban-card-wrapper group relative w-full max-w-[440px] lg:max-w-[480px] mx-auto overflow-visible mb-16 lg:mb-0 flex flex-col justify-between max-h-[90vh]"
+    class="urban-card-wrapper group relative w-full max-w-[440px] lg:max-w-[480px] mx-auto overflow-visible mb-16 lg:mb-0 flex flex-col justify-between max-h-[80vh]"
 >
     {
         badge && (
@@ -50,7 +50,7 @@ const {
             class="header-content bg-[#0a0a0a] sm:py-6 lg:py-8 px-4 sm:px-6 rounded-t-3xl text-center"
         >
             <h2
-                class="tipo-title text-2xl sm:text-3xl lg:text-5xl font-black text-white italic tracking-tight leading-none group-hover:scale-105 transition-transform duration-300"
+                class="tipo-title text-2xl sm:text-3xl lg:text-4xl font-black text-white italic tracking-tight leading-none group-hover:scale-105 transition-transform duration-300"
             >
                 {tipo}
             </h2>
@@ -61,7 +61,7 @@ const {
                     class="h-[2px] w-6 sm:w-10 bg-current opacity-70"
                     style={`color: ${accentColor}`}></span>
                 <h3
-                    class="clases-subtitle text-sm sm:text-base lg:text-xl font-bold uppercase tracking-widest sm:tracking-[0.15em]"
+                    class="clases-subtitle text-xs sm:text-sm lg:text-lg font-bold uppercase tracking-widest sm:tracking-[0.15em]"
                     style={`color: ${accentColor};`}
                 >
                     {clases}
@@ -92,7 +92,7 @@ const {
 
     <!-- Urban Body (Flex grow to fill space) -->
     <div
-        class="urban-body relative bg-[#111] px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 lg:pt-10 pb-16 sm:pb-20 lg:pb-24 shadow-2xl overflow-hidden grow flex flex-col"
+        class="urban-body relative bg-[#111] px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 lg:pt-8 pb-16 sm:pb-16 lg:pb-16 shadow-2xl overflow-hidden grow flex flex-col"
         style="font-family: 'Aniko', sans-serif;"
     >
         <!-- Rugged Texture Overlay -->
@@ -112,13 +112,13 @@ const {
                 caracteristicas.map((item: any) => (
                     <li class="flex items-start gap-2 sm:gap-3 lg:gap-4 group/item">
                         <span
-                            class="text-base sm:text-lg lg:text-2xl font-black leading-none mt-0.5 sm:mt-1 transition-transform group-hover/item:scale-125 duration-200 shrink-0"
+                            class="text-base sm:text-lg lg:text-xl font-black leading-none mt-0.5 sm:mt-1 transition-transform group-hover/item:scale-125 duration-200 shrink-0"
                             style={`color: ${accentColor}`}
                         >
                             ✓
                         </span>
                         <p
-                            class="text-zinc-300 font-medium text-xs sm:text-sm lg:text-base leading-snug uppercase tracking-tight group-hover/item:text-white transition-colors"
+                            class="text-zinc-300 font-medium text-[10px] sm:text-xs lg:text-sm leading-snug uppercase tracking-tight group-hover/item:text-white transition-colors"
                             set:html={item.texto.replace(
                                 item.bold,
                                 `<span class="urban-marker text-white font-black" style="--marker-color: ${accentColor}">${item.bold}</span>`,
@@ -157,13 +157,14 @@ const {
         >
             <div class="flex items-baseline font-black leading-none">
                 <span
-                    class="text-base sm:text-xl lg:text-2xl self-start mt-1 sm:mt-2"
+                    class="text-sm sm:text-lg lg:text-xl self-start mt-1 sm:mt-2"
                     >$</span
                 >
-                <span class="text-3xl sm:text-5xl lg:text-6xl tracking-tight"
+                <span class="text-3xl sm:text-4xl lg:text-5xl tracking-tight"
                     >{precio}</span
                 >
-                <span class="text-[10px] sm:text-sm lg:text-lg ml-1">USD</span>
+                <span class="text-[10px] sm:text-xs lg:text-base ml-1">USD</span
+                >
             </div>
 
             {
