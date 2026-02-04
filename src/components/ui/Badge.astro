@@ -7,13 +7,13 @@ const { text } = Astro.props;
 ---
 
 <div
-    class="inline-flex items-center gap-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-4 py-1.5 text-sm font-medium text-yellow-400 backdrop-blur-md shadow-[0_0_15px_-3px_rgba(234,179,8,0.2)]"
+    class="inline-flex items-center gap-2 py-2 rounded-full border border-accent px-4 text-sm font-normal text-accent backdrop-blur-md shadow-[0_0_15px_-3px_rgba(232,189,13,0.2)]"
 >
     <span class="relative flex h-2 w-2">
         <span
-            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"
         ></span>
-        <span class="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"
         ></span>
     </span>
     {text}

@@ -28,7 +28,7 @@ const { class: className } = Astro.props;
             <div class="flex gap-0.5">
                 {
                     Array.from({ length: 5 }).map((_, i) => (
-                        <Star className="w-5 h-5 fill-yellow-400 text-yellow-400 drop-shadow-[0_0_8px_rgba(250,204,21,0.5)]" />
+                        <Star className="w-5 h-5 fill-accent text-accent drop-shadow-[0_0_8px_rgba(232,189,13,0.5)]" />
                     ))
                 }
             </div>
@@ -95,7 +95,7 @@ const { class: className } = Astro.props;
 
     <!-- Bottom Glow Bar -->
     <div
-        class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-linear-to-r from-transparent via-yellow-500/50 to-transparent blur-[1px]"
+        class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-linear-to-r from-transparent via-accent/50 to-transparent blur-[1px]"
     >
     </div>
 </div>

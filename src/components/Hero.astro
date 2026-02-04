@@ -8,14 +8,14 @@ import SocialProof from "./SocialProof.astro";
 
 // Checklist items based on requirements
 const checklistItems = [
-    "Diseño gráfico profesional aplicado a eventos",
-    "Workflow + sistema repetible (cómo diseñar mejor y más rápido)",
-    "Monetización y oferta para eventos (cómo cobrar y recuperar la inversión)",
+    "PORTFOLIO QUE SE VE PRO (y listo para mandar a clientes)",
+    "OFERTA + PACK DE SERVICIOS (qué incluir, cuánto cobrar, cómo presentarlo)",
+    "SISTEMA SEMANAL (mejorás + conseguís laburo constante)",
 ];
 ---
 
 <section
-    class="relative w-full min-h-screen overflow-hidden bg-black text-white selection:bg-yellow-500/30 selection:text-yellow-200 font-sans"
+    class="relative w-full min-h-screen overflow-hidden p-6 bg-black text-white selection:bg-accent/30 selection:text-white font-sans"
 >
     <!-- Background Layers -->
     <div class="absolute inset-0 z-0 pointer-events-none">
@@ -81,14 +81,14 @@ const checklistItems = [
         </div>
 
         <!-- Desktop: Right-aligned image -->
-        <div class="hidden lg:block absolute inset-0">
+        <div class="hidden lg:block absolute -inset-35">
             <img
                 src="/assets/skin_picture.webp"
                 alt="Creator"
                 loading="eager"
                 fetchpriority="high"
                 decoding="async"
-                class="absolute bottom-0 right-0 h-[110vh] w-auto max-w-[55vw] object-contain object-bottom drop-shadow-[0_0_50px_rgba(0,0,0,0.5)] animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out xl:right-8 2xl:right-16"
+                class="absolute top-45 h-[180vh] w-auto object-contain object-bottom drop-shadow-[0_0_50px_rgba(0,0,0,0.5)] animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out xl:right-8 2xl:right-16"
                 style="mask-image: linear-gradient(to bottom, black, transparent 100%);"
             />
         </div>
@@ -104,7 +104,7 @@ const checklistItems = [
                 text="SKIN LABS PRO"
                 width={true}
                 weight={true}
-                textColor="#facc15"
+                textColor="#e8bd0d"
                 minFontSize={20}
             />
         </div>
@@ -116,11 +116,11 @@ const checklistItems = [
     >
         <!-- Content wrapper with max-width for desktop -->
         <div
-            class="w-full lg:w-[55%] xl:w-[50%] flex flex-col space-y-5 sm:space-y-6 md:space-y-8 lg:space-y-10"
+            class="w-full lg:w-[55%] xl:w-[50%] flex flex-col space-y-5 sm:space-y-6 md:space-y-8 lg:space-y-6"
         >
             <!-- Badge -->
             <div class="animate-in fade-in slide-in-from-left-10 duration-700">
-                <Badge text="Método probado en trabajos reales" />
+                <Badge text="SISTEMA PROBADO PARA VIVIR DEL DISEÑO" />
             </div>
 
             <!-- Headlines -->
@@ -128,28 +128,35 @@ const checklistItems = [
                 class="animate-in fade-in slide-in-from-bottom-10 duration-700 delay-100"
             >
                 <h1
-                    class="font-black tracking-tighter text-white leading-[0.9] sm:leading-[0.85]"
+                    class="font-black -tracking-widest text-white leading-[0.9] sm:leading-[0.85]"
                 >
                     <span
-                        class="block text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-6xl text-transparent bg-clip-text bg-linear-to-br from-white via-gray-200 to-gray-500"
+                        class="block text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-6xl text-transparent bg-clip-text bg-linear-to-br from-white via-gray-200 to-gray-500 font-2 py-2"
                     >
-                        De 0 a PRO
+                        VIVÍ <span class="font-light">DE</span>
+                        <br />
+                        <span class="font-light">TU</span> DISEÑO
                     </span>
                     <span
-                        class="block text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-4xl text-yellow-500 drop-shadow-[0_0_15px_rgba(234,179,8,0.3)] text-nowrap mt-1"
+                        class="block text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-4xl text-accent drop-shadow-[0_0_15px_rgba(234,179,8,0.3)] text-nowrap mt-1"
                     >
-                        VIVÍ DEL DISEÑO GRÁFICO.
+                        <span class="font-light">EN</span> 30 DÍAS
                     </span>
                 </h1>
             </div>
 
             <!-- Subtitle -->
             <p
-                class="text-sm sm:text-base md:text-lg text-gray-300 font-medium max-w-xl lg:max-w-2xl animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200 leading-relaxed"
+                class="text-sm sm:text-base md:text-xs text-gray-300 font-medium max-w-xl lg:max-w-2xl animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200 leading-relaxed"
             >
-                Convertite en diseñador PRO y comenza a trabajar con
-                <span class="text-white font-bold">marcas y eventos</span> en solo
-                30 días.
+                Armá tu <span class="text-white font-bold">marca personal</span
+                >, tu <span class="text-white font-bold">portfolio</span> y una oferta
+                que <span class="text-white font-bold">cierre clientes</span>.
+                <br />
+                Clases <span class="text-accent font-bold">+</span> correcciones grupales
+                <span class="text-accent font-bold">+</span> comunidad <span
+                    class="text-accent font-bold">+</span
+                > grabaciones
             </p>
 
             <!-- Checklist - Simplified for mobile -->
@@ -165,10 +172,11 @@ const checklistItems = [
             >
                 <AnimatedButton
                     title="CONVERTIRME EN DISEÑADOR PRO"
+                    highlight="DISEÑADOR PRO"
                     class="text-sm sm:text-base md:text-lg px-5 sm:px-6 md:px-8 py-3 sm:py-4"
                     onclick="document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })"
                 />
-                <span class="text-xs text-yellow-500/80 font-medium">
+                <span class="text-xs text-accent/80 font-medium">
                     Pago único. Acceso inmediato.
                 </span>
             </div>
