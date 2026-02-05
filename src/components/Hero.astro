@@ -15,38 +15,35 @@ const checklistItems = [
 ---
 
 <section
-    class="relative w-full min-h-screen overflow-hidden p-6 bg-black text-white selection:bg-accent/30 selection:text-white font-sans bg-[url('/assets/resources/textures/texture_bg.webp')] bg-cover bg-center"
+    class="relative pt-10 md:pt-0 w-full min-h-screen overflow-hidden bg-black text-white selection:bg-accent/30 selection:text-white font-sans bg-[url('/assets/resources/textures/texture_bg.webp')] bg-cover bg-center"
     style="mask-image: linear-gradient(to top, transparent, black 25%); -webkit-mask-image: linear-gradient(to top, transparent, black 25%);"
 >
-    <!-- Hero Image - Background layer on mobile, side on desktop -->
-    <!-- Mobile: Centered background image with gradient overlay -->
-    <!-- <img
-            src="/assets/skin_picture.webp"
-            alt="Creator"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            class="absolute bottom-0 left-1/2 h-10 w-auto max-w-none object-contain object-bottom opacity-40 animate-in fade-in slide-in-from-bottom-12 duration-1000"
-            style="mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 70%, transparent 100%);"
-        /> -->
-
-    <!-- Desktop: Right-aligned image -->
-
+    <!-- Desktop only: AI and PS logos -->
     <img
         src="/assets/resources/logos/logo_AI.webp"
-        alt="Creator"
+        alt="AI Logo"
         loading="eager"
         fetchpriority="high"
         decoding="async"
-        class="absolute top-72 h-80 right-0 opacity-40 w-auto object-contain object-bottom animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out"
+        class="hidden md:block absolute top-72 h-80 right-0 opacity-40 w-auto object-contain object-bottom animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out"
     />
     <img
         src="/assets/resources/logos/logo_PS.webp"
+        alt="PS Logo"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        class="hidden md:block absolute top-72 h-80 right-80 -rotate-12 opacity-40 w-auto object-contain object-bottom animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out"
+    />
+
+    <!-- Hero Image - Mobile: right side with fade mask -->
+    <img
+        src="/assets/skin_picture_2.webp"
         alt="Creator"
         loading="eager"
         fetchpriority="high"
         decoding="async"
-        class="absolute top-72 h-80 right-80 -rotate-12 opacity-40 w-auto object-contain object-bottom animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out"
+        class="absolute top-0 right-[15%] hidden md:block md:right-0 h-[65vh] md:h-screen w-screen object-cover object-top md:object-bottom animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out hero-image-mobile md:top-10 z-20 md:z-auto"
     />
     <img
         src="/assets/skin_picture_2.webp"
@@ -54,10 +51,10 @@ const checklistItems = [
         loading="eager"
         fetchpriority="high"
         decoding="async"
-        class="absolute top-10 h-screen right-0 w-auto object-contain object-bottom animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out"
+        class="absolute md:hidden top-0 right-0 h-[85vh] min-w-[180vw] object-cover object-top hero-image-mobile"
     />
 
-    <!-- TextPressure Logo - Desktop only, positioned after image layer -->
+    <!-- TextPressure Logo - Desktop only -->
     <nav
         class="hidden lg:flex absolute bottom-24 right-0 z-30 p-10 justify-end items-end pointer-events-none"
     >
@@ -74,34 +71,40 @@ const checklistItems = [
     </nav>
 
     <!-- Main Content -->
+    <!-- Removed z-10 to allow image (z-0 but physically after in typical stacking or handled via specific z-indexes) interaction. 
+         Wait, image has z-0. Content needs to be readable. 
+         User wanted text "por debajo" (under). If visual under: z-index text < z-index image. 
+         Image is masked, so text will be visible through mask. -->
     <div
-        class="relative z-10 w-full min-h-screen flex flex-col justify-center px-5 sm:px-6 md:px-12 lg:px-16 xl:px-24 py-20 lg:py-0"
+        class="relative w-full min-h-screen flex flex-col justify-start md:justify-center px-4 md:px-12 lg:px-16 xl:px-24 pt-6 pb-8 md:py-0"
     >
-        <!-- Content wrapper with max-width for desktop -->
+        <!-- Content wrapper -->
         <div
-            class="w-full lg:w-[55%] xl:w-[50%] flex flex-col space-y-5 sm:space-y-6 md:space-y-8 lg:space-y-6"
+            class="w-full md:w-full lg:w-[55%] xl:w-[50%] flex flex-col space-y-3 md:space-y-6 lg:space-y-6 relative z-10"
         >
             <!-- Badge -->
-            <div class="animate-in fade-in slide-in-from-left-10 duration-700">
+            <div
+                class="animate-in fade-in slide-in-from-left-10 duration-700 relative z-10"
+            >
                 <Badge text="SISTEMA PROBADO PARA VIVIR DEL DISEÑO" />
             </div>
 
             <!-- Headlines -->
             <div
-                class="animate-in fade-in slide-in-from-bottom-10 duration-700 delay-100"
+                class="animate-in fade-in slide-in-from-bottom-10 duration-700 delay-100 relative z-10"
             >
                 <h1
-                    class="font-black -tracking-widest text-white leading-[0.9] sm:leading-[0.85]"
+                    class="font-black -tracking-widest text-white leading-[0.95] md:leading-[0.85]"
                 >
                     <span
-                        class="block text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-6xl text-transparent bg-clip-text bg-linear-to-br from-white via-gray-200 to-gray-500 font-2 py-2"
+                        class="block text-5xl md:text-5xl lg:text-4xl xl:text-6xl bg-clip-text bg-linear-to-br -tracking-widest text-white font-2 py-1 md:py-2"
                     >
                         VIVÍ <span class="font-light">DE</span>
                         <br />
                         <span class="font-light">TU</span> DISEÑO
                     </span>
                     <span
-                        class="block text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-4xl text-accent drop-shadow-[0_0_15px_rgba(234,179,8,0.3)] text-nowrap mt-1"
+                        class="block text-2xl md:text-4xl lg:text-6xl xl:text-4xl text-accent drop-shadow-[0_0_15px_rgba(234,179,8,0.3)] text-nowrap mt-0.5 md:mt-1"
                     >
                         <span class="font-light">EN</span> 30 DÍAS
                     </span>
@@ -110,11 +113,14 @@ const checklistItems = [
 
             <!-- Subtitle -->
             <p
-                class="text-sm sm:text-base md:text-xs text-gray-300 font-medium max-w-xl lg:max-w-2xl animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200 leading-relaxed"
+                class="text-[8px] md:text-sm lg:text-xs text-gray-300 font-medium max-w-[90%] md:max-w-xl lg:max-w-2xl animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200 leading-relaxed relative z-10"
             >
                 Armá tu <span class="text-white font-bold">marca personal</span
-                >, tu <span class="text-white font-bold">portfolio</span> y una oferta
-                que <span class="text-white font-bold">cierre clientes</span>.
+                >, tu <span class="text-white font-bold">portfolio</span>
+                <br class="md:hidden" />
+                y una oferta que <span class="text-white font-bold"
+                    >cierre clientes</span
+                >.
                 <br />
                 Clases <span class="text-accent font-bold">+</span> correcciones grupales
                 <span class="text-accent font-bold">+</span> comunidad <span
@@ -122,26 +128,58 @@ const checklistItems = [
                 > grabaciones
             </p>
 
-            <!-- Checklist - Simplified for mobile -->
+            <!-- Checklist -->
             <div
                 class="animate-in fade-in slide-in-from-bottom-10 duration-700 delay-300"
             >
                 <CheckList items={checklistItems} />
             </div>
 
-            <!-- CTA -->
+            <!-- CTAs - Mobile specific design -->
             <div
-                class="flex flex-col items-start gap-3 sm:gap-4 animate-in fade-in slide-in-from-bottom-10 duration-700 delay-400 pt-2"
+                class="flex flex-col items-start gap-2 md:gap-4 animate-in fade-in slide-in-from-bottom-10 duration-700 delay-400 pt-1 md:pt-2"
             >
-                <AnimatedButton
-                    title="CONVERTIRME EN DISEÑADOR PRO"
-                    highlight="DISEÑADOR PRO"
-                    class="text-sm sm:text-base md:text-lg px-5 sm:px-6 md:px-8 py-3 sm:py-4"
-                    onclick="document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })"
-                />
-                <span class="text-xs text-accent/80 font-medium">
-                    Pago único. Acceso inmediato.
-                </span>
+                <!-- Desktop CTA -->
+                <div class="hidden md:block">
+                    <AnimatedButton
+                        title="CONVERTIRME EN DISEÑADOR PRO"
+                        highlight="DISEÑADOR PRO"
+                        class="text-sm sm:text-base md:text-lg px-5 sm:px-6 md:px-8 py-3 sm:py-4"
+                        onclick="document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })"
+                    />
+                    <span class="block text-xs text-accent/80 font-medium mt-2">
+                        Pago único. Acceso inmediato.
+                    </span>
+                </div>
+
+                <!-- Mobile CTAs -->
+                <div class="flex flex-col gap-2 md:hidden w-full relative z-30">
+                    <button
+                        class="w-full max-w-full px-4 py-3 bg-transparent border border-white/30 rounded-lg text-white font-medium text-sm tracking-wide hover:border-white/50 transition-colors bg-black/40 backdrop-blur-sm"
+                        onclick="document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })"
+                    >
+                        QUIERO <span class="text-accent font-bold"
+                            >ENTRAR AL MES</span
+                        >
+                    </button>
+                    <button
+                        class="w-full max-w-full px-4 py-3 bg-transparent border border-white/30 rounded-lg text-white font-medium text-sm tracking-wide hover:border-white/50 transition-colors bg-black/40 backdrop-blur-sm"
+                        onclick="document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })"
+                    >
+                        <span class="text-accent font-bold">VER PLANES</span> (USD
+                        300 / USD 600)
+                    </button>
+                </div>
+
+                <!-- Mobile info bullets -->
+                <div class="flex flex-col gap-1 mt-2 md:hidden relative z-30">
+                    <span class="text-[11px] text-white/90 font-medium">
+                        • <span class="text-accent font-bold">CUOTAS</span> CON MERCADOPAGO
+                    </span>
+                    <span class="text-[11px] text-white/90 font-medium">
+                        • <span class="text-accent font-bold">ACCESO</span> INMEDIATO
+                    </span>
+                </div>
             </div>
         </div>
     </div>
@@ -161,8 +199,29 @@ const checklistItems = [
         <SocialProof />
     </div>
 
-    <!-- Mobile Social Proof - Simplified version -->
+    <!-- Mobile Social Proof -->
     <div class="block lg:hidden">
         <SocialProof />
     </div>
 </section>
+
+<style>
+    /* Mobile image mask effect - fade from left and bottom */
+    .hero-image-mobile {
+        mask-image:
+            linear-gradient(to right, transparent 0%, black 40%),
+            linear-gradient(to bottom, black 50%, transparent 100%);
+        -webkit-mask-image:
+            linear-gradient(to right, transparent 0%, black 40%),
+            linear-gradient(to bottom, black 50%, transparent 100%);
+        mask-composite: intersect;
+        -webkit-mask-composite: source-in;
+    }
+
+    @media (min-width: 768px) {
+        .hero-image-mobile {
+            mask-image: none;
+            -webkit-mask-image: none;
+        }
+    }
+</style>
