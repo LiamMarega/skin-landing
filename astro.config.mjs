@@ -8,19 +8,11 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'server',
+  output: 'static',
   adapter: vercel(),
-  image: {
-    // Use sharp for image optimization with webp output
-    format: ['webp'],
-    quality: 80,
-  },
   vite: {
     // @ts-ignore
     plugins: [tailwindcss()],
-    ssr: {
-      noExternal: ['gsap', 'motion', 'ogl'],
-    },
   },
 
   integrations: [react(), icon()],
