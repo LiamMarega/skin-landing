@@ -11,6 +11,7 @@ export default defineConfig({
   output: 'server',
   adapter: vercel(),
   vite: {
+    // @ts-ignore
     plugins: [tailwindcss()],
   },
 
