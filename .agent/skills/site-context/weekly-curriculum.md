@@ -9,13 +9,13 @@ El programa se divide en 4 semanas intensivas, cada una con un objetivo y result
 
 ## Semana 2: Fotomontaje + "Foto mala → Foto pro" (PS + IA)
 **Objetivo**: Poder usar material de baja calidad y lograr resultados de alto nivel.
-- **Temas**: Recortes limpios, integración (luces/sombras), color grading de evento, retoque de fotos de DJs, uso de IA (prompts + criterio).
-- **Resultado**: 1 fotomontaje + 1 mejora de foto aplicado a un flyer.
+- **Temas**: Recortes limpios, integración (luces/sombras), estética de marca, optimización de contenido con IA, uso de IA (prompts + criterio).
+- **Resultado**: 1 fotomontaje + 1 mejora de contenido aplicado a un post.
 
-## Semana 3: Illustrator + Identidad para eventos
-**Objetivo**: Armar una mini marca de evento que se vea sólida y profesional.
-- **Temas**: Logotipo simple y usable, versiones (pos/neg), recursos (iconos/patterns), aplicación rápida a piezas.
-- **Resultado**: Mini identidad + pieza aplicada (flyer/story).
+## Semana 3: Illustrator + Identidad Visual & Personal
+**Objetivo**: Armar una identidad personal que se vea sólida y profesional.
+- **Temas**: Logotipo personal y usable, versiones (pos/neg), recursos (iconos/patterns), aplicación rápida a piezas.
+- **Resultado**: Mini identidad + pieza aplicada (post/story).
 
 ## Semana 4: Oferta + Monetización
 **Objetivo**: Tener un plan real para cobrar y cerrar clientes.

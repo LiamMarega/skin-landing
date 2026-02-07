@@ -1,6 +1,6 @@
 # Propuesta del Programa (Program Offer)
 
-"Diseñá como yo" es una mentoría de 1 mes (cohorte) enfocada en diseño de flyers profesionales para eventos usando Photoshop, Illustrator e IA.
+"Diseñá como yo" es una mentoría de 1 mes (cohorte) enfocada en diseño de posteos profesionales y marca personal usando Photoshop, Illustrator e IA.
 
 ## ¿Qué es?
 Es un sistema práctico para aprender a diseñar a nivel pro y monetizar esa habilidad rápidamente. No es un curso pasivo; es práctica real con correcciones constantes.

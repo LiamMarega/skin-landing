@@ -10,5 +10,5 @@ Este programa está diseñado para personas que se identifican con las siguiente
 
 ## Perfil del Alumno Ideal
 - Alguien dispuesto a practicar y ensuciarse las manos (no es solo para mirar videos).
-- Interesado en el nicho de eventos, boliches y vida nocturna.
+- Interesado en el nicho de marcas personales, creadores de contenido y marcas digitales.
 - Busca un método repetible y no depender solo de la "inspiración".

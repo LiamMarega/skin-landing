@@ -18,5 +18,5 @@ Este skill centraliza la identidad y los detalles del programa de mentoría "Dis
 
 - **Objetivo**: Landing page de alta conversión.
 - **Tono**: Profesional, energía "urbana", orientado a resultados reales.
-- **Diseño**: Premium, dinámico, tipografía moderna, visuales de alto impacto (eventos/boliches).
+- **Diseño**: Premium, dinámico, tipografía moderna, visuales de alto impacto (marcas personales/creadores).
 - **Estrategia**: Foco en la transformación de 30 días y el sistema de monetización.
