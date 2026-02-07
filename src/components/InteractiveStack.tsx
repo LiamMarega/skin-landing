@@ -182,11 +182,11 @@ export default function InteractiveStack() {
             </div>
         ),
         // Card 2 (Middle in original)
-        (
-            <div className="w-full h-full bg-zinc-800 border border-white/10 rounded-xl shadow-2xl relative overflow-hidden">
-                <div className="absolute inset-0 bg-linear-to-bl from-white/5 to-black"></div>
-            </div>
-        ),
+        // (
+        //     <div className="w-full h-full bg-zinc-800 border border-white/10 rounded-xl shadow-2xl relative overflow-hidden">
+        //         <div className="absolute inset-0 bg-linear-to-bl from-white/5 to-black"></div>
+        //     </div>
+        // ),
         // Card 3 (Hero / Top in original)
         (
             <div className="w-full h-full bg-[#050505] border border-white/20 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.8)] flex flex-col items-center justify-center text-center p-4 relative overflow-hidden">
