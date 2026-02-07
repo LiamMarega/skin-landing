@@ -27,6 +27,20 @@ import WhatWillYouAchieve from "@/components/WhatWillYouAchieve.astro";
 			name="description"
 			content="En 30 días aprendé a diseñar posteos pro y marca personal con Photoshop, Illustrator + IA y recuperá tu inversión con nuestro sistema de ventas."
 		/>
+		<link
+			rel="preload"
+			href="/fonts/aniko/Aniko-Bold.otf"
+			as="font"
+			type="font/otf"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="/fonts/aniko/Aniko-Regular.otf"
+			as="font"
+			type="font/otf"
+			crossorigin
+		/>
 	</head>
 
 	<body class="bg-black text-white antialiased overflow-x-hidden">
@@ -44,8 +58,8 @@ import WhatWillYouAchieve from "@/components/WhatWillYouAchieve.astro";
 				notificationSound={true}
 				avatar="/assets/avatar.webp"
 			/>
-			<div class="reveal"><Hero /></div>
-			<div class="reveal"><JoinBanner /></div>
+			<Hero />
+			<JoinBanner />
 			<div class="reveal"><WhatWillYouAchieve loading="lazy" /></div>
 			<div class="reveal"><ComparisonTable loading="lazy" /></div>
 			<div class="reveal"><Syllabus loading="lazy" /></div>
@@ -89,7 +103,7 @@ import WhatWillYouAchieve from "@/components/WhatWillYouAchieve.astro";
 			animationType="slide-vertical"
 		/>
 		<GradualBlur
-			client:load
+			client:idle
 			target="page"
 			position="bottom"
 			height="6rem"
@@ -99,7 +113,7 @@ import WhatWillYouAchieve from "@/components/WhatWillYouAchieve.astro";
 			exponential
 			opacity={1}
 		/>
-		<BlobCursor client:load />
+		<BlobCursor client:idle />
 		<!-- Global Lead Capture Modal -->
 		<LeadModal />
 	</body>
