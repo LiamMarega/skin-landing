@@ -196,9 +196,9 @@ export default function InteractiveStack() {
                 <div className="absolute top-0 -left-full w-full h-full bg-linear-to-r from-transparent via-white/10 to-transparent skew-x-12 animate-shine pointer-events-none"></div>
 
                 <div className="w-16 h-16 rounded-full border-2 border-accent/50 flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(255,180,0,0.2)] bg-black/50 backdrop-blur-sm z-10">
-                    <span className="text-2xl filter drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">⚡️</span>
+                    <span className=" filter drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">⚡️</span>
                 </div>
-                <h3 className="relative z-10 text-2xl font-black italic text-white leading-none uppercase tracking-tighter">SKIN LABS<br />PRO</h3>
+                <h3 className="relative z-10  font-black italic text-white leading-none uppercase tracking-tighter">SKIN LABS<br />PRO</h3>
                 <div className="relative z-10 mt-4 px-3 py-1 bg-accent/10 border border-accent/20 rounded text-accent text-[10px] font-black uppercase tracking-widest">
                     All In One
                 </div>
