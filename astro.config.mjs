@@ -10,6 +10,11 @@ import icon from 'astro-icon';
 export default defineConfig({
   output: 'server',
   adapter: vercel(),
+  image: {
+    // Use sharp for image optimization with webp output
+    format: ['webp'],
+    quality: 80,
+  },
   vite: {
     // @ts-ignore
     plugins: [tailwindcss()],

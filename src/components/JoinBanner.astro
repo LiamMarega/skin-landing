@@ -1,6 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import AnimatedButton from "./ui/buttons/AnimatedButton.astro";
 import { Icon } from "astro-icon/components";
+
+import spray01 from '../assets/resources/spray/spray_01.webp';
+import spray02 from '../assets/resources/spray/spray_02.webp';
 
 const benefits = [
     {
@@ -77,24 +81,24 @@ const benefits = [
             
         </div>
     </div>
-                       <img
-                            src="/assets/resources/spray/spray_01.webp"
+                       <Image
+                            src={spray01}
                             alt=""
                             loading="lazy"
                             decoding="async"
                             class="absolute -top-10 -left-20 sm:-left-40 -rotate-90 w-48 lg:w-96 -z-10 opacity-70 group-hover:opacity-40 group-hover:scale-110 transition-all duration-700 pointer-events-none hidden sm:block"
                         />
                      
-    <img
-                   src="/assets/resources/spray/spray_01.webp"
+    <Image
+                   src={spray01}
                    alt=""
                    loading="lazy"
                    decoding="async"
                    class="absolute top-0 -right-16 sm:-right-32 w-48 lg:w-96 -z-10 opacity-70 group-hover:opacity-40 group-hover:scale-110 transition-all duration-700 pointer-events-none hidden sm:block"
                />
    
-               <img
-                   src="/assets/resources/spray/spray_02.webp"
+               <Image
+                   src={spray02}
                    alt=""
                    loading="lazy"
                    decoding="async"

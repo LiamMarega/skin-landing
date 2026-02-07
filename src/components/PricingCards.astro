@@ -1,5 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import PricingCard from "./PricingCard.astro";
+
+import texture02 from '../assets/resources/textures/texture_02.webp';
+import rip01 from '../assets/resources/rips/rip_01.webp';
+import rocketSticker from '../assets/resources/rocket_sticker.webp';
 
 const DATA_BASIC_PLAN = {
     tipo: "PLAN BÁSICO",
@@ -55,7 +60,7 @@ const DATA_PRO_PLAN = {
     accentColor: "var(--accent)", // Neon Yellow
     dataPlan: "pro",
     btnText: "APLICAR AL PRO",
-    badge: "/assets/resources/rocket_sticker.webp",
+    badge: rocketSticker,
 };
 ---
 
@@ -69,8 +74,8 @@ const DATA_PRO_PLAN = {
         class="absolute inset-0 pointer-events-none"
         style="mask-image: linear-gradient(to top, transparent, black 15%); -webkit-mask-image: linear-gradient(to top, transparent, black 15%);"
     >
-        <img
-            src="/assets/resources/textures/texture_02.webp"
+        <Image
+            src={texture02}
             alt="texture-trash"
             class="absolute inset-0 opacity-35 pointer-events-none mix-blend-screen"
             style="mask-image: linear-gradient(to bottom, transparent, black 25%); -webkit-mask-image: linear-gradient(to bottom, transparent, black 25%);"
@@ -79,14 +84,15 @@ const DATA_PRO_PLAN = {
         <!-- Urban Background Effects -->
         <div class="absolute inset-0">
             <div
-                class="w-full h-full bg-[url('/assets/resources/textures/texture_02.webp')] opacity-5 mix-blend-overlay bg-repeat"
+                class="w-full h-full opacity-5 mix-blend-overlay bg-repeat"
+                style={`background-image: url('${texture02.src}');`}
             >
             </div>
         </div>
     </div>
 
-    <img
-        src="/assets/resources/rips/rip_01.webp"
+    <Image
+        src={rip01}
         alt="ripS_PAPER"
         class="absolute hidden lg:block -top-30 -right-20 h-80 pointer-events-none rotate-90 z-20 invert brightness-0 opacity-40"
     />

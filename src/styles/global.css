@@ -1,102 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@font-face {
-  font-family: 'Base Neue';
-  src: url('/fonts/base_neue/BaseNeueTrial-Thin.ttf') format('truetype');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Base Neue';
-  src: url('/fonts/base_neue/BaseNeueTrial-ThinOblique.ttf') format('truetype');
-  font-weight: 100;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Base Neue';
-  src: url('/fonts/base_neue/BaseNeueTrial-ExtraLight.ttf') format('truetype');
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Base Neue';
-  src: url('/fonts/base_neue/BaseNeueTrial-ExtLtObliq.ttf') format('truetype');
-  font-weight: 200;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Base Neue';
-  src: url('/fonts/base_neue/BaseNeueTrial-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Base Neue';
-  src: url('/fonts/base_neue/BaseNeueTrial-LightOblique.ttf') format('truetype');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Base Neue';
-  src: url('/fonts/base_neue/BaseNeueTrial-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Base Neue';
-  src: url('/fonts/base_neue/BaseNeueTrial-RegularOblique.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Base Neue';
-  src: url('/fonts/base_neue/BaseNeueTrial-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Base Neue';
-  src: url('/fonts/base_neue/BaseNeueTrial-MediumOblique.ttf') format('truetype');
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Base Neue';
-  src: url('/fonts/base_neue/BaseNeueTrial-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Base Neue';
-  src: url('/fonts/base_neue/BaseNeueTrial-SemiBoldOblique.ttf') format('truetype');
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-
+/* Base Neue - only bold (used in PricingCard marker) */
 @font-face {
   font-family: 'Base Neue';
   src: url('/fonts/base_neue/BaseNeueTrial-Bold.ttf') format('truetype');
@@ -105,175 +10,7 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Base Neue';
-  src: url('/fonts/base_neue/BaseNeueTrial-BoldOblique.ttf') format('truetype');
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Base Neue';
-  src: url('/fonts/base_neue/BaseNeueTrial-ExtraBold.ttf') format('truetype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Base Neue';
-  src: url('/fonts/base_neue/BaseNeueTrial-ExtBdObliq.ttf') format('truetype');
-  font-weight: 800;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Base Neue';
-  src: url('/fonts/base_neue/BaseNeueTrial-Black.ttf') format('truetype');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Base Neue';
-  src: url('/fonts/base_neue/BaseNeueTrial-BlackOblique.ttf') format('truetype');
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* Poppins Font Family */
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-Thin.ttf') format('truetype');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-ThinItalic.ttf') format('truetype');
-  font-weight: 100;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-ExtraLight.ttf') format('truetype');
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-ExtraLightItalic.ttf') format('truetype');
-  font-weight: 200;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-LightItalic.ttf') format('truetype');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-MediumItalic.ttf') format('truetype');
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-SemiBoldItalic.ttf') format('truetype');
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-BoldItalic.ttf') format('truetype');
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-ExtraBold.ttf') format('truetype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-ExtraBoldItalic.ttf') format('truetype');
-  font-weight: 800;
-  font-style: italic;
-  font-display: swap;
-}
-
+/* Poppins - only black (used in AnimatedButton) */
 @font-face {
   font-family: 'Poppins';
   src: url('/fonts/Poppins/Poppins-Black.ttf') format('truetype');
@@ -282,30 +19,7 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-BlackItalic.ttf') format('truetype');
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Aniko';
-  src: url('/fonts/aniko/Aniko-Thin.otf') format('opentype');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Aniko';
-  src: url('/fonts/aniko/Aniko-Extralight.otf') format('opentype');
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
+/* Aniko - only used weights */
 @font-face {
   font-family: 'Aniko';
   src: url('/fonts/aniko/Aniko-Light.otf') format('opentype');
@@ -349,71 +63,6 @@
 @font-face {
   font-family: 'Aniko';
   src: url('/fonts/aniko/Aniko-Extrabold.otf') format('opentype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Aniko Outline */
-@font-face {
-  font-family: 'Aniko Outline';
-  src: url('/fonts/aniko/Aniko-ThinOutline.otf') format('opentype');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Aniko Outline';
-  src: url('/fonts/aniko/Aniko-ExtralightOutline.otf') format('opentype');
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Aniko Outline';
-  src: url('/fonts/aniko/Aniko-LightOutline.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Aniko Outline';
-  src: url('/fonts/aniko/Aniko-RegularOutline.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Aniko Outline';
-  src: url('/fonts/aniko/Aniko-MediumOutline.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Aniko Outline';
-  src: url('/fonts/aniko/Aniko-SemiboldOutline.otf') format('opentype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Aniko Outline';
-  src: url('/fonts/aniko/Aniko-BoldOutline.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Aniko Outline';
-  src: url('/fonts/aniko/Aniko-ExtraboldOutline.otf') format('opentype');
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -558,41 +207,7 @@
 }
 
 .shiny-text {
-  color: #b5b5b5;
-  background: linear-gradient(120deg,
-      rgba(255, 255, 255, 0) 25%,
-      rgba(255, 255, 255, 0.8) 50%,
-      rgba(255, 255, 255, 0) 75%) -200% 0 / 200% 100% no-repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: shimmer 3s infinite;
-  display: inline-block;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@keyframes shimmer {
-  from {
-    background-position: 200% 0;
-  }
-
-  to {
-    background-position: -200% 0;
-  }
-}
-
-.shiny-text {
   color: white;
-  /* Fallback */
   background: linear-gradient(120deg,
       rgba(255, 255, 255, 0) 30%,
       rgba(255, 255, 255, 1) 50%,
@@ -603,4 +218,16 @@
   -webkit-text-fill-color: transparent;
   animation: shimmer 2.5s infinite;
   display: inline-block;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

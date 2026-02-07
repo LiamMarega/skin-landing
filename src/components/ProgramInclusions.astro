@@ -1,5 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import InteractiveStack from './InteractiveStack';
+
+import spray01 from '../assets/resources/spray/spray_01.webp';
+import spray02 from '../assets/resources/spray/spray_02.webp';
+import texture02 from '../assets/resources/textures/texture_02.webp';
 
 const inclusions = [
     {
@@ -74,15 +79,15 @@ const accentColor = "var(--accent)";
     </div>
     
     <!-- Spray Paint Assets (Synced with PricingCard) -->
-    <img
-        src="/assets/resources/spray/spray_01.webp"
+    <Image
+        src={spray01}
         alt=""
         loading="lazy"
         decoding="async"
         class="absolute top-0 -left-20 w-96 opacity-40 -z-10 pointer-events-none"
     />
-    <img
-        src="/assets/resources/spray/spray_02.webp"
+    <Image
+        src={spray02}
         alt=""
         loading="lazy"
         decoding="async"
@@ -95,7 +100,7 @@ const accentColor = "var(--accent)";
             class="max-w-screen w-full mx-auto border border-white/10 bg-[#080808] relative shadow-[0_50px_100px_-20px_rgba(0,0,0,0.7)] flex flex-col lg:flex-row overflow-hidden"
         >
              <!-- Texture & Noise on Card -->
-             <div class="absolute inset-0 opacity-10 mix-blend-overlay pointer-events-none bg-[url('/assets/resources/textures/texture_02.webp')] bg-cover"></div>
+             <div class="absolute inset-0 opacity-10 mix-blend-overlay pointer-events-none bg-cover" style={`background-image: url('${texture02.src}');`}></div>
              
              <!-- LEFT PANEL: Visual Impact (35% Width) -->
             <div class="relative lg:w-[35%] min-h-[300px] lg:min-h-full bg-[#0a0a0a] border-r border-white/5 flex items-center justify-center overflow-hidden group">
