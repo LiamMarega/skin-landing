@@ -162,7 +162,23 @@ export default function InteractiveStack() {
         // Card 1 (Bottom in original)
         (
             <div className="w-full h-full bg-zinc-900 border border-white/10 rounded-xl shadow-2xl relative overflow-hidden">
-                <div className="absolute inset-0 bg-linear-to-br from-white/5 to-black"></div>
+                <img
+                    src="/assets/flyers/feed.webp"
+                    alt="Feed Flyer"
+                    className="w-full h-full object-cover opacity-80"
+                />
+                <div className="absolute inset-0 bg-linear-to-br from-white/5 to-black/40"></div>
+            </div>
+        ),
+        // Card 1.5 (Additional)
+        (
+            <div className="w-full h-full bg-zinc-900 border border-white/10 rounded-xl shadow-2xl relative overflow-hidden">
+                <img
+                    src="/assets/flyers/sorteo.webp"
+                    alt="Sorteo Flyer"
+                    className="w-full h-full object-cover opacity-80"
+                />
+                <div className="absolute inset-0 bg-linear-to-br from-white/5 to-black/40"></div>
             </div>
         ),
         // Card 2 (Middle in original)
