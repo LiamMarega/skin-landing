@@ -13,6 +13,9 @@ export default defineConfig({
   vite: {
     // @ts-ignore
     plugins: [tailwindcss()],
+    ssr: {
+      noExternal: ['gsap', 'motion', 'ogl'],
+    },
   },
 
   integrations: [react(), icon()],
