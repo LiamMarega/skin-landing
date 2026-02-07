@@ -91,32 +91,51 @@ import WhatWillYouAchieve from "@/components/WhatWillYouAchieve.astro";
 			});
 
 			// Accessibility: prevent focusable descendants inside aria-hidden (e.g. WhatsApp chat when closed)
-			const focusableSelector = 'a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])';
-			const RESTORE_ATTR = 'data-aria-hidden-tabindex';
+			const focusableSelector =
+				'a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])';
+			const RESTORE_ATTR = "data-aria-hidden-tabindex";
 			function enforceAriaHiddenNoFocus() {
-				document.querySelectorAll('[aria-hidden="true"]').forEach((hidden) => {
-					hidden.querySelectorAll(focusableSelector).forEach((el) => {
-						const prev = el.getAttribute('tabindex');
-						el.setAttribute('tabindex', '-1');
-						if (!el.hasAttribute(RESTORE_ATTR)) el.setAttribute(RESTORE_ATTR, prev != null ? prev : '0');
+				document
+					.querySelectorAll('[aria-hidden="true"]')
+					.forEach((hidden) => {
+						hidden
+							.querySelectorAll(focusableSelector)
+							.forEach((el) => {
+								const prev = el.getAttribute("tabindex");
+								el.setAttribute("tabindex", "-1");
+								if (!el.hasAttribute(RESTORE_ATTR))
+									el.setAttribute(
+										RESTORE_ATTR,
+										prev != null ? prev : "0",
+									);
+							});
 					});
-				});
 				document.querySelectorAll(`[${RESTORE_ATTR}]`).forEach((el) => {
 					const inHidden = el.closest('[aria-hidden="true"]');
 					if (!inHidden) {
 						const restore = el.getAttribute(RESTORE_ATTR);
-						if (restore === '0') el.removeAttribute('tabindex');
-						else el.setAttribute('tabindex', restore);
+						if (restore !== null) {
+							if (restore === "0") el.removeAttribute("tabindex");
+							else el.setAttribute("tabindex", restore);
+						}
 						el.removeAttribute(RESTORE_ATTR);
 					}
 				});
 			}
 			function runWhenReady() {
 				enforceAriaHiddenNoFocus();
-				const mo = new MutationObserver(() => { enforceAriaHiddenNoFocus(); });
-				mo.observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['aria-hidden'] });
+				const mo = new MutationObserver(() => {
+					enforceAriaHiddenNoFocus();
+				});
+				mo.observe(document.body, {
+					subtree: true,
+					childList: true,
+					attributes: true,
+					attributeFilter: ["aria-hidden"],
+				});
 			}
-			if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', runWhenReady);
+			if (document.readyState === "loading")
+				document.addEventListener("DOMContentLoaded", runWhenReady);
 			else runWhenReady();
 		</script>
 

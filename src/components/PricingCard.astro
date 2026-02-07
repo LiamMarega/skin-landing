@@ -1,10 +1,10 @@
 ---
-import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
-import spray01 from '../assets/resources/spray/spray_01.webp';
-import spray02 from '../assets/resources/spray/spray_02.webp';
-import texture02 from '../assets/resources/textures/texture_02.webp';
+import spray01 from "../assets/resources/spray/spray_01.webp";
+import spray02 from "../assets/resources/spray/spray_02.webp";
+import texture02 from "../assets/resources/textures/texture_02.webp";
 
 const {
     tipo,
@@ -25,7 +25,7 @@ const {
 >
     {
         badge && (
-            <div class="absolute -right-6 -top-6 sm:-right-10 sm:-top-10 w-20 h-20 sm:w-32 sm:h-32 z-30 opacity-90 group-hover:opacity-100 group-hover:scale-110 group-hover:rotate-[20deg] transition-all duration-500">
+            <div class="absolute -right-6 -top-6 sm:-right-10 sm:-top-10 w-20 h-20 sm:w-32 sm:h-32 z-30 opacity-90 group-hover:opacity-100 group-hover:scale-110 group-hover:rotate-20 transition-all duration-500">
                 <Image
                     src={badge}
                     width={128}
