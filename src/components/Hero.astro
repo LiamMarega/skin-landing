@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 import DarkVeil from "./ui/backgrounds/DarkVeil/DarkVeil";
 import AnimatedButton from "./ui/buttons/AnimatedButton.astro";
 import Badge from "./ui/Badge.astro";
@@ -7,11 +7,11 @@ import CheckList from "./ui/CheckList.astro";
 import TextPressure from "./ui/TextPressure";
 import SocialProof from "./SocialProof.astro";
 
-import logoAI from '../assets/resources/logos/logo_AI.webp';
-import logoPS from '../assets/resources/logos/logo_PS.webp';
-import skinPicture2 from '../assets/skin_picture_2.webp';
-import tape02 from '../assets/resources/tapes/tape_02.webp';
-import textureBg from '../assets/resources/textures/texture_bg.webp';
+import logoAI from "../assets/resources/logos/logo_AI.webp";
+import logoPS from "../assets/resources/logos/logo_PS.webp";
+import skinPicture2 from "../assets/skin_picture_2.webp";
+import tape02 from "../assets/resources/tapes/tape_02.webp";
+import textureBg from "../assets/resources/textures/texture_bg.webp";
 
 // Checklist items based on requirements
 const checklistItems = [
@@ -31,14 +31,14 @@ const checklistItems = [
         alt="AI Logo"
         loading="lazy"
         decoding="async"
-        class="hidden md:block absolute top-72 h-80 right-0 opacity-40 w-auto object-contain object-bottom animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out"
+        class="hidden md:hidden lg:block absolute top-72 h-80 right-0 opacity-40 w-auto object-contain object-bottom animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out"
     />
     <Image
         src={logoPS}
         alt="PS Logo"
         loading="lazy"
         decoding="async"
-        class="hidden md:block absolute top-72 h-80 right-80 -rotate-12 opacity-40 w-auto object-contain object-bottom animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out"
+        class="hidden md:block absolute top-72 h-80 right-80 md:right-10 lg:right-60 xl:right-120 -rotate-12 opacity-40 w-auto object-contain object-bottom animate-in fade-in slide-in-from-bottom-24 duration-1000 ease-out"
     />
 
     <!-- Hero Image - Mobile: right side with fade mask -->
@@ -50,7 +50,7 @@ const checklistItems = [
         loading="eager"
         fetchpriority="high"
         decoding="async"
-        class="absolute top-0 right-[15%] hidden md:block md:right-0 h-[65vh] md:h-screen w-screen object-cover object-top md:object-bottom animate-in fade-in duration-700 ease-out hero-image-mobile md:top-10 z-20 md:z-auto"
+        class="absolute top-0 right-0 hidden md:block lg:right-0 xl:right-0 h-[65vh] md:h-screen w-screen object-cover object-top md:object-bottom animate-in fade-in duration-700 ease-out hero-image-mobile md:top-10 z-20 md:z-auto"
     />
     <Image
         src={skinPicture2}
