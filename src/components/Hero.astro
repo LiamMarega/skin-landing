@@ -51,7 +51,7 @@ const checklistItems = [
         loading="eager"
         fetchpriority="high"
         decoding="async"
-        class="absolute md:hidden top-0 right-0 h-[85vh] min-w-[180vw] object-cover object-top hero-image-mobile"
+        class="absolute md:hidden top-0 right-0 h-[85vh] min-w-[180vw] object-cover object-top hero-image-mobile z-20"
     />
 
     <!-- TextPressure Logo - Desktop only -->
@@ -80,11 +80,11 @@ const checklistItems = [
     >
         <!-- Content wrapper -->
         <div
-            class="w-full md:w-full lg:w-[55%] xl:w-[50%] flex flex-col space-y-3 md:space-y-6 lg:space-y-6 relative z-10"
+            class="w-full md:w-full lg:w-[55%] xl:w-[50%] flex flex-col space-y-10 md:space-y-6 lg:space-y-6 relative"
         >
             <!-- Badge -->
             <div
-                class="animate-in fade-in slide-in-from-left-10 duration-700 relative z-10"
+                class="animate-in fade-in slide-in-from-left-10 duration-700 relative z-30"
             >
                 <Badge text="SISTEMA PROBADO PARA VIVIR DEL DISEÑO" />
             </div>
@@ -94,7 +94,7 @@ const checklistItems = [
                 class="animate-in fade-in slide-in-from-bottom-10 duration-700 delay-100 relative z-10"
             >
                 <h1
-                    class="font-black -tracking-widest text-white leading-[0.95] md:leading-[0.85]"
+                    class="font-black -tracking-widest text-white leading-[0.95] md:leading-[0.85] -z-10"
                 >
                     <span
                         class="block text-5xl md:text-5xl lg:text-4xl xl:text-6xl bg-clip-text bg-linear-to-br -tracking-widest text-white font-2 py-1 md:py-2"
@@ -113,7 +113,7 @@ const checklistItems = [
 
             <!-- Subtitle -->
             <p
-                class="text-[8px] md:text-sm lg:text-xs text-gray-300 font-medium max-w-[90%] md:max-w-xl lg:max-w-2xl animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200 leading-relaxed relative z-10"
+                class="text-[8px] md:text-sm lg:text-xs text-gray-300 font-medium max-w-[90%] md:max-w-xl lg:max-w-2xl animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200 leading-relaxed relative z-30"
             >
                 Armá tu <span class="text-white font-bold">marca personal</span
                 >, tu <span class="text-white font-bold">portfolio</span>
@@ -130,7 +130,7 @@ const checklistItems = [
 
             <!-- Checklist -->
             <div
-                class="animate-in fade-in slide-in-from-bottom-10 duration-700 delay-300"
+                class="animate-in fade-in slide-in-from-bottom-10 duration-700 delay-300 relative z-30"
             >
                 <CheckList items={checklistItems} />
             </div>

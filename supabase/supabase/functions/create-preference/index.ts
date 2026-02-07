@@ -9,8 +9,8 @@ const corsHeaders = {
 
 // Plan prices in ARS
 const PLAN_PRICES: Record<string, number> = {
-  basic: 300000,
-  pro: 600000
+  basic: 300,
+  pro: 600
 };
 
 // Marketplace fee percentage (20% goes to developer/marketplace owner)
@@ -115,7 +115,7 @@ serve(async (req) => {
           : 'Plan Básico: 4 clases en vivo + 4 grabadas + Sistema de diseño',
         quantity: 1,
         unit_price: unit_price,
-        currency_id: 'ARS'
+        currency_id: 'USD'
       }],
 
       // Marketplace fee - 20% goes to the developer (you!)
@@ -131,8 +131,8 @@ serve(async (req) => {
       // Redirect URLs after payment
       back_urls: {
         success: "https://www.liammarega.com/success",
-        failure: "https://www.liammarega.com/",
-        pending: "https://www.liammarega.com/"
+        failure: "https://www.liammarega.com/failure",
+        pending: "https://www.liammarega.com/failure"
       },
       auto_return: "approved",
 
