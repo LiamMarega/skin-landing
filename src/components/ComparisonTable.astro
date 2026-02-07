@@ -2,7 +2,11 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<section id="comparison" class="relative w-full py-24 bg-black font-sans">
+<section
+    id="comparison"
+    class="relative w-full py-24 bg-black font-sans overflow-hidden"
+    style="mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);"
+>
     <div class="max-w-6xl mx-auto px-6">
         <h2
             class="text-4xl md:text-5xl font-black text-center mb-16 text-white uppercase italic tracking-tighter"
