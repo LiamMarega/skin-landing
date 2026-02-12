@@ -207,6 +207,7 @@ const DATA_PRO_PLAN = {
                 e.preventDefault();
                 e.stopPropagation();
                 const plan = pricingBtn.dataset.plan as string;
+                window.__firebaseAnalytics?.logEvent("select_item", { item_id: plan, item_name: plan === "basic" ? "Plan Básico" : "Plan Pro", price_usd: plan === "basic" ? "300" : "600" });
                 if (window.openLeadModal) {
                     window.openLeadModal(plan);
                 } else {

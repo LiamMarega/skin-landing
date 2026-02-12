@@ -44,11 +44,10 @@ const benefits = [
                     </span>
                 </h2>
                 
-                <div class="mt-4">
+                <div class="mt-4 join-banner-cta-wrapper">
                     <AnimatedButton 
                         title="UNIRME A LA COMUNIDAD"
-                        class="text-base md:text-lg px-8 py-4 bg-white text-black hover:bg-gray-200"
-                        onclick="document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })"
+                        class="join-banner-cta text-base md:text-lg px-8 py-4 bg-white text-black hover:bg-gray-200"
                     />
                 </div>
             </div>
@@ -107,3 +106,12 @@ const benefits = [
 
    
 </section>
+
+<script>
+    document.querySelectorAll(".join-banner-cta").forEach((el) => {
+        el.addEventListener("click", () => {
+            window.__firebaseAnalytics?.logEvent("cta_click", { location: "join_banner", cta: "pricing" });
+            document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
+        });
+    });
+</script>

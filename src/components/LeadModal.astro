@@ -208,6 +208,9 @@ const SUPABASE_URL = "https://gljypypgwkihblvbeftd.supabase.co";
     }
 
     function closeModal() {
+        if (currentPlan) {
+            window.__firebaseAnalytics?.logEvent("lead_modal_closed", { plan: currentPlan, step: "without_purchase" });
+        }
         // 1. Animate Content Out
         modalContent.classList.remove("scale-100", "opacity-100");
         modalContent.classList.add("scale-95", "opacity-0");
@@ -227,6 +230,7 @@ const SUPABASE_URL = "https://gljypypgwkihblvbeftd.supabase.co";
         form.reset();
         errorMsg.classList.add("hidden");
         setLoading(false);
+        window.__firebaseAnalytics?.logEvent("begin_checkout", { plan: planType, currency: "USD" });
         openModal();
     };
 
@@ -284,6 +288,7 @@ const SUPABASE_URL = "https://gljypypgwkihblvbeftd.supabase.co";
             if (!response.ok) throw new Error(data.error || "Error de red");
 
             if (data.sandbox_init_point || data.init_point) {
+                window.__firebaseAnalytics?.logEvent("start_purchase", { plan: currentPlan, currency: "USD", step: "redirect_mercadopago" });
                 window.location.href = data.init_point;
             } else {
                 throw new Error("Link no generado");
